@@ -29,7 +29,7 @@
 							</svg>
 						</div>
 						<!-- 'Categories' flyout menu, show/hide based on flyout menu state. -->
-						<div x-show="open"
+						<div x-cloak x-show="open"
 						     x-transition:enter="transition ease-out duration-200"
 						     x-transition:enter-start="opacity-0 translate-y-1"
 						     x-transition:enter-end="opacity-100 translate-y-0"
@@ -38,9 +38,9 @@
 						     x-transition:leave-end="opacity-0 translate-y-1"
 						     x-on:click.away="open = false" class="absolute -translate-x-1/2 top-full z-10 mt-3 w-screen max-w-xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
 							<div class="flex p-4 gap-x-20">
-								<div class="w-1/2 space-y-1 divide-y">
+								<div class="w-1/2 space-y-1.5 divide-y">
 									<h3 class="text-gray-400 text-xs uppercase font-light">Categorie</h3>
-									<div class="space-y-4 pt-2">
+									<div class="space-y-4 pt-5">
 										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
 											<div class="flex-auto">
 												<a href="#" class="block text-gray-600 hover:text-brand">
@@ -95,9 +95,9 @@
 										</div>
 									</div>
 								</div>
-								<div class="w-1/2 space-y-1 divide-y">
+								<div class="w-1/2 space-y-1.5 divide-y">
 									<h3 class="text-gray-400 text-xs uppercase font-light">Brand</h3>
-									<div class="space-y-4 pt-2">
+									<div class="space-y-4 pt-5">
 										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
 											<div class="flex-auto">
 												<a href="#" class="block text-gray-600 hover:text-brand">
@@ -178,7 +178,7 @@
 		</div>
 	</nav>
 	<!-- Mobile menu, show/hide based on menu open state. -->
-	<div x-show="show" class="lg:hidden" role="dialog" aria-modal="true">
+	<div x-cloak x-show="show" class="lg:hidden" role="dialog" aria-modal="true">
 		<!-- Background backdrop, show/hide based on slide-over state. -->
 		<div x-show="show" class="fixed inset-0 z-10"></div>
 		<div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
