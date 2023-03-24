@@ -1,13 +1,12 @@
 <?php
 
 	use App\Http\Controllers\ProfileController;
+	use App\Http\Livewire\Pages\Homepage;
 	use Illuminate\Support\Facades\Route;
 
 	// Guest
 	Route::middleware('guest')->group(function () {
-		Route::get('/', function () {
-			return view('home');
-		});
+		Route::get('/', Homepage::class);
 	});
 
 	// Auth

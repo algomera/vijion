@@ -1,5 +1,5 @@
 <header x-data="{ show: false }" class="bg-white">
-	<nav class="container flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+	<nav class="container flex items-center justify-between py-6" aria-label="Global">
 		<div class="flex flex-1 items-center gap-x-12">
 			<a href="#" class="-m-1.5 p-1.5 flex-shrink-0">
 				<span class="sr-only">{{ env('APP_NAME') }}</span>
