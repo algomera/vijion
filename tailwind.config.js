@@ -9,10 +9,18 @@ module.exports = {
     ],
 
     theme: {
+        container: {
+            center: true,
+        },
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'brand': {
+                    DEFAULT: '#ee4e27'
+                }
+            }
         },
     },
 
