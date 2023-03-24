@@ -20,12 +20,14 @@
 						</div>
 						<div class="absolute right-0 top-2.5 w-px h-7 bg-gray-200"></div>
 					</div>
-					<div x-data="{ open: false }" x-on:click="open = true" class="relative flex items-center space-x-2 h-full rounded-r-full text-sm border border-l-0 border-gray-200 font-semibold text-gray-700 px-3 hover:cursor-pointer">
-						<span>Categorie</span>
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-						     stroke="currentColor" class="w-3 h-3">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
-						</svg>
+					<div x-data="{ open: false }" x-on:click="open = true" class="relative h-full rounded-r-full text-sm border border-l-0 border-gray-200 font-semibold text-gray-700 px-3">
+						<div class="flex items-center space-x-2 h-full hover:text-brand hover:cursor-pointer" :class="{'text-brand': open}">
+							<span>Categorie</span>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+							     stroke="currentColor" class="w-3 h-3">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+							</svg>
+						</div>
 						<!-- 'Categories' flyout menu, show/hide based on flyout menu state. -->
 						<div x-show="open"
 						     x-transition:enter="transition ease-out duration-200"
