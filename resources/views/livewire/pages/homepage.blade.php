@@ -27,15 +27,16 @@
         </div>
         <section class="my-8">
             <h3 class="text-center text-2xl font-bold tracking-tight mt-10 mb-6">I nostri brand</h3>
-            <div class="grid grid-cols-4 gap-4">
-                <div class="w-full h-full aspect-video border rounded"></div>
-                <div class="w-full h-full aspect-video border rounded"></div>
-                <div class="w-full h-full aspect-video border rounded"></div>
-                <div class="w-full h-full aspect-video border rounded"></div>
-                <div class="w-full h-full aspect-video border rounded"></div>
-                <div class="w-full h-full aspect-video border rounded"></div>
-                <div class="w-full h-full aspect-video border rounded"></div>
-                <div class="w-full h-full aspect-video border rounded"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-5">
+                <x-coupon-card amount="20%" coins="50" :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']" />
+                <x-coupon-card amount="30%" coins="75" :brand="['name' => 'ManoMano', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/1/1c/ManoMano_2018.png', 'category' => 'Casa e Giardino']" />
+                <x-coupon-card amount="45%" coins="90" :brand="['name' => 'Notino', 'logo' => 'https://logos-download.com/wp-content/uploads/2021/01/Notino_Logo.png', 'category' => 'Salute e Bellezza']" />
+                <x-coupon-card amount="15%" coins="35" :brand="['name' => 'Leroy Merlin', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Leroy_Merlin.svg/2560px-Leroy_Merlin.svg.png', 'category' => 'Casa e Giardino']" />
+                <x-coupon-card amount="35%" coins="90" :brand="['name' => 'Dyson', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dyson_logo.svg/2560px-Dyson_logo.svg.png', 'category' => 'Casa e Giardino']" />
+                <x-coupon-card amount="25%" coins="33" :brand="['name' => 'Foot Locker', 'logo' => 'https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Foot_Locker_logo.svg/1200px-Foot_Locker_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']" />
+            </div>
+            <div class="flex justify-center">
+                <button type="button" class="rounded-md bg-[#63184c] py-4 px-6 text-xs font-semibold text-white uppercase shadow-sm transition duration-300 hover:bg-[#7a2962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63184c]">Carica altro</button>
             </div>
         </section>
     </div>

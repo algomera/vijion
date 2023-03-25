@@ -23,7 +23,7 @@ module.exports = {
             },
             colors: {
                 'brand': {
-                    DEFAULT: '#ee4e27'
+                    DEFAULT: '#ef751b'
                 }
             }
         },

@@ -36,7 +36,7 @@
 						     x-transition:leave="transition ease-in duration-150"
 						     x-transition:leave-start="opacity-100 translate-y-0"
 						     x-transition:leave-end="opacity-0 translate-y-1"
-						     x-on:click.away="open = false" class="absolute -translate-x-1/2 top-full z-10 mt-3 w-screen max-w-xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+						     x-on:click.away="open = false" class="absolute -translate-x-1/2 top-full z-10 mt-3 w-screen max-w-xl overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
 							<div class="flex p-4 gap-x-20">
 								<div class="w-1/2 space-y-1.5 divide-y">
 									<h3 class="text-gray-400 text-xs uppercase font-light">Categorie</h3>
