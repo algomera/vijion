@@ -20,7 +20,7 @@
 				'email'    => $this->email,
 				'password' => $this->password
 			])) {
-				return redirect()->route('home');
+				$this->closeModalWithEvents(['logged-in']);
 			} else {
 				session()->flash('error', 'Credenziali errate');
 			}

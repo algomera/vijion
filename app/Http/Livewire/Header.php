@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Http\Livewire;
+	namespace App\Http\Livewire;
 
-use Livewire\Component;
+	use Livewire\Component;
 
-class Header extends Component
-{
-    public function render()
-    {
-        return view('livewire.header');
-    }
-}
+	class Header extends Component
+	{
+		protected $listeners = [
+			'logged-in' => '$refresh'
+		];
+
+		public function render() {
+			return view('livewire.header');
+		}
+	}
