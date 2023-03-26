@@ -176,18 +176,20 @@
 		<div class="hidden lg:flex lg:items-center lg:space-x-3">
 			@auth
 				<div class="flex items-center space-x-3 border border-gray-200 rounded-full p-1">
-					<div class="bg-brand rounded-full text-sm text-white py-2 px-4">
-						<p class="font-bold">
-							60 <span class="hidden xl:inline-block text-xs font-semibold">VIJI-COINS</span>
-						</p>
-					</div>
-					<div class="flex items-center space-x-2 text-sm text-gray-500">
+					@if(auth()->id() !== 1)
+						<div class="bg-brand rounded-full text-sm text-white py-2 px-4">
+							<p class="font-bold">
+								60 <span class="hidden xl:inline-block text-xs font-semibold">VIJI-COINS</span>
+							</p>
+						</div>
+					@endif
+					<div class="flex items-center space-x-2 ml-1 text-sm text-gray-500">
 						<p class="font-semibold">Ciao {{ auth()->user()->name }}</p>
 						<x-dropdown align="right" width="48">
 							<x-slot name="trigger">
 								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 								     stroke-width="1.5"
-								     stroke="currentColor" class="w-7 h-7">
+								     stroke="currentColor" class="w-7 h-7 hover:text-brand cursor-pointer" :class="{'text-brand': open}">
 									<path stroke-linecap="round" stroke-linejoin="round"
 									      d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/>
 								</svg>
@@ -204,15 +206,9 @@
 								</x-dropdown-link>
 
 								<!-- Authentication -->
-								<form method="POST" action="{{ route('logout') }}">
-									@csrf
-
-									<x-dropdown-link :href="route('logout')"
-									                 onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+									<x-dropdown-link wire:click="logout">
 										{{ __('Log Out') }}
 									</x-dropdown-link>
-								</form>
 							</x-slot>
 						</x-dropdown>
 					</div>
