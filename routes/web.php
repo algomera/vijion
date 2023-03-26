@@ -5,9 +5,7 @@
 	use Illuminate\Support\Facades\Route;
 
 	// Guest
-	Route::middleware('guest')->group(function () {
-		Route::get('/', Homepage::class);
-	});
+	Route::get('/', Homepage::class)->name('home');
 
 	// Auth
 	Route::middleware('auth')->group(function () {
@@ -15,7 +13,6 @@
 		Route::get('/dashboard', function () {
 			return view('dashboard');
 		})->middleware([
-			'auth',
 			'verified'
 		])->name('dashboard');
 		// Profile

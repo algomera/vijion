@@ -20,8 +20,10 @@
 						</div>
 						<div class="absolute right-0 top-2.5 w-px h-7 bg-gray-200"></div>
 					</div>
-					<div x-data="{ open: false }" x-on:click="open = true" class="relative h-full rounded-r-full text-sm border border-l-0 border-gray-200 font-semibold text-gray-700 px-3">
-						<div class="flex items-center space-x-2 h-full hover:text-brand hover:cursor-pointer" :class="{'text-brand': open}">
+					<div x-data="{ open: false }" x-on:click="open = true"
+					     class="relative h-full rounded-r-full text-sm border border-l-0 border-gray-200 font-semibold text-gray-700 px-3">
+						<div class="flex items-center space-x-2 h-full hover:text-brand hover:cursor-pointer"
+						     :class="{'text-brand': open}">
 							<span>Categorie</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
 							     stroke="currentColor" class="w-3 h-3">
@@ -36,7 +38,8 @@
 						     x-transition:leave="transition ease-in duration-150"
 						     x-transition:leave-start="opacity-100 translate-y-0"
 						     x-transition:leave-end="opacity-0 translate-y-1"
-						     x-on:click.away="open = false" class="absolute -translate-x-1/2 top-full z-10 mt-3 w-screen max-w-xl overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
+						     x-on:click.away="open = false"
+						     class="absolute -translate-x-1/2 top-full z-10 mt-3 w-screen max-w-xl overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
 							<div class="flex p-4 gap-x-20">
 								<div class="w-1/2 space-y-1.5 divide-y">
 									<h3 class="text-gray-400 text-xs uppercase font-light">Categorie</h3>
@@ -85,10 +88,14 @@
 										</div>
 										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
 											<div class="flex-auto">
-												<a href="#" class="flex items-center space-x-3 text-brand hover:text-brand">
+												<a href="#"
+												   class="flex items-center space-x-3 text-brand hover:text-brand">
 													<span>Mostra tutte le categorie</span>
-													<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 transform group-hover:translate-x-1 transition">
-														<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+													<svg xmlns="http://www.w3.org/2000/svg" fill="none"
+													     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+													     class="w-5 h-5 transform group-hover:translate-x-1 transition">
+														<path stroke-linecap="round" stroke-linejoin="round"
+														      d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
 													</svg>
 												</a>
 											</div>
@@ -135,10 +142,14 @@
 										</div>
 										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
 											<div class="flex-auto">
-												<a href="#" class="flex items-center space-x-3 text-brand hover:text-brand">
+												<a href="#"
+												   class="flex items-center space-x-3 text-brand hover:text-brand">
 													<span>Mostra tutti i brand</span>
-													<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 transform group-hover:translate-x-1 transition">
-														<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+													<svg xmlns="http://www.w3.org/2000/svg" fill="none"
+													     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+													     class="w-5 h-5 transform group-hover:translate-x-1 transition">
+														<path stroke-linecap="round" stroke-linejoin="round"
+														      d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
 													</svg>
 												</a>
 											</div>
@@ -163,14 +174,60 @@
 			</button>
 		</div>
 		<div class="hidden lg:flex lg:items-center lg:space-x-3">
-			<button class="flex items-center space-x-2 hover:text-brand">
-				<span class="text-sm">Accedi</span>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-				     stroke="currentColor" class="w-5 h-5">
-					<path stroke-linecap="round" stroke-linejoin="round"
-					      d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/>
-				</svg>
-			</button>
+			@auth
+				<div class="flex items-center space-x-3 border border-gray-200 rounded-full p-1">
+					<div class="bg-brand rounded-full text-sm text-white py-2 px-4">
+						<p class="font-bold">
+							60 <span class="hidden xl:inline-block text-xs font-semibold">VIJI-COINS</span>
+						</p>
+					</div>
+					<div class="flex items-center space-x-2 text-sm text-gray-500">
+						<p class="font-semibold">Ciao {{ auth()->user()->name }}</p>
+						<x-dropdown align="right" width="48">
+							<x-slot name="trigger">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+								     stroke-width="1.5"
+								     stroke="currentColor" class="w-7 h-7">
+									<path stroke-linecap="round" stroke-linejoin="round"
+									      d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/>
+								</svg>
+							</x-slot>
+
+							<x-slot name="content">
+								@if(auth()->id() === 1)
+									<x-dropdown-link :href="route('dashboard')">
+										Dashboard
+									</x-dropdown-link>
+								@endif
+								<x-dropdown-link :href="route('profile.edit')">
+									Profilo
+								</x-dropdown-link>
+
+								<!-- Authentication -->
+								<form method="POST" action="{{ route('logout') }}">
+									@csrf
+
+									<x-dropdown-link :href="route('logout')"
+									                 onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+										{{ __('Log Out') }}
+									</x-dropdown-link>
+								</form>
+							</x-slot>
+						</x-dropdown>
+					</div>
+				</div>
+			@else
+				<button wire:click="$emit('openModal', 'auth.login-modal')"
+				        class="flex items-center space-x-2 hover:text-brand">
+					<span class="text-sm">Accedi</span>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+					     stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round"
+						      d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/>
+					</svg>
+				</button>
+			@endauth
 			<div class="w-px h-6 bg-gray-300"></div>
 			<a href="#"
 			   class="rounded-md bg-white mx-2 py-2.5 px-4 text-xs font-semibold text-brand uppercase ring-1 ring-inset ring-brand hover:bg-brand hover:text-white">Vai
