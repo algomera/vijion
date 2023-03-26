@@ -8,13 +8,13 @@
 	class Header extends Component
 	{
 		protected $listeners = [
-			'logged-in' => '$refresh'
+			'user-status-updated' => '$refresh'
 		];
 
 		public function logout() {
 			Auth::logout();
 
-			$this->emit('$refresh');
+			$this->emitSelf('user-status-updated');
 		}
 
 		public function render() {

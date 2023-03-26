@@ -20,7 +20,7 @@
 				'email'    => $this->email,
 				'password' => $this->password
 			])) {
-				$this->closeModalWithEvents(['logged-in']);
+				$this->closeModalWithEvents(['user-status-updated']);
 			} else {
 				session()->flash('error', 'Credenziali errate');
 			}
