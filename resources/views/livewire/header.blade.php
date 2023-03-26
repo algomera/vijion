@@ -163,7 +163,7 @@
 			</button>
 		</div>
 		<div class="hidden lg:flex lg:items-center lg:space-x-3">
-			<button class="flex items-center space-x-2">
+			<button class="flex items-center space-x-2 hover:text-brand">
 				<span class="text-sm">Accedi</span>
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
 				     stroke="currentColor" class="w-5 h-5">
