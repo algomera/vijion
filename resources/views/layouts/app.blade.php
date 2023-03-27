@@ -13,6 +13,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @stack('styles')
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
@@ -33,6 +34,7 @@
                 {{ $slot }}
             </main>
         </div>
+        @stack('scripts')
         @livewireScripts
         @livewire('livewire-ui-modal')
     </body>

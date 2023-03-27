@@ -5,3 +5,13 @@
 [x-cloak] {
     display: none !important;
 }
+
+.swiper-pagination-bullet {
+    @apply !w-10 !h-1.5 !rounded-none
+}
+.swiper-pagination-bullet {
+    @apply !bg-white
+}
+.swiper-pagination-bullet-active {
+    @apply !bg-gray-300
+}
