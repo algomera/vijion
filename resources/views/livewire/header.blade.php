@@ -226,7 +226,7 @@
 				</button>
 			@endauth
 			<div class="w-px h-6 bg-gray-300"></div>
-			<a href="#"
+			<a href="https://vijion.tv/" target="_blank"
 			   class="rounded-md bg-white mx-2 py-2.5 px-4 text-xs font-semibold text-brand uppercase ring-1 ring-inset ring-brand hover:bg-brand hover:text-white">Vai
 				su Vijion</a>
 		</div>
