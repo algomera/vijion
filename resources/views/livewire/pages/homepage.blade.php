@@ -39,5 +39,10 @@
                 <button type="button" class="rounded-md bg-[#63184c] py-4 px-6 text-xs font-semibold text-white uppercase shadow-sm transition duration-300 hover:bg-[#7a2962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63184c]">Carica altro</button>
             </div>
         </section>
+        <div class="grid grid-cols-3 gap-4">
+            <x-coupon-card-highlight amount="45%" coins="85" :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']" bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"></x-coupon-card-highlight>
+            <x-coupon-card-highlight amount="13%" coins="50" :brand="['name' => 'Notino', 'logo' => 'https://logos-download.com/wp-content/uploads/2021/01/Notino_Logo.png', 'category' => 'Salute e Bellezza']" bg="https://images.unsplash.com/photo-1679850136404-cff6c8714271?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2344&q=80"></x-coupon-card-highlight>
+            <x-coupon-card-highlight amount="13%" coins="50" :brand="['name' => 'Dyson', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dyson_logo.svg/2560px-Dyson_logo.svg.png', 'category' => 'Casa e Giardino']" bg="https://plus.unsplash.com/premium_photo-1677528816821-2e373e2602cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1041&q=80"></x-coupon-card-highlight>
+        </div>
     </div>
 </div>
