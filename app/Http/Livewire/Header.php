@@ -2,6 +2,8 @@
 
 	namespace App\Http\Livewire;
 
+	use App\Models\Brand;
+	use App\Models\Category;
 	use Illuminate\Support\Facades\Auth;
 	use Livewire\Component;
 
@@ -18,6 +20,9 @@
 		}
 
 		public function render() {
-			return view('livewire.header');
+			return view('livewire.header', [
+				'categories' => Category::all()->take(6),
+				'brands' => Brand::all()->take(6),
+			]);
 		}
 	}

@@ -44,48 +44,15 @@
 								<div class="w-1/2 space-y-1.5 divide-y">
 									<h3 class="text-gray-400 text-xs uppercase font-light">Categorie</h3>
 									<div class="space-y-4 pt-5">
-										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
-											<div class="flex-auto">
-												<a href="#" class="block text-gray-600 hover:text-brand">
-													Marketplace
-												</a>
+										@foreach($categories as $category)
+											<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
+												<div class="flex-auto">
+													<a href="#" class="block text-gray-600 hover:text-brand">
+														{{ $category->name }}
+													</a>
+												</div>
 											</div>
-										</div>
-										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
-											<div class="flex-auto">
-												<a href="#" class="block text-gray-600 hover:text-brand">
-													Elettronica
-												</a>
-											</div>
-										</div>
-										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
-											<div class="flex-auto">
-												<a href="#" class="block text-gray-600 hover:text-brand">
-													Abbigliamento e Scarpe
-												</a>
-											</div>
-										</div>
-										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
-											<div class="flex-auto">
-												<a href="#" class="block text-gray-600 hover:text-brand">
-													Salute e Benessere
-												</a>
-											</div>
-										</div>
-										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
-											<div class="flex-auto">
-												<a href="#" class="block text-gray-600 hover:text-brand">
-													Casa e Giardino
-												</a>
-											</div>
-										</div>
-										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
-											<div class="flex-auto">
-												<a href="#" class="block text-gray-600 hover:text-brand">
-													Viaggi
-												</a>
-											</div>
-										</div>
+										@endforeach
 										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
 											<div class="flex-auto">
 												<a href="#"
@@ -105,41 +72,15 @@
 								<div class="w-1/2 space-y-1.5 divide-y">
 									<h3 class="text-gray-400 text-xs uppercase font-light">Brand</h3>
 									<div class="space-y-4 pt-5">
-										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
-											<div class="flex-auto">
-												<a href="#" class="block text-gray-600 hover:text-brand">
-													Brand 1
-												</a>
+										@foreach($brands as $brand)
+											<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
+												<div class="flex-auto">
+													<a href="#" class="block text-gray-600 hover:text-brand">
+														{{ $brand->name }}
+													</a>
+												</div>
 											</div>
-										</div>
-										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
-											<div class="flex-auto">
-												<a href="#" class="block text-gray-600 hover:text-brand">
-													Brand 2
-												</a>
-											</div>
-										</div>
-										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
-											<div class="flex-auto">
-												<a href="#" class="block text-gray-600 hover:text-brand">
-													Brand 3
-												</a>
-											</div>
-										</div>
-										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
-											<div class="flex-auto">
-												<a href="#" class="block text-gray-600 hover:text-brand">
-													Brand 4
-												</a>
-											</div>
-										</div>
-										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
-											<div class="flex-auto">
-												<a href="#" class="block text-gray-600 hover:text-brand">
-													Brand 5
-												</a>
-											</div>
-										</div>
+										@endforeach
 										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
 											<div class="flex-auto">
 												<a href="#"
