@@ -19,7 +19,7 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['realist', ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 'brand': {

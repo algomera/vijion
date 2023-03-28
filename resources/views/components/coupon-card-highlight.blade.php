@@ -6,9 +6,9 @@
 			<div class="absolute inset-0 grid place-items-center {{$text_color}}">
 				<div class="flex flex-col items-center text-sm">
 					<span>sconto</span>
-					<span class="text-6xl font-black">{{ $amount }}</span>
+					<span class="text-6xl font-bold">{{ $amount }}</span>
 					<span class="underline">valido solo per:</span>
-					<span class="uppercase font-black">marzo</span>
+					<span class="uppercase font-bold">marzo</span>
 				</div>
 			</div>
 		</div>

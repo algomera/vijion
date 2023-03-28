@@ -1,3 +1,4 @@
+@import url('https://use.typekit.net/yvg3xbn.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,7 +6,9 @@
 [x-cloak] {
     display: none !important;
 }
-
+.swiper {
+    @apply !w-full !pb-14;
+}
 .swiper-pagination-bullet {
     @apply !w-10 !h-1.5 !rounded-none
 }
