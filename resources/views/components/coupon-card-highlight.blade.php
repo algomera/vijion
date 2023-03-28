@@ -1,7 +1,7 @@
 @props(['type', 'amount', 'brand', 'coins', 'bg'])
 
-<div class="flex flex-col w-full h-full bg-white border border-gray-200 overflow-hidden transition ease-in-out duration-300 hover:cursor-pointer hover:border-transparent hover:shadow-[0_0_15px_#00000012] hover:shadow-gray-200">
-	<div class="flex-1 p-1 pb-0">
+<div class="flex flex-col w-full h-full bg-white overflow-hidden transition ease-in-out duration-300 hover:cursor-pointer">
+	<div class="flex-1 p-1.5 pb-0">
 		<div class="relative w-full h-full">
 			<img src="{{ $bg }}" alt="" class="aspect-video w-full object-cover">
 			<div class="absolute inset-0 grid place-items-center text-white">
