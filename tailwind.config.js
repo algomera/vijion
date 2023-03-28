@@ -24,10 +24,14 @@ module.exports = {
             },
             colors: {
                 'brand': {
-                    'purple': '#6B0B4E',
+                    'light': '#FF891C',
+                    DEFAULT: '#FC7900',
+                    'purple': {
+                        'light': '#841e65',
+                        DEFAULT: '#6B0B4E',
+                    },
                     'red': '#EA0000',
                     'orange': '#FB3C00',
-                    DEFAULT: '#FC7900',
                     'yellow': '#FEDA01',
                 }
             }

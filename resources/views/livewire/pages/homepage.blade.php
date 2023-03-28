@@ -101,7 +101,7 @@
 	<div class="container">
 		<section class="my-8">
 			<h3 class="text-center text-2xl font-bold mt-10 mb-6">Offerte della settimana</h3>
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-5">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-9">
 				<x-coupon-card amount="20%" coins="50"
 				               :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"/>
 				<x-coupon-card amount="30%" coins="75"
@@ -124,9 +124,9 @@
 		</section>
 		<section class="my-8">
 			<div class="grid grid-cols-2 gap-8">
-				<div class="bg-red-500">1</div>
-				<div class="bg-green-500">2</div>
-				<div class="bg-orange-400 col-span-2">3</div>
+				<x-category-card category="Tutto su Elettronica" url="#" bg="https://images.unsplash.com/photo-1603574670812-d24560880210?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"></x-category-card>
+				<x-category-card category="Casa e Giardino" url="#" bg="https://images.unsplash.com/photo-1492496913980-501348b61469?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"></x-category-card>
+				<x-category-card-highlight url="#" subtitle="Non la solita cravatta, ma <strong>La Cravatta</strong> e mille altre idee con i Nostri Brand per:" title="Festa del Papà"></x-category-card-highlight>
 			</div>
 		</section>
 	</div>
