@@ -184,7 +184,7 @@
 					</div>
 					@endunlessrole
 					<div class="flex items-center space-x-2 ml-1 text-sm text-gray-500">
-						<p class="font-semibold">Ciao {{ auth()->user()->name }}</p>
+						<p class="font-semibold">Ciao {{ auth()->user()->first_name }}</p>
 						<x-dropdown align="right" width="48">
 							<x-slot name="trigger">
 								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

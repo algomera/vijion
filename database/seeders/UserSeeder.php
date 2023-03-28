@@ -15,11 +15,17 @@
 		public function run(): void {
 			$adminRole = Role::create(['name' => 'admin']);
 			$admin = User::factory()->create([
-				'name'  => 'Admin',
+				'first_name'  => 'Admin',
+				'last_name' => null,
 				'email' => 'admin@example.test',
 				'coins' => null
 			]);
 			$admin->assignRole($adminRole);
-			User::factory(9)->create();
+			User::factory()->create([
+				'first_name' => 'Fabio',
+				'last_name'  => 'Serembe',
+				'email'      => 'fabio.serembe@gmail.com'
+			]);
+			User::factory(8)->create();
 		}
 	}
