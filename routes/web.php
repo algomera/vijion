@@ -1,11 +1,13 @@
 <?php
 
 	use App\Http\Controllers\ProfileController;
+	use App\Http\Livewire\Pages\Cart;
 	use App\Http\Livewire\Pages\Homepage;
 	use Illuminate\Support\Facades\Route;
 
 	// Guest
 	Route::get('/', Homepage::class)->name('home');
+	Route::get('/cart', Cart::class)->name('cart');
 
 	// Auth
 	Route::middleware('auth')->group(function () {
