@@ -1,15 +1,14 @@
-@props(['type', 'amount', 'brand', 'coins', 'bg'])
-
+@props(['type', 'amount', 'brand', 'coins', 'bg', 'text_color' => 'text-white'])
 <div class="flex flex-col w-full h-full bg-white overflow-hidden transition ease-in-out duration-300 hover:cursor-pointer">
 	<div class="flex-1 p-1.5 pb-0">
 		<div class="relative w-full h-full">
 			<img src="{{ $bg }}" alt="" class="aspect-video w-full object-cover">
-			<div class="absolute inset-0 grid place-items-center text-white">
+			<div class="absolute inset-0 grid place-items-center {{$text_color}}">
 				<div class="flex flex-col items-center text-sm">
 					<span>sconto</span>
-					<span class="text-6xl font-bold">{{ $amount }}</span>
+					<span class="text-6xl font-black">{{ $amount }}</span>
 					<span class="underline">valido solo per:</span>
-					<span class="uppercase font-bold">marzo</span>
+					<span class="uppercase font-black">marzo</span>
 				</div>
 			</div>
 		</div>
