@@ -10,7 +10,7 @@
     @apply !w-full !pb-14;
 }
 .swiper-pagination-bullet {
-    @apply !w-10 !h-1.5 !rounded-none
+    @apply !w-8 !h-1.5 !rounded-none
 }
 .swiper-pagination-bullet {
     @apply !bg-white

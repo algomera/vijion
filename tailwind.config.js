@@ -20,10 +20,15 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['realist', ...defaultTheme.fontFamily.sans],
+                narrow: ['realistnarrow', ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 'brand': {
-                    DEFAULT: '#ef751b'
+                    'purple': '#6B0B4E',
+                    'red': '#EA0000',
+                    'orange': '#FB3C00',
+                    DEFAULT: '#FC7900',
+                    'yellow': '#FEDA01',
                 }
             }
         },

@@ -33,9 +33,9 @@
 					irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
 			</div>
 		</div>
-		<section class="my-8">
-			<h3 class="text-center text-2xl font-bold tracking-tight mt-10 mb-6">I nostri brand</h3>
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-5">
+		<section class="pt-8 pb-12">
+			<h3 class="text-center text-3xl font-bold mt-10 mb-6">I nostri brand</h3>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-9">
 				<x-coupon-card amount="20%" coins="50"
 				               :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"/>
 				<x-coupon-card amount="30%" coins="75"
@@ -51,14 +51,14 @@
 			</div>
 			<div class="flex justify-center">
 				<button type="button"
-				        class="rounded-md bg-[#63184c] py-4 px-6 text-xs font-semibold text-white uppercase shadow-sm transition duration-300 hover:bg-[#7a2962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63184c]">
+				        class="rounded-md bg-[#63184c] py-4 px-12 text-xs font-semibold text-white uppercase shadow-sm transition duration-300 hover:bg-[#7a2962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63184c]">
 					Carica altro
 				</button>
 			</div>
 		</section>
 	</div>
 	<section class="bg-gray-800 py-8">
-		<h3 class="text-center text-2xl text-white font-bold tracking-tight mt-10 mb-6">Gli imperdibili</h3>
+		<h3 class="text-center text-3xl text-white font-medium mt-10 mb-6">Gli imperdibili</h3>
 		<div class="swiper container">
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
@@ -100,7 +100,7 @@
 	</section>
 	<div class="container">
 		<section class="my-8">
-			<h3 class="text-center text-2xl font-bold tracking-tight mt-10 mb-6">Offerte della settimana</h3>
+			<h3 class="text-center text-2xl font-bold mt-10 mb-6">Offerte della settimana</h3>
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-5">
 				<x-coupon-card amount="20%" coins="50"
 				               :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"/>
@@ -117,7 +117,7 @@
 			</div>
 			<div class="flex justify-center">
 				<button type="button"
-				        class="rounded-md bg-[#63184c] py-4 px-6 text-xs font-semibold text-white uppercase shadow-sm transition duration-300 hover:bg-[#7a2962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63184c]">
+				        class="rounded-md bg-[#63184c] py-4 px-12 text-xs font-semibold text-white uppercase shadow-sm transition duration-300 hover:bg-[#7a2962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63184c]">
 					Visualizza tutti
 				</button>
 			</div>
