@@ -14,7 +14,6 @@
 				$table->foreignIdFor(\App\Models\Coupon::class, 'coupon_id')->constrained();
 				$table->string('code');
 				$table->boolean('active')->default(1);
-				$table->date('expires_at');
 				$table->timestamps();
 			});
 		}

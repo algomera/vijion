@@ -18,6 +18,7 @@
 					'percentage',
 					'cash'
 				]);
+				$table->date('expires_date')->nullable();
 				$table->timestamps();
 			});
 		}
