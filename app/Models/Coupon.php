@@ -9,6 +9,9 @@
 	{
 		use HasFactory;
 
+		public function brand() {
+			return $this->belongsTo(Brand::class);
+		}
 		public function codes() {
 			return $this->hasMany(CouponCode::class);
 		}
