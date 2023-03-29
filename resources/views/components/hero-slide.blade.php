@@ -3,7 +3,7 @@
 	<img src="{{ $slide->background_url }}" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl drop-shadow lg:mx-0">
-			<p class="mb-6 text-5xl text-white">{!! formatString($slide->paragraph) !!}</p>
+			<p class="mb-6 text-5xl text-white line-clamp-3 h-[144px]">{!! formatString($slide->paragraph) !!}</p>
 			<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
 				<div class="flex-auto">
 					<a href="{{ $slide->btn_url }}"
