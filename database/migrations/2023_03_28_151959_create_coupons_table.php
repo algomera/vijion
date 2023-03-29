@@ -18,7 +18,6 @@
 					'percentage',
 					'cash'
 				]);
-				$table->integer('quantity');
 				$table->timestamps();
 			});
 		}

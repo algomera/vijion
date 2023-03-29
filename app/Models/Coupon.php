@@ -9,5 +9,7 @@
 	{
 		use HasFactory;
 
-		protected $guarded = [];
+		public function codes() {
+			return $this->hasMany(CouponCode::class);
+		}
 	}

@@ -24,7 +24,6 @@
 					'percentage',
 					'cash'
 				]),
-				'quantity' => fake()->numberBetween(1, 100)
 			];
 		}
 	}
