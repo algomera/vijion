@@ -3,6 +3,7 @@
 	namespace Database\Seeders;
 
 	use App\Models\Brand;
+	use App\Models\Rules;
 	use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 	use Illuminate\Database\Seeder;
 	use Illuminate\Support\Str;
@@ -36,9 +37,13 @@
 				'Sisley'
 			];
 			foreach ($names as $name) {
-				Brand::factory()->create([
+				$brand = Brand::factory()->create([
 					'name'      => $name,
 					'logo_path' => asset('images/brands/' . Str::slug($name) . '.png')
+				]);
+
+				Rules::factory(fake()->numberBetween(1, 4))->create([
+					'brand_id' => $brand->id,
 				]);
 			}
 		}

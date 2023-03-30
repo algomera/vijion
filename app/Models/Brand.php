@@ -9,6 +9,9 @@ class Brand extends Model
 {
     use HasFactory;
 
+	public function rules() {
+		return $this->hasMany(Rules::class);
+	}
 	public function category() {
 		return $this->belongsTo(Category::class);
 	}

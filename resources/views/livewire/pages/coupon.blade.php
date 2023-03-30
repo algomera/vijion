@@ -6,10 +6,9 @@
 					<h3 class="text-xl font-bold mb-4">Regole di <span
 								class="uppercase">{{ $coupon->brand->name }}</span></h3>
 					<ul class="list-[circle]">
-						<li>L'acquisto dello sconto ti verrà inviato tramite l'indirizzo e-mail inserito durante la
-							registrazione.
-						</li>
-						<li>Lo sconto per questo acquisto avrà unicamente valore per acquisti online.</li>
+						@foreach($coupon->brand->rules as $rule)
+							<li>{{ $rule->body }}</li>
+						@endforeach
 					</ul>
 				</div>
 				<div>
@@ -81,7 +80,7 @@
 </div>
 <div id="rules" class="bg-white py-12">
 	<div class="container max-w-5xl">
-		<h3 class="text-xl font-bold mb-4">
+		<h3 class="text-xl font-bold mb-8">
 			Le regole per spendere al meglio i tuoi <span class="uppercase text-brand">VIJI-COINS</span>
 		</h3>
 		<div class="space-y-6">
