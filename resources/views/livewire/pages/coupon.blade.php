@@ -5,7 +5,7 @@
 				<div>
 					<h3 class="text-xl font-bold mb-4">Regole di <span
 								class="uppercase">{{ $coupon->brand->name }}</span></h3>
-					<ul class="list-[circle]">
+					<ul class="list-[circle] space-y-2">
 						@foreach($coupon->brand->rules as $rule)
 							<li>{{ $rule->body }}</li>
 						@endforeach
