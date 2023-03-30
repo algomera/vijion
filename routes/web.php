@@ -2,11 +2,13 @@
 
 	use App\Http\Controllers\ProfileController;
 	use App\Http\Livewire\Pages\Cart;
+	use App\Http\Livewire\Pages\Coupon;
 	use App\Http\Livewire\Pages\Homepage;
 	use Illuminate\Support\Facades\Route;
 
 	// Guest
 	Route::get('/', Homepage::class)->name('home');
+	Route::get('/coupon/{coupon}', Coupon::class)->name('coupon');
 	Route::get('/cart', Cart::class)->name('cart');
 
 	// Auth
@@ -17,7 +19,7 @@
 		})->middleware([
 			'verified'
 		])->name('dashboard');
-		// Profile
+		// Coupon
 		Route::get('/profile', [
 			ProfileController::class,
 			'edit'

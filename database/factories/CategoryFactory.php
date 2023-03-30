@@ -16,7 +16,7 @@
 		 * @return array<string, mixed>
 		 */
 		public function definition(): array {
-			$name = fake()->name();
+			$name = fake()->word();
 			return [
 				'name' => $name,
 				'slug' => Str::slug($name)

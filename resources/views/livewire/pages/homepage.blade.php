@@ -12,18 +12,9 @@
 		<section class="pt-8 pb-12">
 			<h3 class="text-center text-3xl font-bold mt-10 mb-6">I nostri brand</h3>
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-9">
-				<x-coupon-card amount="20%" coins="50"
-				               :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"/>
-				<x-coupon-card amount="30%" coins="75"
-				               :brand="['name' => 'ManoMano', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/1/1c/ManoMano_2018.png', 'category' => 'Casa e Giardino']"/>
-				<x-coupon-card amount="45%" coins="90"
-				               :brand="['name' => 'Notino', 'logo' => 'https://logos-download.com/wp-content/uploads/2021/01/Notino_Logo.png', 'category' => 'Salute e Bellezza']"/>
-				<x-coupon-card amount="15%" coins="35"
-				               :brand="['name' => 'Leroy Merlin', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Leroy_Merlin.svg/2560px-Leroy_Merlin.svg.png', 'category' => 'Casa e Giardino']"/>
-				<x-coupon-card amount="35%" coins="90"
-				               :brand="['name' => 'Dyson', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dyson_logo.svg/2560px-Dyson_logo.svg.png', 'category' => 'Casa e Giardino']"/>
-				<x-coupon-card amount="25%" coins="33"
-				               :brand="['name' => 'Foot Locker', 'logo' => 'https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Foot_Locker_logo.svg/1200px-Foot_Locker_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"/>
+				@foreach($our_brands as $our_brand)
+					<x-coupon-card :coupon="$our_brand->coupons()->orderBy('amount', 'desc')->first()"/>
+				@endforeach
 			</div>
 			<div class="flex justify-center">
 				<button type="button"
@@ -36,36 +27,11 @@
 	<section class="bg-gray-800 py-8">
 		<h3 class="text-center text-3xl text-white font-medium mt-10 mb-6">Gli imperdibili</h3>
 		<x-slider name="unmissable" class="container">
-			<div class="swiper-slide">
-				<x-coupon-card-highlight amount="45%" coins="85"
-				                         :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"
-				                         bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"></x-coupon-card-highlight>
-			</div>
-			<div class="swiper-slide">
-				<x-coupon-card-highlight amount="13%" coins="50"
-				                         :brand="['name' => 'Notino', 'logo' => 'https://logos-download.com/wp-content/uploads/2021/01/Notino_Logo.png', 'category' => 'Salute e Bellezza']"
-				                         bg="https://images.unsplash.com/photo-1679850136404-cff6c8714271?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2344&q=80"></x-coupon-card-highlight>
-			</div>
-			<div class="swiper-slide">
-				<x-coupon-card-highlight text_color="text-gray-800" amount="13%" coins="50"
-				                         :brand="['name' => 'Dyson', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dyson_logo.svg/2560px-Dyson_logo.svg.png', 'category' => 'Casa e Giardino']"
-				                         bg="https://plus.unsplash.com/premium_photo-1677528816821-2e373e2602cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1041&q=80"></x-coupon-card-highlight>
-			</div>
-			<div class="swiper-slide">
-				<x-coupon-card-highlight amount="45%" coins="85"
-				                         :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"
-				                         bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"></x-coupon-card-highlight>
-			</div>
-			<div class="swiper-slide">
-				<x-coupon-card-highlight amount="13%" coins="50"
-				                         :brand="['name' => 'Notino', 'logo' => 'https://logos-download.com/wp-content/uploads/2021/01/Notino_Logo.png', 'category' => 'Salute e Bellezza']"
-				                         bg="https://images.unsplash.com/photo-1679850136404-cff6c8714271?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2344&q=80"></x-coupon-card-highlight>
-			</div>
-			<div class="swiper-slide">
-				<x-coupon-card-highlight amount="13%" coins="50"
-				                         :brand="['name' => 'Dyson', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dyson_logo.svg/2560px-Dyson_logo.svg.png', 'category' => 'Casa e Giardino']"
-				                         bg="https://plus.unsplash.com/premium_photo-1677528816821-2e373e2602cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1041&q=80"></x-coupon-card-highlight>
-			</div>
+			@foreach($unmissables as $unmissable)
+				<div class="swiper-slide">
+					<x-coupon-card-highlight :coupon="$unmissable" bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" />
+				</div>
+			@endforeach
 			<x-slot:pagination>
 				<div class="swiper-pagination"></div>
 			</x-slot:pagination>
@@ -75,18 +41,9 @@
 		<section class="my-8">
 			<h3 class="text-center text-2xl font-bold mt-10 mb-6">Offerte della settimana</h3>
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-9">
-				<x-coupon-card amount="20%" coins="50"
-				               :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"/>
-				<x-coupon-card amount="30%" coins="75"
-				               :brand="['name' => 'ManoMano', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/1/1c/ManoMano_2018.png', 'category' => 'Casa e Giardino']"/>
-				<x-coupon-card amount="45%" coins="90"
-				               :brand="['name' => 'Notino', 'logo' => 'https://logos-download.com/wp-content/uploads/2021/01/Notino_Logo.png', 'category' => 'Salute e Bellezza']"/>
-				<x-coupon-card amount="15%" coins="35"
-				               :brand="['name' => 'Leroy Merlin', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Leroy_Merlin.svg/2560px-Leroy_Merlin.svg.png', 'category' => 'Casa e Giardino']"/>
-				<x-coupon-card amount="35%" coins="90"
-				               :brand="['name' => 'Dyson', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dyson_logo.svg/2560px-Dyson_logo.svg.png', 'category' => 'Casa e Giardino']"/>
-				<x-coupon-card amount="25%" coins="33"
-				               :brand="['name' => 'Foot Locker', 'logo' => 'https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Foot_Locker_logo.svg/1200px-Foot_Locker_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"/>
+				@foreach($week_offers as $week_offer)
+					<x-coupon-card :coupon="$week_offer"/>
+				@endforeach
 			</div>
 			<div class="flex justify-center">
 				<button type="button"
@@ -116,24 +73,24 @@
 				<span class="text-sm text-gray-500 cursor-pointer hover:font-medium hover:text-brand">In Scadenza!</span>
 			</div>
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-				<x-coupon-card-highlight amount="45%" coins="85"
-				                         :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"
-				                         bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"></x-coupon-card-highlight>
-				<x-coupon-card-highlight amount="45%" coins="85"
-				                         :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"
-				                         bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"></x-coupon-card-highlight>
-				<x-coupon-card-highlight text_color="text-gray-800" amount="13%" coins="50"
-				                         :brand="['name' => 'Dyson', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dyson_logo.svg/2560px-Dyson_logo.svg.png', 'category' => 'Casa e Giardino']"
-				                         bg="https://plus.unsplash.com/premium_photo-1677528816821-2e373e2602cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1041&q=80"></x-coupon-card-highlight>
-				<x-coupon-card-highlight amount="45%" coins="85"
-				                         :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"
-				                         bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"></x-coupon-card-highlight>
-				<x-coupon-card-highlight amount="13%" coins="50"
-				                         :brand="['name' => 'Notino', 'logo' => 'https://logos-download.com/wp-content/uploads/2021/01/Notino_Logo.png', 'category' => 'Salute e Bellezza']"
-				                         bg="https://images.unsplash.com/photo-1679850136404-cff6c8714271?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2344&q=80"></x-coupon-card-highlight>
-				<x-coupon-card-highlight amount="13%" coins="50"
-				                         :brand="['name' => 'Dyson', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dyson_logo.svg/2560px-Dyson_logo.svg.png', 'category' => 'Casa e Giardino']"
-				                         bg="https://plus.unsplash.com/premium_photo-1677528816821-2e373e2602cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1041&q=80"></x-coupon-card-highlight>
+{{--				<x-coupon-card-highlight amount="45%" coins="85"--}}
+{{--				                         :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"--}}
+{{--				                         bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"></x-coupon-card-highlight>--}}
+{{--				<x-coupon-card-highlight amount="45%" coins="85"--}}
+{{--				                         :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"--}}
+{{--				                         bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"></x-coupon-card-highlight>--}}
+{{--				<x-coupon-card-highlight text_color="text-gray-800" amount="13%" coins="50"--}}
+{{--				                         :brand="['name' => 'Dyson', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dyson_logo.svg/2560px-Dyson_logo.svg.png', 'category' => 'Casa e Giardino']"--}}
+{{--				                         bg="https://plus.unsplash.com/premium_photo-1677528816821-2e373e2602cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1041&q=80"></x-coupon-card-highlight>--}}
+{{--				<x-coupon-card-highlight amount="45%" coins="85"--}}
+{{--				                         :brand="['name' => 'Zalando', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zalando_logo.svg/2560px-Zalando_logo.svg.png', 'category' => 'Abbigliamento e Scarpe']"--}}
+{{--				                         bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"></x-coupon-card-highlight>--}}
+{{--				<x-coupon-card-highlight amount="13%" coins="50"--}}
+{{--				                         :brand="['name' => 'Notino', 'logo' => 'https://logos-download.com/wp-content/uploads/2021/01/Notino_Logo.png', 'category' => 'Salute e Bellezza']"--}}
+{{--				                         bg="https://images.unsplash.com/photo-1679850136404-cff6c8714271?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2344&q=80"></x-coupon-card-highlight>--}}
+{{--				<x-coupon-card-highlight amount="13%" coins="50"--}}
+{{--				                         :brand="['name' => 'Dyson', 'logo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dyson_logo.svg/2560px-Dyson_logo.svg.png', 'category' => 'Casa e Giardino']"--}}
+{{--				                         bg="https://plus.unsplash.com/premium_photo-1677528816821-2e373e2602cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1041&q=80"></x-coupon-card-highlight>--}}
 			</div>
 		</div>
 	</section>
