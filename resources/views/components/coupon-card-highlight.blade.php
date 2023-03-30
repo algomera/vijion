@@ -1,9 +1,14 @@
-@props(['bg', 'coupon', 'text_color' => 'text-white'])
-<a href="{{ route('coupon', ['coupon' => $coupon->id]) }}" class="flex flex-col w-full h-full bg-white overflow-hidden transition ease-in-out duration-300 hover:cursor-pointer">
+@props(['coupon'])
+<a href="{{ route('coupon', ['coupon' => $coupon->id]) }}"
+   class="flex flex-col w-full h-full bg-white overflow-hidden transition ease-in-out duration-300 hover:cursor-pointer">
 	<div class="flex-1 p-1.5 pb-0">
 		<div class="relative w-full h-full">
-			<img src="{{ $bg }}" alt="" class="aspect-video w-full object-cover">
-			<div class="absolute inset-0 grid place-items-center {{ $text_color }}">
+			@if(!$coupon->bg)
+				<div class="inset-0 aspect-video w-full h-full bg-gray-300"></div>
+			@else
+				<img src="{{ $coupon->bg }}" alt="" class="aspect-video w-full object-cover">
+			@endif
+			<div class="absolute inset-0 grid place-items-center {{ $coupon->text_color }}">
 				<div class="flex flex-col items-center text-sm">
 					<span>sconto</span>
 					<span class="text-6xl font-bold">{{ $coupon->amount }}{{ $coupon->type === 'percentage' ? '%' : '€' }}</span>

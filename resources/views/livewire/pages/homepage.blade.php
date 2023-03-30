@@ -68,14 +68,16 @@
 	<section class="bg-gray-100 py-10">
 		<div class="container space-y-5">
 			<div class="flex items-center space-x-6">
-				<span class="text-sm text-brand cursor-pointer hover:font-medium hover:text-brand">I più richiesti</span>
-				<span class="text-sm text-gray-500 cursor-pointer hover:font-medium hover:text-brand">Gli ultimi arrivi</span>
-				<span class="text-sm text-gray-500 cursor-pointer hover:font-medium hover:text-brand">Solo su Viji-Store</span>
-				<span class="text-sm text-gray-500 cursor-pointer hover:font-medium hover:text-brand">In Scadenza!</span>
+				@foreach($tabs as $k => $tab)
+					<span wire:click="$set('selectedTab', '{{ $k }}')"
+					      class="text-sm {{ $selectedTab === $k ? 'text-brand' : 'cursor-pointer text-gray-500 hover:text-brand' }}">{{ $tab }}</span>
+				@endforeach
 			</div>
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-{{--				<x-coupon-card-highlight :coupon=""--}}
-{{--				                         bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"></x-coupon-card-highlight>--}}
+				@foreach($filtered_coupons as $coupon)
+					<x-coupon-card-highlight :coupon="$coupon"
+					                         bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"></x-coupon-card-highlight>
+				@endforeach
 			</div>
 		</div>
 	</section>

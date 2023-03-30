@@ -18,6 +18,8 @@
 					'percentage',
 					'cash'
 				]);
+				$table->string('bg')->nullable();
+				$table->string('text_color')->default('text-white');
 				$table->date('expires_date')->nullable();
 				$table->timestamps();
 			});
