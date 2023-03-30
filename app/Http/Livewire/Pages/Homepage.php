@@ -31,12 +31,11 @@
 					$filtered_coupons = \App\Models\Coupon::all()->shuffle()->take(2);
 					break;
 			}
-			$filtered_coupons = \App\Models\Coupon::all()->shuffle()->take(3);
 			return view('livewire.pages.homepage', [
-				'slides'       => HeroSlide::all(),
-				'our_brands'   => Brand::whereHas('coupons')->get()->take(8),
-				'unmissables'  => \App\Models\Coupon::all()->take(8),
-				'week_offers'  => \App\Models\Coupon::all()->take(8),
+				'slides'           => HeroSlide::all(),
+				'our_brands'       => Brand::whereHas('coupons')->get()->take(8),
+				'unmissables'      => \App\Models\Coupon::all()->take(8),
+				'week_offers'      => \App\Models\Coupon::all()->take(8),
 				'filtered_coupons' => $filtered_coupons,
 			])->layout('layouts.guest');
 		}
