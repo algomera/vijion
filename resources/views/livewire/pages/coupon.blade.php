@@ -21,7 +21,7 @@
 				</div>
 				<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
 					<div class="flex-auto">
-						<a href="#"
+						<a href="#rules"
 						   class="flex items-center space-x-3 text-brand hover:text-brand">
 							<span>Leggi le regole fondamentali</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -76,6 +76,58 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
+<div id="rules" class="bg-white py-12">
+	<div class="container max-w-5xl">
+		<h3 class="text-xl font-bold mb-4">
+			Le regole per spendere al meglio i tuoi <span class="uppercase text-brand">VIJI-COINS</span>
+		</h3>
+		<div class="space-y-6">
+			<div class="space-y-2">
+				<div class="flex font-bold space-x-2.5">
+					<span class="text-brand">1</span>
+					<p>Acquista lo sconto su VIJI-STORE prima di comprare i tuoi prodotti su <span
+								class="uppercase">{{ $coupon->brand->name }}</span></p>
+				</div>
+				<p class="text-gray-700 leading-relaxed">
+					Fondamentale è acquistare lo sconto su VIJI-STORE prima di passare allo shopping e alla cassa di
+					<span class="uppercase">{{ $coupon->brand->name }}</span>. Comprare prima su <span class="uppercase">{{ $coupon->brand->name }}</span> per poi entrare nel sito VIJI-STORE non permetterà all’utente di
+					utilizzare lo sconto, in quanto l’acquisto in questione non potrà essere collegabile.
+				</p>
+			</div>
+			<div class="space-y-2">
+				<div class="flex font-bold space-x-2.5">
+					<span class="text-brand">2</span>
+					<p>Il carrello deve essere vuoto prima del click su <span
+								class="uppercase">VIJI-STORE</span></p>
+				</div>
+				<p class="text-gray-700 leading-relaxed">
+					Prima di passare da VIJI-STORE controlla sempre che il carrello sia vuoto e se c’è già qualcosa da
+					una precedente sessione svuotalo. Alcuni negozi hanno delle regole di attribuzione stringenti e in
+					casi come questo potrebbero non pagarci la nostra commissione e noi non potremmo pagarti il tuo
+					codice sconto.
+				</p>
+			</div>
+			<div class="space-y-2">
+				<div class="flex font-bold space-x-2.5">
+					<span class="text-brand">3</span>
+					<p>Non tralasciare mai i cookies</p>
+				</div>
+				<p class="text-gray-700 leading-relaxed">
+					I cookie hanno un ruolo fondamentale per far funzionare il sistema e permettere a <span class="uppercase">{{ $coupon->brand->name }}</span> di
+					riconoscerci il merito dell’acquisto, quindi devi accettare tutti i cookie e non limitarli in alcun
+					modo, né con il tuo browser, né con un ad blocker o altri software per il blocco della pubblicità.
+					Controlla il tuo status.
+				</p>
+			</div>
+			<hr class="!my-9">
+			<p class="text-gray-700 leading-relaxed">
+				Se sei sicuro di aver fatto tutto bene e dopo 24 ore non ricevi nessuna email con lo sconto per <span class="uppercase">{{ $coupon->brand->name }}</span>,
+				effettua subito una segnalazione su VIJI-STORE. Anche noi guadagniamo solo quando possiamo attribuire
+				uno sconto, quindi faremo tutto quello che potremo per ottenere quello che ci spetta.
+			</p>
 		</div>
 	</div>
 </div>
