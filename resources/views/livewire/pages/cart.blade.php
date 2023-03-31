@@ -13,7 +13,8 @@
 					<div class="flex items-center space-x-3 rounded-full bg-gray-50">
 						<div class="flex items-center space-x-2 ml-1 text-sm text-gray-600 px-6">
 							@if($coupons->count() === 1)
-							<p class="font-bold">{{ $coupons->first()->coupon->amount }}{{ $coupons->first()->coupon->type === 'percentage' ? '%' : '€' }} sconto:</p>
+								<p class="font-bold">{{ $coupons->first()->coupon->amount }}{{ $coupons->first()->coupon->type === 'percentage' ? '%' : '€' }}
+									sconto:</p>
 							@else
 								<p class="font-bold">{{ $coupons->count() }} coupons:</p>
 							@endif
@@ -40,10 +41,9 @@
 							</a>
 						</div>
 					</div>
-					<button wire:click="buy" type="button"
-					        class="rounded-md bg-[#63184c] py-4 px-12 text-xs font-semibold text-white uppercase shadow-sm transition duration-300 hover:bg-[#7a2962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63184c]">
+					<x-primary-button wire:click="buy" :disabled="auth()->user()->coins < $coupons->sum('coupon.coins')">
 						Acquista {{ $coupons->count() === 1 ? 'Sconto' : 'Sconti' }}
-					</button>
+					</x-primary-button>
 				</div>
 			</div>
 		@else

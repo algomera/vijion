@@ -11,6 +11,7 @@
 	{
 		protected $listeners = [
 			'user-status-updated' => '$refresh',
+			'user-coins-updated'  => '$refresh',
 			'code-added'          => '$refresh'
 		];
 
