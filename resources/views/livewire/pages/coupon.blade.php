@@ -1,7 +1,7 @@
 <div class="bg-gray-100">
 	<div class="container py-14">
-		<div class="grid grid-cols-2 gap-8">
-			<div class="flex flex-col justify-center space-y-8 max-w-md">
+		<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+			<div class="order-2 flex flex-col justify-center space-y-8 w-full lg:max-w-md lg:order-none">
 				<div>
 					<h3 class="text-xl font-bold mb-4">Regole di <span
 								class="uppercase">{{ $coupon->brand->name }}</span></h3>
@@ -33,7 +33,7 @@
 					</div>
 				</div>
 			</div>
-			<div>
+			<div class="order-1 lg:order-none">
 				<h3 class="text-2xl font-bold mb-4">{{ $coupon->brand->category->name }}</h3>
 				<div class="flex flex-col w-full p-4 bg-white overflow-hidden">
 					<div class="flex-1 pb-0">
@@ -44,9 +44,9 @@
 								<img src="{{ $coupon->bg }}" alt="" class="aspect-video w-full object-cover">
 							@endif
 							<div class="absolute inset-0 grid place-items-center {{ $coupon->text_color }}">
-								<div class="flex flex-col justify-center items-center bg-white w-44 h-44 rounded-full">
+								<div class="flex flex-col justify-center items-center bg-white w-32 h-32 rounded-full sm:w-44 sm:h-44">
 									<span class="text-gray-800 font-bold">sconto</span>
-									<span class="text-6xl text-brand font-bold">{{ $coupon->amount }}{{ $coupon->type === 'percentage' ? '%' : '€' }}</span>
+									<span class="text-5xl text-brand font-bold sm:text-6xl">{{ $coupon->amount }}{{ $coupon->type === 'percentage' ? '%' : '€' }}</span>
 									@if($coupon->expires_date)
 										<span class="underline text-gray-800 text-xs">valido fino a:</span>
 										<span class="uppercase text-brand font-bold">{{ \Carbon\Carbon::parse($coupon->expires_date)->monthName }}</span>
@@ -55,17 +55,17 @@
 							</div>
 						</div>
 					</div>
-					<div class="flex items-center justify-between rounded-full bg-gray-50 py-1.5 px-1.5 mt-4">
-						<div class="flex items-center ml-1 text-gray-700 px-4">
+					<div class="flex flex-col space-y-2 items-center justify-between rounded-full bg-gray-50 py-1.5 px-1.5 mt-4 sm:flex-row sm:space-y-0">
+						<div class="flex items-center ml-1 text-gray-700 px-4 whitespace-nowrap">
 							<p>L'acquisto di questo prodotto equivale a:</p>
 						</div>
-						<div class="bg-brand rounded-full text-white py-2.5 px-4">
+						<div class="bg-brand rounded-full text-white py-2.5 px-4 whitespace-nowrap">
 							<p class="font-bold text-lg">
 								{{ $coupon->coins }} <span class="inline-block text-xs font-bold">VIJI-COINS</span>
 							</p>
 						</div>
 					</div>
-					<div class="grid items-center grid-cols-2 gap-8 mt-5">
+					<div class="grid items-center grid-cols-1 gap-3 mt-5 sm:grid-cols-2 sm:gap-8">
 						<img src="{{ $coupon->brand->logo_path }}" alt="{{ $coupon->brand->name }}"
 						     class="py-2 max-h-24 max-w-[200px] mx-auto">
 						<x-primary-button wire:click="addToCart"
