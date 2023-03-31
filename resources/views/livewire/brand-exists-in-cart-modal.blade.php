@@ -12,6 +12,7 @@
 				<div class="flex flex-1 lg:min-w-[150px] flex-col justify-center items-center rounded-full">
 					<span class="text-gray-800 font-bold">sconto</span>
 					<span class="text-6xl text-brand font-bold">{{ $existing->amount }}{{ $existing->type === 'percentage' ? '%' : '€' }}</span>
+					<span class="text-xs text-brand">{{ $existing->coins }} VIJI-COINS</span>
 				</div>
 				<p class="flex flex-1 flex-shrink-0 whitespace-nowrap items-center mt-7 text-sm text-gray-400 space-x-1">
 					<span>sostituisci con</span>
@@ -24,6 +25,7 @@
 				<div class="flex flex-1 lg:min-w-[150px] flex-col justify-center items-center rounded-full">
 					<span class="text-gray-800 font-bold">sconto</span>
 					<span class="text-6xl text-brand font-bold">{{ $to_be_add->amount }}{{ $to_be_add->type === 'percentage' ? '%' : '€' }}</span>
+					<span class="text-xs text-brand">{{ $to_be_add->coins }} VIJI-COINS</span>
 				</div>
 			</div>
 		</div>
