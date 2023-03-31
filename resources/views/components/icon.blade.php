@@ -636,43 +636,5 @@
 			      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
 		</svg>
 		@break
-
-	@case('m²')
-		<span class="text-sm text-gray-500">m²</span>
-		@break
-	@case('m³')
-		<span class="text-sm text-gray-500">m³</span>
-		@break
-	@case('€')
-		<span class="text-sm text-gray-500">€</span>
-		@break
-	@case('%')
-		<span class="text-sm text-gray-500">%</span>
-		@break
-	@case('kW')
-		<span class="text-sm text-gray-500">kW</span>
-		@break
-	@case('KWh')
-		<span class="text-sm text-gray-500">KWh</span>
-		@break
-	@case('kWht')
-		<span class="text-sm text-gray-500">kWht</span>
-		@break
-	@case('W/m²k')
-		<span class="text-sm text-gray-500">W/m²k</span>
-		@break
-	@case('L')
-		<span class="text-sm text-gray-500">L</span>
-		@break
-	@case('MJ')
-		<span class="text-sm text-gray-500">MJ</span>
-		@break
-	@case('°C')
-		<span class="text-sm text-gray-500">°C</span>
-		@break
-	@case('kWh/m²')
-		<span class="text-sm text-gray-500">kWh/m²</span>
-		@break
 	@default
-
 @endswitch

@@ -34,6 +34,7 @@
                 {{ $slot }}
             </main>
         </div>
+        <x-notification></x-notification>
         @stack('scripts')
         @livewireScripts
         @livewire('livewire-ui-modal')

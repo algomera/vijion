@@ -17,10 +17,7 @@
 				@endforeach
 			</div>
 			<div class="flex justify-center">
-				<button type="button"
-				        class="rounded-md bg-[#63184c] py-4 px-12 text-xs font-semibold text-white uppercase shadow-sm transition duration-300 hover:bg-[#7a2962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63184c]">
-					Carica altro
-				</button>
+				<x-primary-button>Carica altro</x-primary-button>
 			</div>
 		</section>
 	</div>
@@ -47,10 +44,7 @@
 				@endforeach
 			</div>
 			<div class="flex justify-center">
-				<button type="button"
-				        class="rounded-md bg-[#63184c] py-4 px-12 text-xs font-semibold text-white uppercase shadow-sm transition duration-300 hover:bg-[#7a2962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63184c]">
-					Visualizza tutti
-				</button>
+				<x-primary-button>Visualizza tutti</x-primary-button>
 			</div>
 		</section>
 		<section class="my-8">

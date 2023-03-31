@@ -68,10 +68,10 @@
 					<div class="grid items-center grid-cols-2 gap-8 mt-5">
 						<img src="{{ $coupon->brand->logo_path }}" alt="{{ $coupon->brand->name }}"
 						     class="py-2 max-h-24 max-w-[200px] mx-auto">
-						<button type="button"
-						        class="rounded-md bg-[#63184c] py-4 px-12 text-xs font-semibold text-white uppercase shadow-sm transition duration-300 hover:bg-[#7a2962] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63184c]">
-							Aggiungi al carrello
-						</button>
+						<x-primary-button wire:click="addToCart"
+						                  :disabled="auth()->check() && auth()->user()->couponInCart($coupon->id)">
+							{{ auth()->check() && auth()->user()->couponInCart($coupon->id) ? 'Aggiunto al carrello' : 'Aggiungi al carrello' }}
+						</x-primary-button>
 					</div>
 				</div>
 			</div>
@@ -92,7 +92,9 @@
 				</div>
 				<p class="text-gray-700 leading-relaxed">
 					Fondamentale è acquistare lo sconto su VIJI-STORE prima di passare allo shopping e alla cassa di
-					<span class="uppercase">{{ $coupon->brand->name }}</span>. Comprare prima su <span class="uppercase">{{ $coupon->brand->name }}</span> per poi entrare nel sito VIJI-STORE non permetterà all’utente di
+					<span class="uppercase">{{ $coupon->brand->name }}</span>. Comprare prima su <span
+							class="uppercase">{{ $coupon->brand->name }}</span> per poi entrare nel sito VIJI-STORE non
+					permetterà all’utente di
 					utilizzare lo sconto, in quanto l’acquisto in questione non potrà essere collegabile.
 				</p>
 			</div>
@@ -115,7 +117,8 @@
 					<p>Non tralasciare mai i cookies</p>
 				</div>
 				<p class="text-gray-700 leading-relaxed">
-					I cookie hanno un ruolo fondamentale per far funzionare il sistema e permettere a <span class="uppercase">{{ $coupon->brand->name }}</span> di
+					I cookie hanno un ruolo fondamentale per far funzionare il sistema e permettere a <span
+							class="uppercase">{{ $coupon->brand->name }}</span> di
 					riconoscerci il merito dell’acquisto, quindi devi accettare tutti i cookie e non limitarli in alcun
 					modo, né con il tuo browser, né con un ad blocker o altri software per il blocco della pubblicità.
 					Controlla il tuo status.
@@ -123,7 +126,8 @@
 			</div>
 			<hr class="!my-9">
 			<p class="text-gray-700 leading-relaxed">
-				Se sei sicuro di aver fatto tutto bene e dopo 24 ore non ricevi nessuna email con lo sconto per <span class="uppercase">{{ $coupon->brand->name }}</span>,
+				Se sei sicuro di aver fatto tutto bene e dopo 24 ore non ricevi nessuna email con lo sconto per <span
+						class="uppercase">{{ $coupon->brand->name }}</span>,
 				effettua subito una segnalazione su VIJI-STORE. Anche noi guadagniamo solo quando possiamo attribuire
 				uno sconto, quindi faremo tutto quello che potremo per ottenere quello che ci spetta.
 			</p>

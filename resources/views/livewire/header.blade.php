@@ -166,7 +166,12 @@
 					</svg>
 				</button>
 			@endauth
-			<a href="{{ route('cart') }}" class="text-brand hover:text-brand-light">
+			<a href="{{ route('cart') }}" class="relative text-brand hover:text-brand-light">
+				@auth()
+					@if(auth()->user()->cart_codes->count())
+						<div class="absolute flex items-center justify-center w-4 h-4 text-white text-[11px] font-semibold bg-red-500 rounded-full -right-1 -top-2">{{ auth()->user()->cart_codes->count() }}</div>
+					@endif
+				@endauth
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
 				     stroke="currentColor" class="w-6 h-6">
 					<path stroke-linecap="round" stroke-linejoin="round"

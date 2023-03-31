@@ -17,4 +17,8 @@
 		public function coupon() {
 			return $this->belongsTo(Coupon::class);
 		}
+
+		public function cart() {
+			return $this->belongsToMany(Cart::class);
+		}
 	}

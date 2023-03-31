@@ -5,7 +5,7 @@
 		<div class="relative ml-0 flex w-full h-full flex-col items-center justify-center px-6 text-center lg:px-0 lg:max-w-md lg:ml-14">
 			<p class="mb-4 text-md text-white md:text-xl">{!! $subtitle !!}</p>
 			<h1 class="text-3xl font-bold tracking-tight text-white md:text-6xl">{{ $title }}</h1>
-			<a href="{{ $url }}" class="mt-8 rounded-md bg-brand-purple py-3 px-5 text-xs font-bold text-white uppercase hover:bg-brand-purple-light">Scopri di più</a>
+			<x-primary-button href="{{ $url }}" class="mt-8">Scopri di più</x-primary-button>
 		</div>
 	</div>
 </div>

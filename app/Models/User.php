@@ -32,7 +32,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+	public function couponInCart($id) {
+		return $this->cart_codes->where('coupon_id', $id)->first();
+	}
+
 	public function getFullNameAttribute() {
 		return "{$this->first_name} {$this->last_name}";
+	}
+
+	public function cart_codes() {
+		return $this->belongsToMany(CouponCode::class, 'cart_codes');
 	}
 }
