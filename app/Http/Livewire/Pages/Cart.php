@@ -47,11 +47,16 @@
 
 		public function removeFromCart($id) {
 			CartCodes::where('user_id', auth()->user()->id)->where('coupon_id', $id)->delete();
+			$this->emit('code-removed');
 			$this->emit('$refresh');
 		}
 
 		public function render() {
-			$this->cart_codes = auth()->user()->cart_codes;
+			if(auth()->check()) {
+				$this->cart_codes = auth()->user()->cart_codes;
+			} else {
+				$this->cart_codes = collect();
+			}
 			return view('livewire.pages.cart', [
 				'coupons' => $this->cart_codes,
 			])->layout('layouts.guest');

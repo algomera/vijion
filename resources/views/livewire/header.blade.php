@@ -143,6 +143,9 @@
 									Dashboard
 								</x-dropdown-link>
 								@endrole
+								<x-dropdown-link :href="route('wallet')">
+									Portafoglio
+								</x-dropdown-link>
 								<x-dropdown-link :href="route('profile.edit')">
 									Profilo
 								</x-dropdown-link>
@@ -169,7 +172,7 @@
 			<a href="{{ route('cart') }}" class="relative text-brand hover:text-brand-light">
 				@auth()
 					@if(auth()->user()->cart_codes->count())
-						<div class="absolute flex items-center justify-center w-4 h-4 text-white text-[11px] font-semibold bg-red-500 rounded-full -right-1 -top-2">{{ auth()->user()->cart_codes->count() }}</div>
+						<div class="absolute flex items-center justify-center ring-2 ring-white w-4 h-4 text-white text-[11px] font-semibold bg-red-500 rounded-full -right-1.5 -top-1.5">{{ auth()->user()->cart_codes->count() }}</div>
 					@endif
 				@endauth
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

@@ -14,6 +14,11 @@
 			'password' => 'required',
 		];
 
+		public static function modalMaxWidth(): string
+		{
+			return 'md';
+		}
+
 		public function login() {
 			$this->validate();
 			if (Auth::attempt([

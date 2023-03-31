@@ -12,7 +12,8 @@
 		protected $listeners = [
 			'user-status-updated' => '$refresh',
 			'user-coins-updated'  => '$refresh',
-			'code-added'          => '$refresh'
+			'code-added'          => '$refresh',
+			'code-removed'          => '$refresh'
 		];
 
 		public function logout() {

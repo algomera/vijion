@@ -19,7 +19,11 @@
 		})->middleware([
 			'verified'
 		])->name('dashboard');
-		// Coupon
+		// Wallet
+		Route::get('/wallet', function() {
+			dd("Portafoglio");
+		})->name('wallet');
+		// Profile
 		Route::get('/profile', [
 			ProfileController::class,
 			'edit'

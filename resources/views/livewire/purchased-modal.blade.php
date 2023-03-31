@@ -10,9 +10,8 @@
 		<div class="text-center">
 			<p>Il tuo acquisto è stato completato correttamente. A breve riceverai una email con lo sconto da te selezionato!</p>
 		</div>
-		<button type="submit"
-		        class="w-full rounded-md bg-brand py-4 px-6 text-xs font-semibold text-white uppercase transition duration-300 hover:bg-brand-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63184c] disabled:bg-gray-200">
-			Visualizza portafoglio
-		</button>
+		<x-primary-button href="{{ route('wallet') }}">
+			Visualizza Portafoglio
+		</x-primary-button>
 	</div>
 </div>
