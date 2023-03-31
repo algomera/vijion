@@ -6,6 +6,9 @@
 
 	class PurchasedModal extends ModalComponent
 	{
+		public function goToPortafoglio() {
+			return redirect()->route('/');
+		}
 		public function render() {
 			return view('livewire.purchased-modal');
 		}

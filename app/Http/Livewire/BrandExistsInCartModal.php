@@ -11,8 +11,7 @@
 		public $to_be_add;
 		public $existing;
 
-		public static function modalMaxWidth(): string
-		{
+		public static function modalMaxWidth(): string {
 			return '2xl';
 		}
 
@@ -30,9 +29,9 @@
 			]);
 			$this->closeModal();
 			$this->dispatchBrowserEvent('open-notification', [
-				'title' => 'Coupon sostituito',
-				'type'  => 'success',
-				'actions'  => [
+				'title'   => 'Coupon sostituito',
+				'type'    => 'success',
+				'actions' => [
 					'primary' => [
 						'label' => 'Visualizza il carrello',
 						'url'   => route('cart')
