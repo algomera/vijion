@@ -1,4 +1,4 @@
-<div class="bg-gray-100 py-12">
+<div x-data class="bg-gray-100 py-12">
 	<div class="container">
 		@if($purchases->count())
 		<h3 class="text-3xl font-bold mt-10 mb-12">Il tuo portafoglio</h3>
@@ -21,7 +21,7 @@
 							<div class="flex items-center space-x-2">
 								<span class="text-brand font-semibold text-sm">{{ $purchase->coupon_code->coupon->brand->name }}</span>
 								<span class="text-gray-400">&middot;</span>
-								<span class="text-gray-400 font-semibold text-sm">{{ $purchase->purchased_at->diffForHumans() }}</span>
+								<span x-tooltip="{{ $purchase->purchased_at->format('d-m-Y H:i:s') }}" class="text-gray-400 font-semibold text-sm">{{ $purchase->purchased_at->diffForHumans() }}</span>
 							</div>
 						</div>
 						<div class="flex">
