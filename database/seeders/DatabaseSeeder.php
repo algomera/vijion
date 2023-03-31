@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
 			CategorySeeder::class,
 			BrandSeeder::class,
 			CouponSeeder::class,
+			PurchaseSeeder::class,
 			HeroSlideSeeder::class,
 		]);
     }

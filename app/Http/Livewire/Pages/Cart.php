@@ -3,6 +3,7 @@
 	namespace App\Http\Livewire\Pages;
 
 	use App\Models\CartCodes;
+	use Carbon\Carbon;
 	use Livewire\Component;
 
 	class Cart extends Component
@@ -13,15 +14,15 @@
 		];
 
 		public function buy() {
-			if(auth()->user()->coins < $this->cart_codes->sum('coupon.coins')) {
+			if (auth()->user()->coins < $this->cart_codes->sum('coupon.coins')) {
 				$this->dispatchBrowserEvent('open-notification', [
-					'title'   => 'Coins insufficienti',
+					'title'    => 'Coins insufficienti',
 					'subtitle' => 'Non hai abbastanza VIJI-COINS. Elimina qualche coupon dal carrello oppure guadagna VIJI-COINS e riprova.',
-					'type'    => 'error',
-					'actions' => [
+					'type'     => 'error',
+					'actions'  => [
 						'primary' => [
-							'label' => 'Guadagna VIJI-COINS',
-							'url'   => 'https://vijion.tv/',
+							'label'  => 'Guadagna VIJI-COINS',
+							'url'    => 'https://vijion.tv/',
 							'target' => '_blank'
 						]
 					]
@@ -29,15 +30,14 @@
 				return false;
 			}
 			foreach ($this->cart_codes as $cart_code) {
-				// Imposto "active" a 0
 				$cart_code->update([
 					'active' => false
 				]);
-				// Associo il codice acquistato all'utente (purchases)
-
-				// Riduco coins utente
-				auth()->user()->coins -= $this->cart_codes->sum('coupon.coins');
-				auth()->user()->save();
+				auth()->user()->purchases()->create([
+					'coupon_code_id' => $cart_code->id,
+					'purchased_at'   => Carbon::now()
+				]);
+				auth()->user()->decrement('coins', $this->cart_codes->sum('coupon.coins'));
 				$this->emit('user-coins-updated');
 			}
 			// Elimino il carrello utente
@@ -52,7 +52,7 @@
 		}
 
 		public function render() {
-			if(auth()->check()) {
+			if (auth()->check()) {
 				$this->cart_codes = auth()->user()->cart_codes;
 			} else {
 				$this->cart_codes = collect();

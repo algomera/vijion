@@ -18,7 +18,7 @@
 
 		public function logout() {
 			Auth::logout();
-			$this->emitSelf('user-status-updated');
+			return redirect()->route('home');
 		}
 
 		public function render() {

@@ -41,4 +41,8 @@
 		public function cart_codes() {
 			return $this->belongsToMany(CouponCode::class, 'cart_codes');
 		}
+
+		public function purchases() {
+			return $this->hasMany(Purchase::class);
+		}
 	}
