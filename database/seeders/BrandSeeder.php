@@ -39,9 +39,9 @@
 			foreach ($names as $name) {
 				$brand = Brand::factory()->create([
 					'name'      => $name,
+					'slug'      => Str::slug($name),
 					'logo_path' => asset('images/brands/' . Str::slug($name) . '.png')
 				]);
-
 				Rules::factory(fake()->numberBetween(1, 4))->create([
 					'brand_id' => $brand->id,
 				]);

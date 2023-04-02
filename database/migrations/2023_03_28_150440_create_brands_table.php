@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
 			$table->string('name')->unique();
+	        $table->string('slug');
 			$table->string('logo_path')->nullable();
 			$table->foreignIdFor(\App\Models\Category::class, 'category_id')->constrained();
             $table->timestamps();
