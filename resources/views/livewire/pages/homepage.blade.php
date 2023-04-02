@@ -21,7 +21,7 @@
 			</div>
 		</section>
 	</div>
-	<section class="bg-gray-800 py-8">
+	<section class="bg-gray-800 py-8 px-4">
 		<h3 class="text-center text-3xl text-white font-medium mt-10 mb-6">Gli imperdibili</h3>
 		<x-slider name="unmissable" class="container">
 			@foreach($unmissables as $unmissable)
@@ -102,6 +102,25 @@
             loop: false,
             autoplay: true,
             spaceBetween: 16,
+            breakpoints: {
+                // when window width is >= 0px
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 16,
+                },
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 16
+                },
+            },
 
             pagination: {
                 el: '.swiper-pagination',
