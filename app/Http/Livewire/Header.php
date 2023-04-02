@@ -13,7 +13,7 @@
 			'user-status-updated' => '$refresh',
 			'user-coins-updated'  => '$refresh',
 			'code-added'          => '$refresh',
-			'code-removed'          => '$refresh'
+			'code-removed'        => '$refresh'
 		];
 
 		public function logout() {
@@ -23,8 +23,8 @@
 
 		public function render() {
 			return view('livewire.header', [
-				'categories' => Category::all()->take(6),
-				'brands'     => Brand::all()->take(6),
+				'categories' => Category::whereHas('brands.coupons')->get()->take(6),
+				'brands'     => Brand::whereHas('coupons')->get()->take(6),
 			]);
 		}
 	}

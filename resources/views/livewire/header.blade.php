@@ -75,7 +75,7 @@
 										@foreach($brands as $brand)
 											<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
 												<div class="flex-auto">
-													<a href="#" class="block text-gray-600 hover:text-brand">
+													<a href="{{ route('brand', $brand->slug) }}" class="block text-gray-600 hover:text-brand">
 														{{ $brand->name }}
 													</a>
 												</div>

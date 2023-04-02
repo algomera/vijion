@@ -1,6 +1,7 @@
 <?php
 
 	use App\Http\Controllers\ProfileController;
+	use App\Http\Livewire\Pages\Brand;
 	use App\Http\Livewire\Pages\Cart;
 	use App\Http\Livewire\Pages\Category;
 	use App\Http\Livewire\Pages\Coupon;
@@ -13,6 +14,7 @@
 	Route::get('/coupon/{coupon:uuid}', Coupon::class)->name('coupon');
 	Route::get('/cart', Cart::class)->name('cart');
 	Route::get('/category/{category:slug}', Category::class)->name('category');
+	Route::get('/brand/{brand:slug}', Brand::class)->name('brand');
 	// Auth
 	Route::middleware('auth')->group(function () {
 		// Dashboard
