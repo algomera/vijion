@@ -2,6 +2,7 @@
 
 	use App\Http\Controllers\ProfileController;
 	use App\Http\Livewire\Pages\Cart;
+	use App\Http\Livewire\Pages\Category;
 	use App\Http\Livewire\Pages\Coupon;
 	use App\Http\Livewire\Pages\Homepage;
 	use App\Http\Livewire\Pages\Wallet;
@@ -11,6 +12,7 @@
 	Route::get('/', Homepage::class)->name('home');
 	Route::get('/coupon/{coupon}', Coupon::class)->name('coupon');
 	Route::get('/cart', Cart::class)->name('cart');
+	Route::get('/category/{category:slug}', Category::class)->name('category');
 	// Auth
 	Route::middleware('auth')->group(function () {
 		// Dashboard

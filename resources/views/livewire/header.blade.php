@@ -47,7 +47,7 @@
 										@foreach($categories as $category)
 											<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
 												<div class="flex-auto">
-													<a href="#" class="block text-gray-600 hover:text-brand">
+													<a href="{{ route('category', $category->slug) }}" class="block text-gray-600 hover:text-brand">
 														{{ $category->name }}
 													</a>
 												</div>
