@@ -28,6 +28,7 @@
 			]);
 			return [
 				'brand_id'     => Brand::all()->shuffle()->first()->id,
+				'uuid'         => fake()->uuid(),
 				'amount'       => fake()->numberBetween(10, 50),
 				'coins'        => fake()->numberBetween(10, 90),
 				'type'         => fake()->randomElement([

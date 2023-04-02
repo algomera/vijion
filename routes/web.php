@@ -10,7 +10,7 @@
 
 	// Guest
 	Route::get('/', Homepage::class)->name('home');
-	Route::get('/coupon/{coupon}', Coupon::class)->name('coupon');
+	Route::get('/coupon/{coupon:uuid}', Coupon::class)->name('coupon');
 	Route::get('/cart', Cart::class)->name('cart');
 	Route::get('/category/{category:slug}', Category::class)->name('category');
 	// Auth

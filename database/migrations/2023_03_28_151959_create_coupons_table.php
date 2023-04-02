@@ -12,6 +12,7 @@
 			Schema::create('coupons', function (Blueprint $table) {
 				$table->id();
 				$table->foreignIdFor(\App\Models\Brand::class, 'brand_id')->constrained();
+				$table->uuid('uuid')->unique();
 				$table->integer('amount');
 				$table->integer('coins');
 				$table->enum('type', [

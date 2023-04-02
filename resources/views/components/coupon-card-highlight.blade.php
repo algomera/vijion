@@ -1,5 +1,5 @@
 @props(['coupon'])
-<a href="{{ route('coupon', ['coupon' => $coupon->id]) }}"
+<a href="{{ route('coupon', ['coupon' => $coupon->uuid]) }}"
    class="flex flex-col w-full h-full bg-white overflow-hidden transition ease-in-out duration-300 hover:cursor-pointer">
 	<div class="flex-1 p-1.5 pb-0">
 		<div class="relative w-full h-full">

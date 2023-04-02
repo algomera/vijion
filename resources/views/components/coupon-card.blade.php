@@ -1,6 +1,6 @@
 @props(['coupon'])
 
-<a href="{{ route('coupon', ['coupon' => $coupon->id]) }}" class="flex flex-col w-full h-full border border-gray-200 rounded overflow-hidden transition ease-in-out duration-300 hover:cursor-pointer hover:border-transparent hover:shadow-[0_0_15px_#00000012] hover:shadow-gray-200">
+<a href="{{ route('coupon', ['coupon' => $coupon->uuid]) }}" class="flex flex-col w-full h-full border border-gray-200 rounded overflow-hidden transition ease-in-out duration-300 hover:cursor-pointer hover:border-transparent hover:shadow-[0_0_15px_#00000012] hover:shadow-gray-200">
 	<div class="flex items-center justify-end bg-gray-50 text-md font-medium leading-8 px-3 mt-4">
 		<p>sconto {{ $coupon->type === 'percentage' ? 'fino al' : 'fino a' }} <span class="text-[22px] font-bold text-brand">{{ $coupon->amount }}{{ $coupon->type === 'percentage' ? '%' : '€' }}</span></p>
 	</div>
