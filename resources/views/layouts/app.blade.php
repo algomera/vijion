@@ -85,12 +85,7 @@
                         <div class="flex-shrink-0 flex bg-gray-700 p-4">
                             <a href="{{ route('profile.edit') }}" class="flex-shrink-0 w-full group block">
                                 <div class="flex items-center">
-{{--                                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())--}}
-{{--                                        <div>--}}
-{{--                                            <img class="inline-block h-9 w-9 rounded-full"--}}
-{{--                                                 src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">--}}
-{{--                                        </div>--}}
-{{--                                    @endif--}}
+                                    <x-heroicon-o-user-circle class="w-7 h-7 text-gray-400"></x-heroicon-o-user-circle>
                                     <div class="ml-3 w-full flex items-center justify-between">
                                         <div>
                                             <p class="text-sm font-medium text-white">{{ auth()->user()->fullName }}</p>
@@ -142,12 +137,7 @@
                         <div class="flex-shrink-0 flex bg-gray-700 p-4">
                             <a href="{{ route('profile.edit') }}" class="flex-shrink-0 w-full group block">
                                 <div class="flex items-center">
-{{--                                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())--}}
-{{--                                        <div>--}}
-{{--                                            <img class="inline-block h-9 w-9 rounded-full"--}}
-{{--                                                 src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">--}}
-{{--                                        </div>--}}
-{{--                                    @endif--}}
+                                    <x-heroicon-o-user-circle class="w-7 h-7 text-gray-400"></x-heroicon-o-user-circle>
                                     <div class="ml-3 w-full flex items-center justify-between">
                                         <div>
                                             <p class="text-sm font-medium text-white">{{ auth()->user()->fullName }}</p>

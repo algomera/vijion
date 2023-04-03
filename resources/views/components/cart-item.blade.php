@@ -1,7 +1,6 @@
 @props(['coupon'])
 <div x-data="" class="flex items-center space-x-5 py-5">
-	<x-icon x-on:click="Livewire.emit('removeFromCart', {{ $coupon->id }})" name="close"
-	        class="w-6 h-6 text-gray-300 cursor-pointer flex-shrink-0 hover:text-gray-500"></x-icon>
+	<x-heroicon-o-x-mark x-on:click="Livewire.emit('removeFromCart', {{ $coupon->id }})" class="w-6 h-6 text-gray-300 cursor-pointer flex-shrink-0 hover:text-gray-500" />
 	<div class="relative w-32 aspect-square">
 		@if(!$coupon->bg)
 			<div class="inset-0 aspect-square w-full h-full bg-gray-300"></div>
