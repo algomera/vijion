@@ -1,7 +1,7 @@
 <div x-data class="bg-gray-100 py-12">
 	<div class="container">
 		@if($purchases->count())
-		<h3 class="text-3xl font-bold mt-10 mb-12">Il tuo portafoglio</h3>
+		<h3 class="text-3xl font-bold mt-10 mb-12">Il tuo Portafoglio</h3>
 		<div class="space-y-8">
 			<div class="bg-white p-4 divide-y divide-gray-100">
 			@foreach($purchases as $purchase)
