@@ -159,7 +159,7 @@
 					</div>
 				</div>
 			@else
-				<button wire:click="$emit('openModal', 'auth.login-modal')"
+				<button wire:click="$emit('openModal', 'auth.auth-modal')"
 				        class="flex items-center space-x-2 hover:text-brand">
 					<span class="text-sm">Accedi</span>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

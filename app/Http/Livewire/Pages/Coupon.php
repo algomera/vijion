@@ -41,7 +41,7 @@
 					$this->emit('code-added');
 				}
 			} else {
-				$this->emit('openModal', 'auth.login-modal');
+				$this->emit('openModal', 'auth.auth-modal');
 			}
 		}
 
