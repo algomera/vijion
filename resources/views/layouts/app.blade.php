@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-gray-50">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -165,13 +165,13 @@
                             <!-- Heroicon name: outline/menu -->
                             <x-heroicon-o-bars-3 class="w-6 h-6"></x-heroicon-o-bars-3>
                         </button>
-{{--                        @livewire('top-bar')--}}
+                        <x-top-bar />
                     </div>
                     <main class="flex-1">
                         {{-- Top Bar --}}
                         <div class="hidden xl:block">
 {{--                            @livewire('offline-banner')--}}
-{{--                            @livewire('top-bar')--}}
+                            <x-top-bar />
                         </div>
                         {{-- Breadcrumbs --}}
                         {{--			<div class="py-2 px-4 sm:px-6 lg:px-8 bg-gray-700 text-sm">--}}

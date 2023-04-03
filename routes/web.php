@@ -1,6 +1,10 @@
 <?php
 
 	use App\Http\Controllers\ProfileController;
+	use App\Http\Livewire\Admin\Pages\Brands\Index as BrandsIndex;
+	use App\Http\Livewire\Admin\Pages\Categories\Index as CategoriesIndex;
+	use App\Http\Livewire\Admin\Pages\Dashboard;
+	use App\Http\Livewire\Admin\Pages\Users\Index as UsersIndex;
 	use App\Http\Livewire\Pages\Brand;
 	use App\Http\Livewire\Pages\Cart;
 	use App\Http\Livewire\Pages\Category;
@@ -36,11 +40,9 @@
 
 	// Administrator
 	Route::middleware(['auth', 'role:admin'])->group(function () {
-		// Dashboard
-		Route::get('/dashboard', function () {
-			return view('dashboard');
-		})->middleware([
-			'verified'
-		])->name('dashboard');
+		Route::get('/dashboard', Dashboard::class)->name('dashboard');
+		Route::get('/users', UsersIndex::class)->name('users.index');
+		Route::get('/categories', CategoriesIndex::class)->name('categories.index');
+		Route::get('/brands', BrandsIndex::class)->name('brands.index');
 	});
 	require __DIR__ . '/auth.php';
