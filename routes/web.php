@@ -9,20 +9,14 @@
 	use App\Http\Livewire\Pages\Wallet;
 	use Illuminate\Support\Facades\Route;
 
-	// Guest
+	// User Guest
 	Route::get('/', Homepage::class)->name('home');
 	Route::get('/coupon/{coupon:uuid}', Coupon::class)->name('coupon');
 	Route::get('/cart', Cart::class)->name('cart');
 	Route::get('/category/{category:slug}', Category::class)->name('category');
 	Route::get('/brand/{brand:slug}', Brand::class)->name('brand');
-	// Auth
+	// User Auth
 	Route::middleware('auth')->group(function () {
-		// Dashboard
-		Route::get('/dashboard', function () {
-			return view('dashboard');
-		})->middleware([
-			'verified'
-		])->name('dashboard');
 		// Wallet
 		Route::get('/wallet', Wallet::class)->name('wallet');
 		// Profile
@@ -38,5 +32,15 @@
 			ProfileController::class,
 			'destroy'
 		])->name('profile.destroy');
+	});
+
+	// Administrator
+	Route::middleware(['auth', 'role:admin'])->group(function () {
+		// Dashboard
+		Route::get('/dashboard', function () {
+			return view('dashboard');
+		})->middleware([
+			'verified'
+		])->name('dashboard');
 	});
 	require __DIR__ . '/auth.php';
