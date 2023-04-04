@@ -36,9 +36,11 @@
 		<div class="block">
 			<nav class="flex space-x-4" aria-label="Tabs">
 				<span wire:click="$set('active', true)"
-				      class="{{ $active ? 'bg-brand-purple-light/10 text-brand-purple' : 'text-gray-500 hover:text-gray-700 hover:cursor-pointer' }} rounded-md px-3 py-2 text-sm font-medium">Attivi</span>
+				      class="{{ $active ? 'bg-brand-purple-light/10 text-brand-purple' : 'text-gray-500 hover:text-gray-700 hover:cursor-pointer' }} rounded-md px-3 py-2 text-sm font-medium">Attivi <span
+							class="{{ $active ? 'bg-brand-purple-light/20 text-brand-purple' : 'bg-gray-300' }} ml-1 px-2 rounded-full">{{ $coupon->codes()->active(true)->count() }}</span></span>
 				<span wire:click="$set('active', false)"
-				      class="{{ !$active ? 'bg-brand-purple-light/10 text-brand-purple' : 'text-gray-500 hover:text-gray-700 hover:cursor-pointer' }} rounded-md px-3 py-2 text-sm font-medium">Erogati</span>
+				      class="{{ !$active ? 'bg-brand-purple-light/10 text-brand-purple' : 'text-gray-500 hover:text-gray-700 hover:cursor-pointer' }} rounded-md px-3 py-2 text-sm font-medium">Erogati <span
+							class="{{ !$active ? 'bg-brand-purple-light/20 text-brand-purple' : 'bg-gray-300' }} ml-1 px-2 rounded-full">{{ $coupon->codes()->active(false)->count() }}</span></span>
 			</nav>
 		</div>
 	</div>
