@@ -10,6 +10,10 @@
 	{
 		use HasFactory;
 
+		protected $casts = [
+			'expires_date' => 'date'
+		];
+
 		public function scopeAvailable(Builder $query) {
 			$query->whereDate('expires_date', '>', now())->orWhere('expires_date', null);
 		}

@@ -1,20 +1,16 @@
 <div>
 	<x-slot:header>
-		Utenti
+		<h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+			Utenti
+		</h2>
 	</x-slot:header>
 	<div class="bg-white">
 		<div class="p-4 sm:p-6 lg:p-8">
 			<div class="sm:flex sm:items-center sm:justify-between">
 				<div class="sm:flex-auto max-w-2xl">
-					<x-input type="text" wire:model="search" wire:keydown.escape="$set('search', '')"
+					<x-input type="text" wire:model.debouce.500ms="search" wire:keydown.escape="$set('search', '')"
 					         placeholder="Cerca.."></x-input>
 				</div>
-				{{--				<div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">--}}
-				{{--					<button type="button"--}}
-				{{--					        class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">--}}
-				{{--						Add user--}}
-				{{--					</button>--}}
-				{{--				</div>--}}
 			</div>
 			<div class="-mx-4 mt-8 sm:-mx-0">
 				<table class="min-w-full divide-y divide-gray-300">
@@ -38,7 +34,7 @@
 					</thead>
 					<tbody class="divide-y divide-gray-200 bg-white">
 					@forelse($users as $user)
-						<tr class="hover:bg-gray-50 hover:cursor-pointer">
+						<tr wire:click="show({{$user->id}})" class="hover:bg-gray-50 hover:cursor-pointer">
 							<td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-3">
 								{{ $user->fullName }}
 								<dl class="font-normal lg:hidden">
@@ -46,9 +42,9 @@
 									<dd class="mt-1 truncate text-gray-700">{{ $user->email }}</dd>
 									<dt class="sr-only sm:hidden">Email</dt>
 									@if($user->hasRole('member'))
-									<dd class="mt-1 truncate text-brand sm:hidden">
-										<span class="font-semibold">{{ $user->coins }}</span> VIJI-COINS
-									</dd>
+										<dd class="mt-1 truncate text-brand sm:hidden">
+											<span class="font-semibold">{{ $user->coins }}</span> VIJI-COINS
+										</dd>
 									@endif
 								</dl>
 							</td>
@@ -64,7 +60,8 @@
 						</tr>
 					@empty
 						<tr>
-							<td colspan="100%" class="w-full max-w-0 py-8 pl-4 pr-3 text-sm font-medium text-gray-400 text-center sm:w-auto sm:max-w-none sm:pl-3">
+							<td colspan="100%"
+							    class="w-full max-w-0 py-8 pl-4 pr-3 text-sm font-medium text-gray-400 text-center sm:w-auto sm:max-w-none sm:pl-3">
 								Nessun utente trovato.
 							</td>
 						</tr>

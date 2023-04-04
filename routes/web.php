@@ -1,10 +1,13 @@
 <?php
 
 	use App\Http\Controllers\ProfileController;
+	use App\Http\Livewire\Admin\Pages\Brands\Coupon as CouponsShow;
 	use App\Http\Livewire\Admin\Pages\Brands\Index as BrandsIndex;
+	use App\Http\Livewire\Admin\Pages\Brands\Show as BrandsShow;
 	use App\Http\Livewire\Admin\Pages\Categories\Index as CategoriesIndex;
 	use App\Http\Livewire\Admin\Pages\Dashboard;
 	use App\Http\Livewire\Admin\Pages\Users\Index as UsersIndex;
+	use App\Http\Livewire\Admin\Pages\Users\Show as UsersShow;
 	use App\Http\Livewire\Pages\Brand;
 	use App\Http\Livewire\Pages\Cart;
 	use App\Http\Livewire\Pages\Category;
@@ -42,7 +45,10 @@
 	Route::middleware(['auth', 'role:admin'])->group(function () {
 		Route::get('/dashboard', Dashboard::class)->name('dashboard');
 		Route::get('/users', UsersIndex::class)->name('users.index');
+		Route::get('/users/{user}', UsersShow::class)->name('users.show');
 		Route::get('/categories', CategoriesIndex::class)->name('categories.index');
 		Route::get('/brands', BrandsIndex::class)->name('brands.index');
+		Route::get('/brands/{brand}', BrandsShow::class)->name('brands.show');
+		Route::get('/coupons/{coupon}', CouponsShow::class)->name('coupons.show');
 	});
 	require __DIR__ . '/auth.php';

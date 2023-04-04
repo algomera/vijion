@@ -9,8 +9,8 @@
 		<h3 class="!mt-3 px-3 text-sm font-medium text-gray-500">Viji-Store</h3>
 		<a href="{{ route('brands.index') }}"
 		   class="{{ request()->is('brands*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
-			<x-heroicon-o-tag
-					class="{{ request()->is('brands*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-tag>
+			<x-heroicon-o-building-storefront
+					class="{{ request()->is('brands*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-building-storefront>
 			Brands
 		</a>
 		<a href="{{ route('categories.index') }}"

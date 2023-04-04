@@ -12,8 +12,12 @@
 
 		public $search;
 
+		public function show(User $user) {
+			return redirect()->route('users.show', $user->id);
+		}
+
 		public function render() {
-			$users = User::query();
+			$users = User::with('roles');
 			if ($this->search) {
 				$users->where('first_name', 'like', '%' . $this->search . '%')->orWhere('last_name', 'like', '%' . $this->search . '%');
 			}

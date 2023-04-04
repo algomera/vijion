@@ -1,0 +1,3 @@
+<div>
+	{{ $coupon->id }}
+</div>
