@@ -14,6 +14,7 @@
 		 */
 		public function run(): void {
 			$adminRole = Role::create(['name' => 'admin']);
+			$memberRole = Role::create(['name' => 'member']);
 			$admin = User::factory()->create([
 				'first_name'  => 'Admin',
 				'last_name' => null,
@@ -21,11 +22,14 @@
 				'coins' => null
 			]);
 			$admin->assignRole($adminRole);
-			User::factory()->create([
+			$member = User::factory()->create([
 				'first_name' => 'Fabio',
 				'last_name'  => 'Serembe',
 				'email'      => 'fabio.serembe@gmail.com'
 			]);
-			User::factory(8)->create();
+			$member->assignRole($memberRole);
+			User::factory(8)->create()->each(function ($u) use ($memberRole) {
+				$u->assignRole($memberRole);
+			});
 		}
 	}

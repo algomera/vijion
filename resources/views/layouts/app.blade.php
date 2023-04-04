@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-gray-50">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-gray-100">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -195,7 +195,7 @@
                         <div>
                             <!-- Page Heading -->
                             @if (isset($header))
-                                <div class="px-4 py-4">
+                                <div class="px-4 py-8">
                                     <h1 class="text-2xl font-semibold text-gray-900">{{ $header }}</h1>
                                 </div>
                             @endif

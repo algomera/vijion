@@ -144,7 +144,7 @@
 				</button>
 			@endauth
 			<a href="{{ route('cart') }}" class="relative text-brand hover:text-brand-light">
-				@auth()
+				@auth
 					@if(auth()->user()->cart_codes->count())
 						<div class="absolute flex items-center justify-center ring-2 ring-white w-4 h-4 text-white text-[11px] font-semibold bg-red-500 rounded-full -right-1.5 -top-1.5">{{ auth()->user()->cart_codes->count() }}</div>
 					@endif
