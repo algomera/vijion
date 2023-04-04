@@ -14,7 +14,7 @@
 					         placeholder="Cerca.."></x-input>
 				</div>
 				<div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-					<x-primary-button>Nuovo Brand</x-primary-button>
+					<x-primary-button wire:click="$emit('openModal', 'admin.pages.brands.create')">Nuovo Brand</x-primary-button>
 				</div>
 			</div>
 		</div>
@@ -25,7 +25,7 @@
 						<div class="flex items-center px-4 py-4 sm:px-6">
 							<div class="flex min-w-0 flex-1 items-center">
 								<div class="flex-shrink-0">
-									<img class="w-14" src="{{ $brand->logo_path }}"
+									<img class="w-14" src="{{ asset($brand->logo_path) }}"
 									     alt="">
 								</div>
 								<div class="min-w-0 flex-1 px-8 md:grid md:grid-cols-2 md:gap-4">

@@ -41,14 +41,10 @@
 					<x-icon name="{{$prepend}}" class="{{ $iconColor }} w-5 h-5"></x-icon>
 				</div>
 			@endif
-			<input
-					{{ $attributes->merge(['class' => $inputClass]) }}
-					{{ $attributes['type'] == 'number' && !$attributes['step'] ? 'step=0.001' : 'step=$attributes[\'step\']' }}
-					{{ $disabled ? 'disabled' : '' }}
-					name="{{ $slug }}"
-					id="{{ $slug }}"
-					{{ $required ? 'required' : '' }}
-			>
+			<select {{ $attributes->merge(['class' => $inputClass]) }} {{ $disabled ? 'disabled' : '' }} name="{{ $slug }}"
+			        id="{{ $slug }}" {{ $required ? 'required' : '' }}>
+				{{ $slot }}
+			</select>
 			@error($slug)
 			<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
 				<x-icon
