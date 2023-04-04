@@ -12,9 +12,6 @@
 
 		public $search;
 
-		public function show(Brand $brand) {
-			return redirect()->route('brands.show', $brand->id);
-		}
 		public function render() {
 			$brands = Brand::with('category');
 			if ($this->search) {

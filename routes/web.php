@@ -48,7 +48,7 @@
 		Route::get('/users/{user}', UsersShow::class)->name('users.show');
 		Route::get('/categories', CategoriesIndex::class)->name('categories.index');
 		Route::get('/brands', BrandsIndex::class)->name('brands.index');
-		Route::get('/brands/{brand}', BrandsShow::class)->name('brands.show');
-		Route::get('/coupons/{coupon}', CouponsShow::class)->name('coupons.show');
+		Route::get('/brands/{brand:slug}', BrandsShow::class)->name('brands.show');
+		Route::get('/brands/{brand:slug}/coupons/{coupon:uuid}', CouponsShow::class)->name('coupons.show');
 	});
 	require __DIR__ . '/auth.php';

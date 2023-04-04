@@ -45,17 +45,10 @@
 											<time datetime="{{ $coupon->created_at->format('Y-m-d') }}"
 											      class="font-semibold">{{ $coupon->created_at->format('d-m-Y H:i:s') }}</time>
 										</p>
-										@if($coupon->expires_date)
-											<p class="mt-2 text-sm text-gray-500">
-												Scade il
-												<time datetime="{{ $coupon->created_at->format('Y-m-d') }}"
-												      class="font-semibold">{{ $coupon->created_at->format('d-m-Y') }}</time>
-											</p>
-										@else
-											<p class="mt-2 text-sm text-gray-500">
-												Nessuna scadenza
-											</p>
-										@endif
+										<div class="flex items-center mt-2 text-sm text-gray-500">
+											<x-heroicon-o-clock class="mr-1.5 h-5 w-5 flex-shrink-0"></x-heroicon-o-clock>
+											<span class="font-semibold">{{ $coupon->expires_date ? $coupon->expires_date->format('d-m-Y') : 'Nessuna scadenza' }}</span>
+										</div>
 									</div>
 								</div>
 							</div>

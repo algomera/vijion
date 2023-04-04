@@ -19,6 +19,6 @@
 		}
 
 		public function purchase() {
-			return $this->belongsTo(Purchase::class);
+			return $this->hasOne(Purchase::class);
 		}
 	}

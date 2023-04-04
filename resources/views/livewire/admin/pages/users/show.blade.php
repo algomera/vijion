@@ -42,23 +42,17 @@
 									<div>
 										<p class="text-sm text-gray-900">
 											Acquistato il
-											<time datetime="{{ $purchase->purchased_at->format('Y-m-d') }}" class="font-semibold">{{ $purchase->purchased_at->format('d-m-Y H:i:s') }}</time>
+											<time datetime="{{ $purchase->purchased_at->format('Y-m-d') }}"
+											      class="font-semibold">{{ $purchase->purchased_at->format('d-m-Y H:i:s') }}</time>
 										</p>
-										<p class="mt-2 flex items-center text-sm text-gray-500">
+										<a href="{{ route('coupons.show', ['brand' => $purchase->coupon_code->coupon->brand->slug, 'coupon' => $purchase->coupon_code->coupon->uuid]) }}"
+										   class="mt-2 flex items-center text-sm text-gray-500 hover:underline">
 											<x-heroicon-o-tag
 													class="mr-1.5 h-5 w-5 flex-shrink-0"></x-heroicon-o-tag>
-											ID Coupon: {{ $purchase->coupon_code->coupon->id }}
-										</p>
+											{{ $purchase->coupon_code->coupon->uuid }}
+										</a>
 									</div>
 								</div>
-							</div>
-							<div>
-								<svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
-								     aria-hidden="true">
-									<path fill-rule="evenodd"
-									      d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-									      clip-rule="evenodd"/>
-								</svg>
 							</div>
 						</div>
 					</div>

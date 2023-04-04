@@ -21,7 +21,7 @@
 		<ul role="list" class="divide-y divide-gray-200">
 			@forelse($brands as $brand)
 				<li>
-					<a href="{{ route('brands.show', $brand->id) }}" class="block hover:bg-gray-50">
+					<a href="{{ route('brands.show', $brand->slug) }}" class="block hover:bg-gray-50">
 						<div class="flex items-center px-4 py-4 sm:px-6">
 							<div class="flex min-w-0 flex-1 items-center">
 								<div class="flex-shrink-0">

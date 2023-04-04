@@ -16,8 +16,10 @@
 
 		public function show($uuid) {
 			$coupon = Coupon::where('uuid', $uuid)->first();
-
-			return redirect()->route('coupons.show', $coupon->id);
+			return redirect()->route('coupons.show', [
+				'brand'  => $coupon->brand->slug,
+				'coupon' => $coupon->uuid
+			]);
 		}
 
 		public function render() {
