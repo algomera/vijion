@@ -1,6 +1,6 @@
 <form wire:submit.prevent="save" class="p-4">
 	<div class="space-y-10">
-		<div class="border-b border-gray-900/10 pb-12">
+		<div>
 			<h2 class="text-base font-semibold leading-7 text-gray-900">Modifica Categoria</h2>
 			<p class="mt-1 text-sm leading-6 text-gray-600">Modifica la categoria "{{ $category->name }}"</p>
 

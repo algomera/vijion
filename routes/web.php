@@ -8,6 +8,7 @@
 	use App\Http\Livewire\Admin\Pages\Dashboard;
 	use App\Http\Livewire\Admin\Pages\Users\Index as UsersIndex;
 	use App\Http\Livewire\Admin\Pages\Users\Show as UsersShow;
+	use App\Http\Livewire\Admin\Pages\Videos\Index as VideosIndex;
 	use App\Http\Livewire\Pages\Brand;
 	use App\Http\Livewire\Pages\Cart;
 	use App\Http\Livewire\Pages\Category;
@@ -50,5 +51,6 @@
 		Route::get('/brands', BrandsIndex::class)->name('brands.index');
 		Route::get('/brands/{brand:slug}', BrandsShow::class)->name('brands.show');
 		Route::get('/brands/{brand:slug}/coupons/{coupon:uuid}', CouponsShow::class)->name('coupons.show');
+		Route::get('/videos', VideosIndex::class)->name('videos.index');
 	});
 	require __DIR__ . '/auth.php';

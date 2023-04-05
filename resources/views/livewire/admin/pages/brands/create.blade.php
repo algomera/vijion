@@ -1,6 +1,6 @@
 <form wire:submit.prevent="create" class="p-4">
     <div class="space-y-10">
-        <div class="border-b border-gray-900/10 pb-12">
+        <div>
             <h2 class="text-base font-semibold leading-7 text-gray-900">Nuovo Brand</h2>
             <p class="mt-1 text-sm leading-6 text-gray-600">Inserisci le informazioni necessarie per creare un nuovo Brand</p>
 

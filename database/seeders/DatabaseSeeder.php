@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
 			CouponSeeder::class,
 			PurchaseSeeder::class,
 			HeroSlideSeeder::class,
+			VideoSeeder::class,
 		]);
     }
 }
