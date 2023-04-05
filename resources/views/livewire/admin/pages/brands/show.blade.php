@@ -1,15 +1,17 @@
 <div>
-	<x-slot:header>
-		<div class="min-w-0 flex-1">
-			<h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-				{{ $brand->name }}
-			</h2>
-			<div class="mt-2 flex items-center text-sm text-gray-500">
-				<x-heroicon-o-tag class="mr-1.5 h-5 w-5 flex-shrink-0"></x-heroicon-o-tag>
-				{{ $brand->category->name }}
-			</div>
-		</div>
-	</x-slot:header>
+	<x-header>
+		<x-slot:title>{{ $brand->name }}</x-slot:title>
+		<x-slot:subtitle>
+			<x-heroicon-o-tag class="mr-1.5 h-5 w-5 flex-shrink-0"></x-heroicon-o-tag>
+			{{ $brand->category->name }}
+		</x-slot:subtitle>
+		<x-slot:actions>
+			<x-primary-button
+					wire:click="$emit('openModal', 'admin.pages.brands.edit', {{ json_encode(['brand' => $brand->id]) }})">
+				Modifica
+			</x-primary-button>
+		</x-slot:actions>
+	</x-header>
 	<div class="overflow-hidden bg-white shadow sm:rounded-md">
 		<div class="p-4 sm:p-6 lg:p-8">
 			<div class="sm:flex sm:items-center sm:justify-between">
@@ -46,7 +48,8 @@
 											      class="font-semibold">{{ $coupon->created_at->format('d-m-Y H:i:s') }}</time>
 										</p>
 										<div class="flex items-center mt-2 text-sm text-gray-500">
-											<x-heroicon-o-clock class="mr-1.5 h-5 w-5 flex-shrink-0"></x-heroicon-o-clock>
+											<x-heroicon-o-clock
+													class="mr-1.5 h-5 w-5 flex-shrink-0"></x-heroicon-o-clock>
 											<span class="font-semibold">{{ $coupon->expires_date ? $coupon->expires_date->format('d-m-Y') : 'Nessuna scadenza' }}</span>
 										</div>
 									</div>

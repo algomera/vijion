@@ -1,9 +1,7 @@
 <div>
-	<x-slot:header>
-		<div class="min-w-0 flex-1">
-			<h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-				{{ $user->fullName }}
-			</h2>
+	<x-header>
+		<x-slot:title>{{ $user->fullName }}</x-slot:title>
+		<x-slot:subtitle>
 			<div class="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
 				<div class="mt-2 flex items-center text-sm text-gray-500">
 					<x-heroicon-o-envelope class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"></x-heroicon-o-envelope>
@@ -14,8 +12,8 @@
 					{{ $user->coins }} VIJI-COINS
 				</div>
 			</div>
-		</div>
-	</x-slot:header>
+		</x-slot:subtitle>
+	</x-header>
 	<div class="overflow-hidden bg-white shadow sm:rounded-md">
 		<div class="p-4 sm:p-6 lg:p-8">
 			<div class="sm:flex sm:items-center sm:justify-between">

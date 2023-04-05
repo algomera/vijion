@@ -14,6 +14,10 @@
 		public Brand $brand;
 		public $search;
 
+		protected $listeners = [
+			'brand-updated' => '$refresh'
+		];
+
 		public function show($uuid) {
 			$coupon = Coupon::where('uuid', $uuid)->first();
 			return redirect()->route('coupons.show', [

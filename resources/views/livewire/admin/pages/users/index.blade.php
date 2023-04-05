@@ -1,9 +1,7 @@
 <div>
-	<x-slot:header>
-		<h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-			Utenti
-		</h2>
-	</x-slot:header>
+	<x-header>
+		<x-slot:title>Utenti</x-slot:title>
+	</x-header>
 	<div class="bg-white">
 		<div class="p-4 sm:p-6 lg:p-8">
 			<div class="sm:flex sm:items-center sm:justify-between">

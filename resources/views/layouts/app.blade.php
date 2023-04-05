@@ -193,12 +193,6 @@
                         {{--				</nav>--}}
                         {{--			</div>--}}
                         <div>
-                            <!-- Page Heading -->
-                            @if (isset($header))
-                                <div class="px-4 py-8">
-                                    <h1 class="text-2xl font-semibold text-gray-900">{{ $header }}</h1>
-                                </div>
-                            @endif
                             <div class="px-4 pb-6 {{ !isset($header) ? 'pt-4' : '' }}">
                                 <div>
                                     {{ $slot }}

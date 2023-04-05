@@ -1,11 +1,7 @@
 <div>
-	<x-slot:header>
-		<div class="min-w-0 flex-1">
-			<h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-				Categorie
-			</h2>
-		</div>
-	</x-slot:header>
+	<x-header>
+		<x-slot:title>Categorie</x-slot:title>
+	</x-header>
 	<div class="overflow-hidden bg-white shadow sm:rounded-md">
 		<div class="p-4 sm:p-6 lg:p-8">
 			<div class="sm:flex sm:items-center sm:justify-between">
