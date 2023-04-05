@@ -70,7 +70,7 @@
 												<a href="{{ route('users.show', $code->purchase->user->id) }}"
 												   class="font-semibold hover:underline">{{ $code->purchase->user->fullName }}</a>
 												il
-												<span class="font-semibold">{{ $code->purchase->purchased_at->format('d-m-Y') }}</span>
+												<span class="font-semibold">{{ $code->purchase->purchased_at->format('d-m-Y H:i:s') }}</span>
 											</p>
 										@endif
 									</div>

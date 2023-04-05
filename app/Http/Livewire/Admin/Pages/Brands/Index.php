@@ -20,7 +20,7 @@
 				})->orWhere('name', 'like', '%' . $this->search . '%');
 			}
 			return view('livewire.admin.pages.brands.index', [
-				'brands' => $brands->paginate(25)
+				'brands' => $brands->orderBy('name')->paginate(25)
 			]);
 		}
 	}
