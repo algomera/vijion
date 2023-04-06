@@ -26,8 +26,8 @@
 
 		protected function rules() {
 			return [
-				'amount'       => 'required|min:1',
-				'coins'        => 'required|min:1',
+				'amount'       => 'required|numeric|min:1',
+				'coins'        => 'required|numeric|min:1',
 				'type'         => 'required|in:percentage,cash',
 				'bg'           => $this->bg ? 'image|max:1024' : 'nullable',
 				'text_color'   => 'required|in:text-white,text-gray-800',
