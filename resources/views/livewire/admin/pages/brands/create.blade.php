@@ -6,10 +6,10 @@
 
             <div class="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="col-span-full">
-                    <x-input wire:model="name" type="text" name="name" label="Nome"></x-input>
+                    <x-input wire:model.defer="name" type="text" name="name" label="Nome"></x-input>
                 </div>
                 <div class="col-span-full">
-                    <x-select wire:model="category" name="category" label="Categoria">
+                    <x-select wire:model.defer="category" name="category" label="Categoria">
                         <option value="null" selected disabled>Seleziona</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -32,7 +32,7 @@
                             <div class="mt-4 flex text-sm leading-6 text-gray-600">
                                 <label for="logo" class="mx-auto relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                     <span>Carica un logo</span>
-                                    <input wire:model="logo" id="logo" name="logo" type="file" class="sr-only">
+                                    <input wire:model.defer="logo" id="logo" name="logo" type="file" class="sr-only">
                                 </label>
                             </div>
                             <p class="text-xs leading-5 text-gray-600">PNG, JPG fino a 10MB</p>

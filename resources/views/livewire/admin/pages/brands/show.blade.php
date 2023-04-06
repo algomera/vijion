@@ -20,7 +20,7 @@
 					         placeholder="Cerca.."></x-input>
 				</div>
 				<div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-					<x-primary-button>Nuovo Coupon</x-primary-button>
+					<x-primary-button wire:click="$emit('openModal', 'admin.pages.brands.create-coupon', {{ json_encode(['brand' => $brand->id]) }})">Nuovo Coupon</x-primary-button>
 				</div>
 			</div>
 		</div>
@@ -30,11 +30,11 @@
 					<div class="block hover:bg-gray-50 hover:cursor-pointer">
 						<div class="flex items-center px-4 py-4 sm:px-6">
 							<div class="flex min-w-0 flex-1 items-center">
-								<div class="flex-shrink-0">
-									@if($coupon->bg)
-										<img class="w-14 aspect-square" src="{{ $coupon->bg }}">
+								<div class="relative w-14 aspect-square">
+									@if(!$coupon->bg)
+										<img class="w-full object-cover aspect-square" src="{{ $coupon->brand->category->image_path }}">
 									@else
-										<div class="w-14 aspect-square bg-gray-300"></div>
+										<img class="w-full object-cover aspect-square" src="{{ asset($coupon->bg) }}">
 									@endif
 								</div>
 								<div class="min-w-0 flex-1 px-8 md:grid md:grid-cols-2 md:gap-4">

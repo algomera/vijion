@@ -18,7 +18,7 @@
 	use Illuminate\Support\Facades\Route;
 
 	// User Guest
-	Route::get('/', SettingsHomepage::class)->name('home');
+	Route::get('/', \App\Http\Livewire\Pages\Homepage::class)->name('home');
 	Route::get('/coupon/{coupon:uuid}', Coupon::class)->name('coupon');
 	Route::get('/cart', Cart::class)->name('cart');
 	Route::get('/category/{category:slug}', Category::class)->name('category');

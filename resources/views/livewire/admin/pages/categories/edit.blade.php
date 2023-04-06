@@ -15,7 +15,7 @@
 							<label for="new_image"
 							       class="relative cursor-pointer rounded-md bg-white font-semibold text-sm text-brand-purple focus-within:outline-none focus-within:ring-2 focus-within:ring-brand-purple focus-within:ring-offset-2 hover:text-brand-purple-light">
 								<span>Sostituisci</span>
-								<input wire:model="new_image" id="new_image" name="new_image" type="file"
+								<input wire:model.defer="new_image" id="new_image" name="new_image" type="file"
 								       class="sr-only">
 							</label>
 						@endif

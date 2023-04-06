@@ -21,15 +21,15 @@
 		<form wire:submit.prevent="{{$currentTab}}" class="w-full space-y-4">
 			@if($currentTab === 'register')
 				<div class="grid grid-cols-2 gap-4">
-					<x-input wire:model="first_name" type="text" name="first_name" label="Nome"></x-input>
-					<x-input wire:model="last_name" type="text" name="last_name" label="Cognome"></x-input>
+					<x-input wire:model.defer="first_name" type="text" name="first_name" label="Nome"></x-input>
+					<x-input wire:model.defer="last_name" type="text" name="last_name" label="Cognome"></x-input>
 				</div>
 			@endif
 			<x-input wire:model="email" type="text" name="email" label="Email"></x-input>
 			<div class="grid {{ $currentTab === 'register' ? 'grid-cols-2' : 'grid-cols-1' }} gap-4">
 				<x-input wire:model="password" type="password" name="password" label="Password"></x-input>
 				@if($currentTab === 'register')
-					<x-input wire:model="password_confirmation" type="password" name="password_confirmation"
+					<x-input wire:model.defer="password_confirmation" type="password" name="password_confirmation"
 					         label="Conferma password"></x-input>
 				@endif
 			</div>

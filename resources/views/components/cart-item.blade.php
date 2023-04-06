@@ -3,7 +3,8 @@
 	<x-heroicon-o-x-mark x-on:click="Livewire.emit('removeFromCart', {{ $coupon->id }})" class="w-6 h-6 text-gray-300 cursor-pointer flex-shrink-0 hover:text-gray-500" />
 	<div class="relative w-32 aspect-square">
 		@if(!$coupon->bg)
-			<div class="inset-0 aspect-square w-full h-full bg-gray-300"></div>
+			<img src="{{ $coupon->brand->category->image_path }}"
+			     alt="{{ $coupon->brand->name }}" class="aspect-square w-full object-cover">
 		@else
 			<img src="{{ $coupon->bg }}"
 			     alt="{{ $coupon->brand->name }}" class="aspect-square w-full object-cover">

@@ -23,7 +23,7 @@
 							<label for="new_logo"
 							       class="relative cursor-pointer rounded-md bg-white font-semibold text-sm text-brand-purple focus-within:outline-none focus-within:ring-2 focus-within:ring-brand-purple focus-within:ring-offset-2 hover:text-brand-purple-light">
 								<span>Sostituisci</span>
-								<input wire:model="new_logo" id="new_logo" name="new_logo" type="file"
+								<input wire:model.defer="new_logo" id="new_logo" name="new_logo" type="file"
 								       class="sr-only">
 							</label>
 						@endif

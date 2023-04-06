@@ -15,7 +15,8 @@
 		public $search;
 
 		protected $listeners = [
-			'brand-updated' => '$refresh'
+			'brand-updated' => '$refresh',
+			'coupon-created' => '$refresh'
 		];
 
 		public function show($uuid) {
@@ -34,7 +35,7 @@
 				$coupons->where('uuid', 'like', '%' . $this->search . '%');
 			}
 			return view('livewire.admin.pages.brands.show', [
-				'coupons' => $coupons->paginate(25)
+				'coupons' => $coupons->latest()->paginate(25)
 			]);
 		}
 	}

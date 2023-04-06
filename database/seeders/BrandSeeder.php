@@ -47,7 +47,7 @@
 				Rules::factory(fake()->numberBetween(1, 4))->create([
 					'brand_id' => $brand->id,
 				]);
-				Coupon::factory()->create([
+				Coupon::factory(1)->create([
 					'brand_id' => $brand->id
 				])->each(function ($c) {
 					CouponCode::factory(5)->create([

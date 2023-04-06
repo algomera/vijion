@@ -39,9 +39,9 @@
 					<div class="flex-1 pb-0">
 						<div class="relative w-full h-full">
 							@if(!$coupon->bg)
-								<div class="inset-0 aspect-video w-full h-full bg-gray-300"></div>
+								<img src="{{ $coupon->brand->category->image_path }}" alt="" class="aspect-video w-full object-cover">
 							@else
-								<img src="{{ $coupon->bg }}" alt="" class="aspect-video w-full object-cover">
+								<img src="{{ asset($coupon->bg) }}" alt="" class="aspect-video w-full object-cover">
 							@endif
 							<div class="absolute inset-0 grid place-items-center {{ $coupon->text_color }}">
 								<div class="flex flex-col justify-center items-center bg-white w-32 h-32 rounded-full sm:w-44 sm:h-44">

@@ -4,7 +4,7 @@
 	<div class="flex-1 p-1.5 pb-0">
 		<div class="relative w-full h-full">
 			@if(!$coupon->bg)
-				<div class="inset-0 aspect-video w-full h-full bg-gray-300"></div>
+				<img src="{{ $coupon->brand->category->image_path }}" alt="" class="aspect-video w-full object-cover">
 			@else
 				<img src="{{ $coupon->bg }}" alt="" class="aspect-video w-full object-cover">
 			@endif
