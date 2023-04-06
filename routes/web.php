@@ -13,12 +13,12 @@
 	use App\Http\Livewire\Pages\Cart;
 	use App\Http\Livewire\Pages\Category;
 	use App\Http\Livewire\Pages\Coupon;
-	use App\Http\Livewire\Pages\Homepage;
+	use App\Http\Livewire\Admin\Pages\Settings\Homepage as SettingsHomepage;
 	use App\Http\Livewire\Pages\Wallet;
 	use Illuminate\Support\Facades\Route;
 
 	// User Guest
-	Route::get('/', Homepage::class)->name('home');
+	Route::get('/', SettingsHomepage::class)->name('home');
 	Route::get('/coupon/{coupon:uuid}', Coupon::class)->name('coupon');
 	Route::get('/cart', Cart::class)->name('cart');
 	Route::get('/category/{category:slug}', Category::class)->name('category');
@@ -41,10 +41,13 @@
 			'destroy'
 		])->name('profile.destroy');
 	});
-
 	// Administrator
-	Route::middleware(['auth', 'role:admin'])->group(function () {
+	Route::middleware([
+		'auth',
+		'role:admin'
+	])->group(function () {
 		Route::get('/dashboard', Dashboard::class)->name('dashboard');
+		Route::get('/settings/homepage', SettingsHomepage::class)->name('settings.homepage');
 		Route::get('/users', UsersIndex::class)->name('users.index');
 		Route::get('/users/{user}', UsersShow::class)->name('users.show');
 		Route::get('/categories', CategoriesIndex::class)->name('categories.index');

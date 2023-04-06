@@ -32,14 +32,29 @@
 					class="{{ request()->is('videos*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-video-camera>
 			Video
 		</a>
-{{--		<div class="ml-5">--}}
-{{--			<a href="#"--}}
-{{--			   class="{{ request()->is('') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">--}}
-{{--				<x-heroicon-o-archive-box--}}
-{{--						class="{{ request()->is('') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-archive-box>--}}
-{{--				Item--}}
-{{--			</a>--}}
-{{--		</div>--}}
+		<h3 class="!mt-3 px-3 text-sm font-medium text-gray-500">Impostazioni</h3>
+		<a href="{{ route('settings.homepage') }}"
+		   class="{{ request()->is('settings*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+			<svg xmlns="http://www.w3.org/2000/svg"
+			     class="{{ request()->is('settings*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"
+			     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+			     stroke-linecap="round" stroke-linejoin="round">
+				<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+				<path d="M4 4m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+				<path d="M4 13m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+				<path d="M14 4m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+				<path d="M14 15m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+			</svg>
+			Homepage
+		</a>
+		{{--		<div class="ml-5">--}}
+		{{--			<a href="#"--}}
+		{{--			   class="{{ request()->is('') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">--}}
+		{{--				<x-heroicon-o-archive-box--}}
+		{{--						class="{{ request()->is('') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-archive-box>--}}
+		{{--				Item--}}
+		{{--			</a>--}}
+		{{--		</div>--}}
 	</div>
 {{--	<div>--}}
 {{--		<a href="#"--}}
