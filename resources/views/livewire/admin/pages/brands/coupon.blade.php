@@ -55,6 +55,34 @@
 					<x-input type="text" wire:model.debouce.500ms="search" wire:keydown.escape="$set('search', '')"
 					         placeholder="Cerca.."></x-input>
 				</div>
+				<div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+					@if($coupon_codes_file)
+						<x-primary-button type="button"
+						                  wire:click="couponCodesImport"
+						                  class="!py-3 !px-7 !bg-green-600 hover:!bg-green-700 focus:ring-green-500">
+							<x-heroicon-o-cloud-arrow-up class="w-5 h-5 text-white"></x-heroicon-o-cloud-arrow-up>
+						</x-primary-button>
+					@else
+						<label class="inline-flex justify-center items-center rounded-md py-3 px-7 transition duration-300 @if($coupon_codes_file) bg-green-600 hover:bg-green-700 focus:ring-green-500 @else bg-brand-purple hover:bg-brand-purple-light focus:ring-brand-purple @endif hover:cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-purple disabled:cursor-not-allowed disabled:opacity-25">
+							<input wire:model="coupon_codes_file"
+							       type="file" name="coupon_codes_file"
+							       id="coupon_codes_file"
+							       class="sr-only"/>
+							<x-heroicon-o-cloud-arrow-up wire:loading.remove
+							                             wire:target="coupon_codes_file"
+							                             class="w-5 h-5 text-white"></x-heroicon-o-cloud-arrow-up>
+							<svg wire:loading
+							     wire:target="coupon_codes_file" class="animate-spin w-5 h-5 text-white"
+							     xmlns="http://www.w3.org/2000/svg"
+							     fill="none" viewBox="0 0 24 24">
+								<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+								        stroke-width="4"></circle>
+								<path class="opacity-75" fill="currentColor"
+								      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+							</svg>
+						</label>
+					@endif
+				</div>
 			</div>
 		</div>
 		<ul role="list" class="divide-y divide-gray-200">
