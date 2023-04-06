@@ -27,7 +27,7 @@
 					<x-input-label for="text_color">Colore</x-input-label>
 					<fieldset class="mt-2">
 						<div class="flex items-center space-x-3">
-							<label wire:click="$set('text_color', 'text-white')"
+							<label wire:click="$set('coupon.text_color', 'text-white')"
 							       class="{{ $coupon->text_color === 'text-white' ? 'ring ring-offset-1' : '' }} relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-brand-light">
 								<input type="radio" name="coupon.color-choice" value="White" class="sr-only"
 								       aria-labelledby="color-choice-0-label">
