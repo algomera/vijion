@@ -5,7 +5,7 @@
 			@if(!$bg)
 				<img src="{{ $brand->category->image_path }}" alt="" class="aspect-video w-full object-cover">
 			@else
-				<img src="{{ $bg }}" alt="" class="aspect-video w-full object-cover">
+				<img src="{{ asset($bg) }}" alt="" class="aspect-video w-full object-cover">
 			@endif
 			<div class="absolute inset-0 grid place-items-center {{ $text_color }}">
 				<div class="flex flex-col items-center text-sm">

@@ -13,6 +13,10 @@
 		public $search;
 		public $active = true;
 
+		protected $listeners = [
+			'coupon-updated' => '$refresh'
+		];
+
 		public function render() {
 			$codes = $this->coupon->codes()->active($this->active);
 			if ($this->search) {

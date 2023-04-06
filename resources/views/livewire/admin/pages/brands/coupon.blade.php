@@ -29,6 +29,12 @@
 				</div>
 			</div>
 		</x-slot:subtitle>
+		<x-slot:actions>
+			<x-primary-button
+					wire:click="$emit('openModal', 'admin.pages.brands.edit-coupon', {{ json_encode(['coupon' => $coupon->id]) }})">
+				Modifica
+			</x-primary-button>
+		</x-slot:actions>
 	</x-header>
 	<div class="mb-5">
 		<div class="block">
