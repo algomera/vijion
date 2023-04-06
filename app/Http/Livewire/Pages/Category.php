@@ -11,7 +11,9 @@
 
 		public function render() {
 			return view('livewire.pages.category', [
-				'brands' => Brand::whereHas('coupons')->where('category_id', $this->category->id)->get()
+				'brands' => Brand::whereHas('coupons', function($coupons) {
+					$coupons->available();
+				})->where('category_id', $this->category->id)->get()
 			])->layout('layouts.guest');
 		}
 	}

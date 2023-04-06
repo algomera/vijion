@@ -3,6 +3,8 @@
 	namespace Database\Seeders;
 
 	use App\Models\Brand;
+	use App\Models\Coupon;
+	use App\Models\CouponCode;
 	use App\Models\Rules;
 	use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 	use Illuminate\Database\Seeder;
@@ -45,6 +47,13 @@
 				Rules::factory(fake()->numberBetween(1, 4))->create([
 					'brand_id' => $brand->id,
 				]);
+				Coupon::factory()->create([
+					'brand_id' => $brand->id
+				])->each(function ($c) {
+					CouponCode::factory(5)->create([
+						'coupon_id' => $c->id,
+					]);
+				});
 			}
 		}
 	}

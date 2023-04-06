@@ -23,8 +23,12 @@
 
 		public function render() {
 			return view('livewire.header', [
-				'categories' => Category::whereHas('brands.coupons')->get()->take(6),
-				'brands'     => Brand::whereHas('coupons')->get()->take(6),
+				'categories' => Category::whereHas('brands.coupons', function($coupons) {
+					$coupons->available();
+				})->get()->take(6),
+				'brands'     => Brand::whereHas('coupons', function($coupons) {
+					$coupons->available();
+				})->get()->take(6),
 			]);
 		}
 	}

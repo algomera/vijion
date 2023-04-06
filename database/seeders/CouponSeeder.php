@@ -13,10 +13,10 @@
 		 * Run the database seeds.
 		 */
 		public function run(): void {
-        Coupon::factory(10)->create()->each(function ($c) {
-	        CouponCode::factory(5)->create([
-		        'coupon_id' => $c->id,
-	        ]);
-        });
-    }
+			Coupon::factory(10)->create()->each(function ($c) {
+				CouponCode::factory(5)->create([
+					'coupon_id' => $c->id,
+				]);
+			});
+		}
 	}

@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
 			UserSeeder::class,
 			CategorySeeder::class,
 			BrandSeeder::class,
-			CouponSeeder::class,
+//			CouponSeeder::class,
 			PurchaseSeeder::class,
 			HeroSlideSeeder::class,
-			VideoSeeder::class,
+//			VideoSeeder::class,
 		]);
     }
 }
