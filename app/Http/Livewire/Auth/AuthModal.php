@@ -20,10 +20,7 @@
 			'register' => 'registrati'
 		];
 		public $currentTab = 'login';
-		//		protected $rules = [
-		//			'email'    => 'required|email',
-		//			'password' => 'required',
-		//		];
+
 		public static function modalMaxWidth(): string {
 			return 'xl';
 		}
@@ -44,6 +41,9 @@
 				'email'    => $this->email,
 				'password' => $this->password
 			])) {
+				if (auth()->user()->getRoleNames()->first() === 'admin') {
+					return redirect()->route('dashboard');
+				}
 				$this->closeModalWithEvents(['user-status-updated']);
 			} else {
 				session()->flash('error', 'Credenziali errate');
@@ -70,7 +70,7 @@
 			$this->dispatchBrowserEvent('open-notification', [
 				'title'    => __('Benvenuto ' . $user->first_name),
 				'subtitle' => __('Grazie per esserti iscritto a VIJI-STORE'),
-				'type' => 'success',
+				'type'     => 'success',
 			]);
 		}
 
