@@ -7,10 +7,10 @@
 
 			<div class="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 				<div class="col-span-full sm:col-span-3">
-					<x-input wire:model.debounce.500ms="amount" type="text" name="amount" label="Valore"></x-input>
+					<x-input wire:model.debounce.500ms="amount" type="number" name="amount" label="Valore"></x-input>
 				</div>
 				<div class="col-span-full sm:col-span-3">
-					<x-input wire:model.debounce.500ms="coins" type="text" name="coins" label="VIJI-COINS"></x-input>
+					<x-input wire:model.debounce.500ms="coins" type="number" step="1" name="coins" label="VIJI-COINS"></x-input>
 				</div>
 				<div class="col-span-full sm:col-span-3">
 					<x-input wire:model.debounce.500ms="expires_date" type="date" name="expires_date"
