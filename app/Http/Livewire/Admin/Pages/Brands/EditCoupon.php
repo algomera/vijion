@@ -25,12 +25,18 @@
 				'coupon.bg'           => 'nullable',
 				'coupon.type'         => 'required|in:percentage,cash',
 				'coupon.text_color'   => 'required|in:text-white,text-gray-800',
-				'coupon.expires_date' => 'nullable|date|after:tomorrow'
+				'coupon.expires_date' => $this->coupon->expires_date === null ? 'nullable' : 'date|after:tomorrow'
 			];
 		}
 
 		public function mount(\App\Models\Coupon $coupon) {
 			$this->coupon = $coupon;
+		}
+
+		public function updatedCouponExpiresDate($val) {
+			if(!$val) {
+				$this->coupon->expires_date = null;
+			}
 		}
 
 		public function save() {

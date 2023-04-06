@@ -13,7 +13,7 @@
 				</div>
 				<div class="col-span-full sm:col-span-3">
 					<x-input wire:model.debounce.500ms="coupon.expires_date" type="date" name="coupon.expires_date"
-					         min="{{ \Carbon\Carbon::now()->addDay()->format('Y-m-d') }}"
+					         min="{{ \Carbon\Carbon::now()->addDay()->toDateString() }}"
 					         label="Data di scadenza"></x-input>
 				</div>
 				<div class="col-span-full sm:col-span-3">

@@ -11,7 +11,7 @@
 		use HasFactory;
 
 		protected $casts = [
-			'expires_date' => 'date'
+			'expires_date' => 'date:Y-m-d',
 		];
 
 		public function scopeAvailable(Builder $query) {
