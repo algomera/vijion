@@ -44,9 +44,13 @@
 					'slug'      => Str::slug($name),
 					'logo_path' => asset('images/brands/' . Str::slug($name) . '.png', true)
 				]);
-				Rules::factory(fake()->numberBetween(1, 4))->create([
-					'brand_id' => $brand->id,
-				]);
+				$rules = fake()->numberBetween(1, 4);
+				for ($i = 0; $i < $rules; $i++) {
+					Rules::factory()->create([
+						'brand_id' => $brand->id,
+						'order'    => $i,
+					]);
+				}
 				Coupon::factory(1)->create([
 					'brand_id' => $brand->id
 				])->each(function ($c) {

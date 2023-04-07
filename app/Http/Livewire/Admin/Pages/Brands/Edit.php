@@ -26,11 +26,13 @@
 
 		public function mount(Brand $brand) {
 			$this->brand = $brand;
-			$this->brand_rules = $brand->rules;
 		}
 
 		public function addBrandRule() {
-			$this->brand_rules[] = new Rules();
+			$this->brand_rules[] = $this->brand->rules()->create([
+				'body' => '',
+				'order' => $this->brand->rules()->count() === 0 ? 0 : $this->brand->rules()->count()
+			]);
 		}
 
 		public function removeBrandRule($index) {
@@ -38,7 +40,13 @@
 			unset($this->brand_rules[$index]);
 			$brand_rule->delete();
 		}
-
+		public function sortBrandRulesOrder($sortOrder, $previousSortOrder, $name, $from, $to) {
+			foreach ($sortOrder as $index => $id) {
+				$this->brand->rules()->where('id', $id)->update([
+					'order' => $index
+				]);
+			}
+		}
 		public function save() {
 			$this->validate();
 			if ($this->new_logo) {
@@ -56,7 +64,7 @@
 			]);
 			foreach ($this->brand_rules as $brand_rule) {
 				$this->brand->rules()->updateOrCreate(['id' => $brand_rule->id], [
-					'body' => $brand_rule->body
+					'body' => $brand_rule->body,
 				]);
 			}
 			$this->closeModal();
@@ -64,6 +72,7 @@
 		}
 
 		public function render() {
+			$this->brand_rules = $this->brand->rules()->orderBy('order')->get();
 			return view('livewire.admin.pages.brands.edit', [
 				'categories' => Category::all(),
 			]);
