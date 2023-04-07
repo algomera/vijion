@@ -55,7 +55,9 @@
 				'logo_path' => $this->new_logo ? $logo_path : $this->brand->logo_path
 			]);
 			foreach ($this->brand_rules as $brand_rule) {
-				$brand_rule->update();
+				$this->brand->rules()->updateOrCreate(['id' => $brand_rule->id], [
+					'body' => $brand_rule->body
+				]);
 			}
 			$this->closeModal();
 			$this->emit('brand-updated');

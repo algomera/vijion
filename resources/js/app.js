@@ -11,6 +11,8 @@ Alpine.plugin(persist)
 import tippy from "tippy.js";
 import 'tippy.js/dist/tippy.css';
 
+import 'livewire-sortable';
+
 window.Alpine = Alpine;
 document.addEventListener('alpine:init', () => {
     Alpine.directive('tooltip', (el, {expression}) => {
