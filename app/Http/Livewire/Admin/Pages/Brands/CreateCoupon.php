@@ -47,6 +47,9 @@
 				$ext = substr(strrchr($filename, '.'), 1);
 				$bg_path = Storage::disk('public')->putFileAs('coupons', $this->bg, Str::slug($uuid) . '.' . $ext);
 			}
+			$this->brand->coupons()->where('active', 1)->update([
+				'active' => 0
+			]);
 			$this->brand->coupons()->create([
 				'uuid'         => $uuid,
 				'amount'       => $this->amount,

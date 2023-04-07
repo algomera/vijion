@@ -15,7 +15,7 @@
 		];
 
 		public function scopeAvailable(Builder $query) {
-			$query->whereDate('expires_date', '>', now())->orWhere('expires_date', null);
+			$query->where('active', 1)->whereDate('expires_date', '>', now())->orWhere('expires_date', null);
 		}
 		public function brand() {
 			return $this->belongsTo(Brand::class);

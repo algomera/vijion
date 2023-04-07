@@ -41,16 +41,23 @@
 									<div class="flex items-center">
 										<p class="truncate text-sm font-bold text-gray-800">{{ $coupon->uuid }}</p>
 									</div>
-									<div>
+									<div class="mt-1">
 										<p class="text-sm text-gray-900">
 											Creato il
 											<time datetime="{{ $coupon->created_at->format('Y-m-d') }}"
 											      class="font-semibold">{{ $coupon->created_at->format('d-m-Y H:i:s') }}</time>
 										</p>
-										<div class="flex items-center mt-2 text-sm text-gray-500">
+										<div class="flex items-center mt-1 text-sm text-gray-500">
 											<x-heroicon-o-clock
 													class="mr-1.5 h-5 w-5 flex-shrink-0"></x-heroicon-o-clock>
 											<span class="font-semibold">{{ $coupon->expires_date ? $coupon->expires_date->format('d-m-Y') : 'Nessuna scadenza' }}</span>
+										</div>
+										<div class="mt-2">
+											@if($coupon->active)
+												<span class="inline-flex items-center rounded-full bg-green-200 px-2.5 py-0.5 text-xs font-semibold tracking-wide text-green-800">Attivo</span>
+											@else
+												<span class="inline-flex items-center rounded-full bg-red-200 px-2.5 py-0.5 text-xs font-semibold tracking-wide text-red-800">Disattivo</span>
+											@endif
 										</div>
 									</div>
 								</div>
