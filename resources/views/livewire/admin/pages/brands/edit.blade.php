@@ -30,15 +30,39 @@
 					</div>
 					@if($new_logo)
 						<div class="mt-2 flex justify-center rounded-lg border border-dashed {{ $errors->has('new_logo') ? 'border-red-500' : 'border-gray-900/25' }} p-2">
-							<img src="{{ $new_logo->temporaryUrl() }}" class="max-h-16 w-full object-contain">
+							<img src="{{ $new_logo->temporaryUrl() }}" class="max-h-32 w-full object-contain">
 						</div>
 						<x-input-error :messages="$errors->get('new_logo')"></x-input-error>
 					@elseif($brand->logo_path)
 						<div class="mt-2 flex justify-center rounded-lg border border-dashed {{ $errors->has('brand.logo_path') ? 'border-red-500' : 'border-gray-900/25' }} p-2">
-							<img src="{{ asset($brand->logo_path) }}" class="max-h-16 w-full object-contain">
+							<img src="{{ asset($brand->logo_path) }}" class="max-h-32 w-full object-contain">
 						</div>
 						<x-input-error :messages="$errors->get('brand.logo_path')"></x-input-error>
 					@endif
+				</div>
+				<div class="col-span-full">
+					<div class="flex items-center justify-between">
+						<x-input-label>Regole</x-input-label>
+						<span wire:click="addBrandRule"
+						      class="text-sm font-medium text-brand-purple hover:text-brand-purple-light hover:cursor-pointer">Aggiungi</span>
+					</div>
+					<div class="space-y-2 mt-3">
+						@foreach($brand_rules as $k => $rule)
+							<div wire:key="{{$k}}">
+								<div class="flex items-center space-x-3">
+									<div class="p-2 rounded-md hover:bg-gray-100 hover:cursor-pointer @error('brand_rules.' . $k . '.body') transform -translate-y-[0.8rem] @enderror">
+										<x-heroicon-o-bars-2 class="w-4 h-4 text-gray-400"></x-heroicon-o-bars-2>
+									</div>
+									<div class="w-full">
+										<x-input wire:model="brand_rules.{{$k}}.body" type="text" class="flex-1"></x-input>
+									</div>
+									<div wire:click="removeBrandRule({{$k}})" class="p-2 rounded-md hover:bg-red-100 hover:cursor-pointer @error('brand_rules.' . $k . '.body') transform -translate-y-[0.8rem] @enderror">
+										<x-heroicon-o-trash class="w-4 h-4 text-red-500"></x-heroicon-o-trash>
+									</div>
+								</div>
+							</div>
+						@endforeach
+					</div>
 				</div>
 			</div>
 		</div>

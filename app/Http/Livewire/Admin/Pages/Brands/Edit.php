@@ -4,6 +4,7 @@
 
 	use App\Models\Brand;
 	use App\Models\Category;
+	use App\Models\Rules;
 	use Illuminate\Support\Facades\Storage;
 	use Illuminate\Support\Str;
 	use Livewire\WithFileUploads;
@@ -15,7 +16,9 @@
 
 		public $brand;
 		public $new_logo;
+		public $brand_rules = [];
 		protected $rules = [
+			'brand_rules.*.body' => 'required',
 			'brand.name'        => 'required',
 			'brand.logo_path'   => 'required|string',
 			'brand.category_id' => 'required'
@@ -23,6 +26,17 @@
 
 		public function mount(Brand $brand) {
 			$this->brand = $brand;
+			$this->brand_rules = $brand->rules;
+		}
+
+		public function addBrandRule() {
+			$this->brand_rules[] = new Rules();
+		}
+
+		public function removeBrandRule($index) {
+			$brand_rule = $this->brand_rules[$index];
+			unset($this->brand_rules[$index]);
+			$brand_rule->delete();
 		}
 
 		public function save() {
@@ -40,6 +54,9 @@
 				'slug'      => Str::slug($this->brand->name),
 				'logo_path' => $this->new_logo ? $logo_path : $this->brand->logo_path
 			]);
+			foreach ($this->brand_rules as $brand_rule) {
+				$brand_rule->update();
+			}
 			$this->closeModal();
 			$this->emit('brand-updated');
 		}
