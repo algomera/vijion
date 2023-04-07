@@ -2,15 +2,17 @@
 	<div class="container py-14">
 		<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
 			<div class="order-2 flex flex-col justify-center space-y-8 w-full lg:max-w-md lg:order-none">
-				<div>
-					<h3 class="text-xl font-bold mb-4">Regole di <span
-								class="uppercase">{{ $coupon->brand->name }}</span></h3>
-					<ul class="list-[circle] space-y-2">
-						@foreach($coupon->brand->rules as $rule)
-							<li>{{ $rule->body }}</li>
-						@endforeach
-					</ul>
-				</div>
+				@if($coupon->brand->rules->count())
+					<div>
+						<h3 class="text-xl font-bold mb-4">Regole di <span
+									class="uppercase">{{ $coupon->brand->name }}</span></h3>
+						<ul class="list-[circle] space-y-2">
+							@foreach($coupon->brand->rules as $rule)
+								<li>{{ $rule->body }}</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif
 				<div>
 					<h3 class="text-xl font-bold mb-4">Come funzionano i <span class="uppercase">VIJI-COINS</span> su
 						<span class="uppercase">{{ $coupon->brand->name }}</span></h3>
@@ -39,7 +41,8 @@
 					<div class="flex-1 pb-0">
 						<div class="relative w-full h-full">
 							@if(!$coupon->bg)
-								<img src="{{ $coupon->brand->category->image_path }}" alt="" class="aspect-video w-full object-cover">
+								<img src="{{ $coupon->brand->category->image_path }}" alt=""
+								     class="aspect-video w-full object-cover">
 							@else
 								<img src="{{ asset($coupon->bg) }}" alt="" class="aspect-video w-full object-cover">
 							@endif
