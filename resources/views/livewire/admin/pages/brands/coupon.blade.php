@@ -96,6 +96,13 @@
 										<p class="truncate text-sm font-bold text-gray-800">{{ $code->code }}</p>
 									</div>
 									<div>
+										@if($code->active)
+											<p class="text-sm text-gray-900">
+												Creato il
+												<time datetime="{{ $code->created_at->format('Y-m-d') }}"
+												      class="font-semibold">{{ $code->created_at->format('d-m-Y H:i:s') }}</time>
+											</p>
+										@endif
 										@if(!$code->active)
 											<p class="text-sm text-gray-900">
 												Acquistato da
