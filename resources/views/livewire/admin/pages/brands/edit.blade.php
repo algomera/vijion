@@ -30,12 +30,12 @@
 					</div>
 					@if($new_logo)
 						<div class="mt-2 flex justify-center rounded-lg border border-dashed {{ $errors->has('new_logo') ? 'border-red-500' : 'border-gray-900/25' }} p-2">
-							<img src="{{ $new_logo->temporaryUrl() }}">
+							<img src="{{ $new_logo->temporaryUrl() }}" class="max-h-16 w-full object-contain">
 						</div>
 						<x-input-error :messages="$errors->get('new_logo')"></x-input-error>
 					@elseif($brand->logo_path)
 						<div class="mt-2 flex justify-center rounded-lg border border-dashed {{ $errors->has('brand.logo_path') ? 'border-red-500' : 'border-gray-900/25' }} p-2">
-							<img src="{{ asset($brand->logo_path) }}">
+							<img src="{{ asset($brand->logo_path) }}" class="max-h-16 w-full object-contain">
 						</div>
 						<x-input-error :messages="$errors->get('brand.logo_path')"></x-input-error>
 					@endif
