@@ -1,8 +1,17 @@
 <form wire:submit.prevent="save" class="p-4">
 	<div class="space-y-10">
 		<div>
-			<h2 class="text-base font-semibold leading-7 text-gray-900">Modifica Coupon</h2>
-			<p class="mt-1 text-sm leading-6 text-gray-600">Modifica il Coupon di "{{ $coupon->brand->name }}"</p>
+			<div class="flex items-center justify-between">
+				<div>
+					<h2 class="text-base font-semibold leading-7 text-gray-900">Modifica Coupon</h2>
+					<p class="mt-1 text-sm leading-6 text-gray-600">Modifica il Coupon di "{{ $coupon->brand->name }}"</p>
+				</div>
+				@if($coupon->active)
+				<x-primary-button wire:click="$toggle('coupon.active')" class="!py-2 !px-2 bg-red-200 text-red-800 hover:bg-red-300">Disattiva</x-primary-button>
+				@else
+					<x-primary-button wire:click="$toggle('coupon.active')" class="!py-2 !px-2 bg-green-200 text-green-800 hover:bg-green-300">Attiva</x-primary-button>
+				@endif
+			</div>
 
 			<div class="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 				<div class="col-span-full sm:col-span-3">

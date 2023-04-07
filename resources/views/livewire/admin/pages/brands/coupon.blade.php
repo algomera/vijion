@@ -1,6 +1,17 @@
 <div>
 	<x-header>
-		<x-slot:title>{{ $coupon->uuid }}</x-slot:title>
+		<x-slot:title>
+			<div class="flex flex-col">
+				<div class="mb-2">
+					@if($coupon->active)
+					<span class="inline-flex items-center rounded-full bg-green-200 px-2.5 py-0.5 text-xs font-semibold tracking-wide text-green-800">Attivo</span>
+					@else
+						<span class="inline-flex items-center rounded-full bg-red-200 px-2.5 py-0.5 text-xs font-semibold tracking-wide text-red-800">Disattivo</span>
+					@endif
+				</div>
+				{{ $coupon->uuid }}
+			</div>
+		</x-slot:title>
 		<x-slot:subtitle>
 			<div class="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
 				<div class="mt-2 flex items-center text-sm text-gray-400">
