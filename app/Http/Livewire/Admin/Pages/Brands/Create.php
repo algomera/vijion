@@ -33,6 +33,15 @@
 			unset($this->brand_rules[$index]);
 		}
 
+		public function sortBrandRulesOrder($sortOrder, $previousSortOrder, $name, $from, $to) {
+//			dd($sortOrder);
+			$old_brand_rules = $this->brand_rules;
+			foreach ($sortOrder as $index => $prev_index) {
+				$old_brand_rules[$index] = $this->brand_rules[$prev_index];
+			}
+			$this->brand_rules = $old_brand_rules;
+		}
+
 		public function create() {
 			$this->validate();
 			$filename = $this->logo->getClientOriginalName();
@@ -44,8 +53,11 @@
 				'logo_path'   => $logo_path,
 				'category_id' => $this->category
 			]);
-			foreach ($this->brand_rules as $brand_rule) {
-				$brand->rules()->create($brand_rule);
+			foreach ($this->brand_rules as $index => $brand_rule) {
+				$brand->rules()->create([
+					'body' => $brand_rule['body'],
+					'order' => $index
+				]);
 			}
 			return redirect()->route('brands.show', $brand->slug);
 		}
