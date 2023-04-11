@@ -1,5 +1,6 @@
 <div>
 	<div class="container">
+		@if($slides->count())
 		<div class="mt-4">
 			<x-slider name="hero-swiper">
 				@foreach($slides as $slide)
@@ -9,6 +10,7 @@
 				@endforeach
 			</x-slider>
 		</div>
+		@endif
 		<section class="pt-8 pb-12">
 			<h3 class="text-center text-3xl font-bold mt-10 mb-6">I nostri brand</h3>
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-9">

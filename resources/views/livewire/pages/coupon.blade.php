@@ -69,7 +69,7 @@
 						</div>
 					</div>
 					<div class="grid items-center grid-cols-1 gap-3 mt-5 sm:grid-cols-2 sm:gap-8">
-						<img src="{{ $coupon->brand->logo_path }}" alt="{{ $coupon->brand->name }}"
+						<img src="{{ asset($coupon->brand->logo_path) }}" alt="{{ $coupon->brand->name }}"
 						     class="py-2 max-h-24 max-w-[200px] mx-auto">
 						<x-primary-button wire:click="addToCart"
 						                  :disabled="auth()->check() && auth()->user()->couponInCart($coupon->id)">

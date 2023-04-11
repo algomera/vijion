@@ -19,7 +19,7 @@
 		public function render() {
 			$users = User::with('roles');
 			if ($this->search) {
-				$users->where('first_name', 'like', '%' . $this->search . '%')->orWhere('last_name', 'like', '%' . $this->search . '%');
+				$users->where('first_name', 'like', '%' . $this->search . '%')->orWhere('last_name', 'like', '%' . $this->search . '%')->orWhere('email', 'like', '%' . $this->search . '%');
 			}
 			return view('livewire.admin.pages.users.index', [
 				'users' => $users->paginate(25)
