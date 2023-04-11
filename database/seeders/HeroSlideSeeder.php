@@ -12,6 +12,11 @@
 		 * Run the database seeds.
 		 */
 		public function run(): void {
-			HeroSlide::factory(3)->create();
+			$slides = fake()->numberBetween(1, 4);
+			for ($i = 0; $i < $slides; $i++) {
+				HeroSlide::factory()->create([
+					'order'    => $i,
+				]);
+			}
 		}
 	}

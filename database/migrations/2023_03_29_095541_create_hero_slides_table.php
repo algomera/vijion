@@ -20,6 +20,8 @@ return new class extends Migration
 	        $table->string('big_centered_text')->nullable();
 	        $table->string('coins_centered_text')->nullable();
 			$table->string('background_url')->nullable();
+	        $table->integer('order');
+			$table->boolean('visible')->default(1);
             $table->timestamps();
         });
     }
