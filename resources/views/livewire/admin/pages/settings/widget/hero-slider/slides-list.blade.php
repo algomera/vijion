@@ -1,7 +1,7 @@
 <div class="bg-white px-4 py-5 sm:px-6">
 	<div class="flex items-center justify-between">
 		<h3 class="text-base font-semibold leading-6 text-gray-900">Hero Slider</h3>
-		<span class="text-sm text-brand-purple font-semibold hover:text-brand-purple-light hover:cursor-pointer hover:underline">Aggiungi</span>
+		<span wire:click="$emit('openModal', 'admin.pages.settings.widget.hero-slider.create-slide')" class="text-sm text-brand-purple font-semibold hover:text-brand-purple-light hover:cursor-pointer hover:underline">Aggiungi</span>
 	</div>
 	<x-laravel-blade-sortable::sortable
 			wire:onSortOrderChange="sortHeroSlidesOrder"

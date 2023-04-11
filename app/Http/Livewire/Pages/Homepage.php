@@ -32,7 +32,7 @@
 					break;
 			}
 			return view('livewire.pages.homepage', [
-				'slides'           => HeroSlide::all()->sortBy('order'),
+				'slides'           => HeroSlide::where('visible', 1)->get()->sortBy('order'),
 				'our_brands'       => Brand::whereHas('coupons')->get()->take(8),
 				'unmissables'      => \App\Models\Coupon::all()->take(8),
 				'week_offers'      => \App\Models\Coupon::all()->take(8),

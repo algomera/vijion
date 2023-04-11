@@ -7,6 +7,10 @@
 
 	class SlidesList extends Component
 	{
+		protected $listeners = [
+			'slide-created' => '$refresh'
+		];
+
 		public function sortHeroSlidesOrder($sortOrder, $previousSortOrder, $name, $from, $to) {
 			foreach ($sortOrder as $index => $id) {
 				HeroSlide::where('id', $id)->update([
