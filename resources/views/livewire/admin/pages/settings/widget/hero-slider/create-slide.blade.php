@@ -50,6 +50,7 @@
 					<div class="border-t border-gray-200 pt-2 text-center">
 						<h3 class="text-base font-bold leading-6 text-gray-900">Anteprima</h3>
 					</div>
+					{{-- TODO: Fix background_url->temporaryUrl() --}}
 					<div class="flex flex-col sm:flex-row sm:items-start gap-4 mt-3">
 						<div class="flex-1">
 							<div class="aspect-video">
