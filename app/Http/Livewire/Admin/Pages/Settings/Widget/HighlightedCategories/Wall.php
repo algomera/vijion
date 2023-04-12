@@ -17,7 +17,29 @@
 			'category-updated' => '$refresh'
 		];
 
+		public function mount() {
+			$this->selected_category_1 = Category::where('highlighted_spot', 1)->first();
+			if($this->selected_category_1) {
+				$this->category_1 = $this->selected_category_1->id;
+			}
+
+			$this->selected_category_2 = Category::where('highlighted_spot', 2)->first();
+			if($this->selected_category_2) {
+				$this->category_2 = $this->selected_category_2->id;
+			}
+
+			$this->selected_category_3 = Category::where('highlighted_spot', 3)->first();
+			if($this->selected_category_3) {
+				$this->category_3 = $this->selected_category_3->id;
+			}
+		}
+
 		public function updatedCategory1($id) {
+			if(!$id) {
+				Category::where('highlighted_spot', 1)->update([
+					'highlighted_spot' => null
+				]);
+			}
 			if ($this->category_2 == $id) {
 				$this->category_2 = null;
 				$this->selected_category_2 = null;
@@ -38,6 +60,11 @@
 		}
 
 		public function updatedCategory2($id) {
+			if(!$id) {
+				Category::where('highlighted_spot', 2)->update([
+					'highlighted_spot' => null
+				]);
+			}
 			if ($this->category_1 == $id) {
 				$this->category_1 = null;
 				$this->selected_category_1 = null;
@@ -58,6 +85,11 @@
 		}
 
 		public function updatedCategory3($id) {
+			if(!$id) {
+				Category::where('highlighted_spot', 3)->update([
+					'highlighted_spot' => null
+				]);
+			}
 			if ($this->category_1 == $id) {
 				$this->category_1 = null;
 				$this->selected_category_1 = null;

@@ -1,15 +1,15 @@
 <div>
 	<div class="container">
 		@if($slides->count())
-		<div class="mt-4">
-			<x-slider name="hero-swiper">
-				@foreach($slides as $slide)
-					<div class="swiper-slide">
-						<x-hero-slide :slide="$slide"></x-hero-slide>
-					</div>
-				@endforeach
-			</x-slider>
-		</div>
+			<div class="mt-4">
+				<x-slider name="hero-swiper">
+					@foreach($slides as $slide)
+						<div class="swiper-slide">
+							<x-hero-slide :slide="$slide"></x-hero-slide>
+						</div>
+					@endforeach
+				</x-slider>
+			</div>
 		@endif
 		<section class="pt-8 pb-12">
 			<h3 class="text-center text-3xl font-bold mt-10 mb-6">I nostri brand</h3>
@@ -51,13 +51,15 @@
 		</section>
 		<section class="my-8">
 			<div class="grid grid-cols-2 gap-8">
-				<x-category-card category="Tutto su Elettronica" url="#"
-				                 bg="https://images.unsplash.com/photo-1603574670812-d24560880210?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"></x-category-card>
-				<x-category-card category="Casa e Giardino" url="#"
-				                 bg="https://images.unsplash.com/photo-1492496913980-501348b61469?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"></x-category-card>
-				<x-category-card-highlight url="#"
-				                           subtitle="Non la solita cravatta, ma <strong>La Cravatta</strong> e mille altre idee con i Nostri Brand per:"
-				                           title="Festa del Papà"></x-category-card-highlight>
+				@if($category_1)
+					<x-category-card :category="$category_1"/>
+				@endif
+				@if($category_2)
+					<x-category-card :category="$category_2"/>
+				@endif
+				@if($category_3)
+					<x-category-card-highlight :category="$category_3"/>
+				@endif
 			</div>
 		</section>
 	</div>

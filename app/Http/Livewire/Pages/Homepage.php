@@ -36,6 +36,9 @@
 				'our_brands'       => Brand::whereHas('coupons')->get()->take(8),
 				'unmissables'      => \App\Models\Coupon::all()->take(8),
 				'week_offers'      => \App\Models\Coupon::all()->take(8),
+				'category_1' => \App\Models\Category::where('highlighted_spot', 1)->first(),
+				'category_2' => \App\Models\Category::where('highlighted_spot', 2)->first(),
+				'category_3' => \App\Models\Category::where('highlighted_spot', 3)->first(),
 				'filtered_coupons' => $filtered_coupons,
 			])->layout('layouts.guest');
 		}
