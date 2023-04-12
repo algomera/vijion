@@ -6,7 +6,7 @@
 	<x-laravel-blade-sortable::sortable
 			wire:onSortOrderChange="sortHeroSlidesOrder"
 			class="mt-6 divide-y divide-gray-100">
-		@foreach($slides as $slide)
+		@forelse($slides as $slide)
 			<x-laravel-blade-sortable::sortable-item sort-key="{{ $slide->id }}" wire:key="{{$slide->id}}">
 				<div class="flex items-center justify-between py-3">
 					<div class="flex flex-col items-center space-y-3 pr-4 text-gray-400">
@@ -47,6 +47,8 @@
 					</button>
 				</div>
 			</x-laravel-blade-sortable::sortable-item>
-		@endforeach
+		@empty
+			<p class="text-sm text-gray-500">Nessuna Slide presente. <span wire:click="$emit('openModal', 'admin.pages.settings.widget.hero-slider.create-slide')" class="text-brand-purple hover:text-brand-purple-light hover:underline hover:cursor-pointer">Creala ora</span>.</p>
+		@endforelse
 	</x-laravel-blade-sortable::sortable>
 </div>
