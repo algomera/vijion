@@ -78,7 +78,7 @@
                         <div class="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                             <div class="flex-shrink-0 flex items-center">
                                 <a href="{{ route('dashboard') }}" class="flex items-center flex-shrink-0 px-4">
-                                    <img class="flex-shrink-0 h-auto w-36 invert" src="{{ asset('/images/logo.png') }}" alt="">
+                                    <img class="flex-shrink-0 h-auto w-44" src="{{ asset('/images/logo-white.png') }}" alt="">
                                 </a>
                             </div>
                             <x-navigation-menu />
@@ -124,7 +124,7 @@
                         <div class="flex-1 flex flex-col pt-2.5 pb-4 overflow-y-auto">
                             <div class="flex items-center justify-between">
                                 <a href="{{ route('dashboard') }}" class="flex items-center flex-shrink-0 px-4">
-                                    <img class="flex-shrink-0 h-auto w-36 invert" src="{{ asset('/images/logo.png') }}" alt="">
+                                    <img class="flex-shrink-0 h-auto w-44" src="{{ asset('/images/logo-white.png') }}" alt="">
                                 </a>
                                 <div x-on:click="open = false"
                                      class="text-white p-1 mr-2 rounded cursor-pointer hover:bg-gray-600">

@@ -3,7 +3,7 @@
 		<div class="flex flex-1 items-center gap-x-12">
 			<a href="{{ route('home') }}" class="-m-1.5 p-1.5 flex-shrink-0">
 				<span class="sr-only">{{ env('APP_NAME') }}</span>
-				<img class="h-8 w-auto" src="{{ asset('/images/logo.png') }}" alt="">
+				<img class="h-9 w-auto" src="{{ asset('/images/logo-black.png') }}" alt="">
 			</a>
 			<div class="hidden lg:flex lg:gap-x-12 w-full">
 				<div class="flex items-center w-full max-w-sm">
