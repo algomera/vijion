@@ -4,6 +4,7 @@
 	</x-header>
 	<div class="space-y-5">
 		<livewire:admin.pages.settings.widget.hero-slider.slides-list />
+		<livewire:admin.pages.settings.widget.our-brands.our-brands />
 		<livewire:admin.pages.settings.widget.highlighted-categories.wall />
 	</div>
 </div>

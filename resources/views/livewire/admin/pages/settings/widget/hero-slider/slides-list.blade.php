@@ -8,7 +8,7 @@
 			class="mt-6 divide-y divide-gray-100">
 		@forelse($slides as $slide)
 			<x-laravel-blade-sortable::sortable-item sort-key="{{ $slide->id }}" wire:key="{{$slide->id}}">
-				<div class="flex items-center justify-between py-3">
+				<div class="bg-white flex items-center justify-between py-3">
 					<div class="flex flex-col items-center space-y-3 pr-4 text-gray-400">
 						<div class="p-2 rounded-md hover:bg-gray-100 hover:cursor-pointer">
 							<x-heroicon-o-bars-2 class="w-4 h-4 text-gray-400"></x-heroicon-o-bars-2>

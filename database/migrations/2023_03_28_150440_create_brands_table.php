@@ -17,6 +17,9 @@ return new class extends Migration
 	        $table->string('slug');
 			$table->string('logo_path')->nullable();
 			$table->foreignIdFor(\App\Models\Category::class, 'category_id')->constrained();
+			$table->boolean('our_brand')->default(0);
+	        $table->boolean('unmissable')->default(0);
+			$table->boolean('week_offer')->default(0);
             $table->timestamps();
         });
     }
