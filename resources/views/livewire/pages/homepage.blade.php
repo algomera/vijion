@@ -31,8 +31,7 @@
 			<x-slider name="unmissable" class="container">
 				@foreach($unmissables as $unmissable)
 					<div class="swiper-slide">
-						<x-coupon-card-highlight :coupon="$unmissable"
-						                         bg="https://images.unsplash.com/photo-1679678691006-d8a1484830c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"/>
+						<x-coupon-card-highlight :coupon="$unmissable->coupons()->orderBy('amount', 'desc')->first()"/>
 					</div>
 				@endforeach
 				<x-slot:pagination>
@@ -47,7 +46,7 @@
 				<h3 class="text-center text-2xl font-bold mt-10 mb-6">Offerte della settimana</h3>
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-9">
 					@foreach($week_offers as $week_offer)
-						<x-coupon-card :coupon="$week_offer"/>
+						<x-coupon-card :coupon="$week_offer->coupons()->orderBy('amount', 'desc')->first()"/>
 					@endforeach
 				</div>
 				<div class="flex justify-center">

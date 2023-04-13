@@ -31,15 +31,14 @@
 					$filtered_coupons = \App\Models\Coupon::all()->shuffle()->take(2);
 					break;
 			}
-			$brands = Brand::whereHas('coupons');
 			return view('livewire.pages.homepage', [
 				'slides'           => HeroSlide::where('visible', 1)->get()->sortBy('order'),
-				'our_brands'       => $brands->where('our_brand', 1)->orderBy('our_brand_order')->get()->take(8),
-				'unmissables'      => $brands->where('unmissable', 1)->orderBy('unmissable_order')->get()->take(8),
-				'week_offers'      => $brands->where('week_offer', 1)->orderBy('week_offer_order')->get()->take(8),
-				'category_1' => \App\Models\Category::where('highlighted_spot', 1)->first(),
-				'category_2' => \App\Models\Category::where('highlighted_spot', 2)->first(),
-				'category_3' => \App\Models\Category::where('highlighted_spot', 3)->first(),
+				'our_brands'       => Brand::whereHas('coupons')->where('our_brand', 1)->orderBy('our_brand_order')->get()->take(8),
+				'unmissables'      => Brand::whereHas('coupons')->where('unmissable', 1)->orderBy('unmissable_order')->get()->take(8),
+				'week_offers'      => Brand::whereHas('coupons')->where('week_offer', 1)->orderBy('week_offer_order')->get()->take(8),
+				'category_1'       => \App\Models\Category::where('highlighted_spot', 1)->first(),
+				'category_2'       => \App\Models\Category::where('highlighted_spot', 2)->first(),
+				'category_3'       => \App\Models\Category::where('highlighted_spot', 3)->first(),
 				'filtered_coupons' => $filtered_coupons,
 			])->layout('layouts.guest');
 		}
