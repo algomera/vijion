@@ -20,6 +20,7 @@
 				'unmissable_order' => Brand::where('unmissable', 1)->count()
 			]);
 			$this->reset('search_all');
+			$this->emit('update-list');
 		}
 
 		public function remove(Brand $brand) {
@@ -28,6 +29,7 @@
 				'unmissable_order' => null
 			]);
 			$this->reset('search_added');
+			$this->emit('update-list');
 		}
 
 		public function sortUnmissableOrder($sortOrder, $previousSortOrder, $name, $from, $to) {

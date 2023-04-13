@@ -20,6 +20,7 @@
 				'our_brand_order' => Brand::where('our_brand', 1)->count()
 			]);
 			$this->reset('search_all');
+			$this->emit('update-list');
 		}
 
 		public function remove(Brand $brand) {
@@ -28,6 +29,7 @@
 				'our_brand_order' => null
 			]);
 			$this->reset('search_added');
+			$this->emit('update-list');
 		}
 
 		public function sortOurBrandsOrder($sortOrder, $previousSortOrder, $name, $from, $to) {
