@@ -20,7 +20,9 @@
 							     role="menu" aria-orientation="vertical" tabindex="-1">
 								<div class="py-1" role="none">
 									@forelse($search_results as $brand)
-										<a wire:key="{{ $brand->id }}" href="{{ route('brand', $brand->slug) }}" class="text-gray-700 block px-4 py-2 text-sm font-semibold hover:text-brand" role="menuitem"
+										<a wire:key="{{ $brand->id }}" href="{{ route('brand', $brand->slug) }}"
+										   class="text-gray-700 block px-4 py-2 text-sm font-semibold hover:text-brand"
+										   role="menuitem"
 										   tabindex="-1" id="menu-item-{{$loop->index}}">
 											{{ $brand->name }}
 										</a>
@@ -180,7 +182,7 @@
 			<div class="flex items-center justify-between">
 				<a href="#" class="-m-1.5 p-1.5">
 					<span class="sr-only">{{ env('APP_NAME') }}</span>
-					<img class="h-8 w-auto" src="{{ asset('/images/logo.png') }}" alt="">
+					<img class="h-9 w-auto" src="{{ asset('/images/logo-black.png') }}" alt="">
 				</a>
 				<button x-on:click="show = false" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
 					<span class="sr-only">Close menu</span>
