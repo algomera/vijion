@@ -108,6 +108,14 @@
 			</div>
 		</div>
 		<div class="flex lg:hidden">
+			<a href="{{ route('cart') }}" class="relative mr-4 text-brand hover:text-brand-light">
+				@auth
+					@if(auth()->user()->cart_codes->count())
+						<div class="absolute flex items-center justify-center ring-2 ring-white w-4 h-4 text-white text-[11px] font-semibold bg-red-500 rounded-full -right-1.5 -top-1.5">{{ auth()->user()->cart_codes->count() }}</div>
+					@endif
+				@endauth
+				<x-heroicon-o-shopping-cart class="w-6 h-6"/>
+			</a>
 			<button x-on:click="show = true" type="button"
 			        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
 				<span class="sr-only">Open main menu</span>
@@ -180,34 +188,122 @@
 		<div x-show="show" class="fixed inset-0 z-10"></div>
 		<div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
 			<div class="flex items-center justify-between">
-				<a href="#" class="-m-1.5 p-1.5">
+				<a href="{{ route('home') }}" class="-m-1.5 p-1.5">
 					<span class="sr-only">{{ env('APP_NAME') }}</span>
 					<img class="h-9 w-auto" src="{{ asset('/images/logo-black.png') }}" alt="">
 				</a>
-				<button x-on:click="show = false" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-					<span class="sr-only">Close menu</span>
-					<x-heroicon-o-x-mark class="w-6 h-6"/>
-				</button>
+				<div class="flex items-center">
+					<a href="{{ route('cart') }}" class="relative mr-4 text-brand hover:text-brand-light">
+						@auth
+							@if(auth()->user()->cart_codes->count())
+								<div class="absolute flex items-center justify-center ring-2 ring-white w-4 h-4 text-white text-[11px] font-semibold bg-red-500 rounded-full -right-1.5 -top-1.5">{{ auth()->user()->cart_codes->count() }}</div>
+							@endif
+						@endauth
+						<x-heroicon-o-shopping-cart class="w-6 h-6"/>
+					</a>
+					<button x-on:click="show = false" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+						<span class="sr-only">Close menu</span>
+						<x-heroicon-o-x-mark class="w-6 h-6"/>
+					</button>
+				</div>
 			</div>
 			<div class="mt-6 flow-root">
-				<div class="-my-6 divide-y divide-gray-500/10">
-					<div class="space-y-2 py-6">
-						<a href="#"
-						   class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>
-
-						<a href="#"
-						   class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
-
-						<a href="#"
-						   class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-
-						<a href="#"
-						   class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+				<div class="flex items-center w-full">
+					<div class="relative flex w-full">
+						<input wire:model.debounce.500ms="search" type="text" name="price" id="price"
+						       class="block w-full rounded-full py-2.5 pr-7 pr-20 text-gray-900 border border-gray-200 placeholder:text-gray-400 focus:ring-0 focus:ring-transparent focus:border-gray-200 sm:text-sm sm:leading-6"
+						       placeholder="Cerca su VIJI-STORE..">
+						<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+							<x-heroicon-o-magnifying-glass class="text-gray-700 w-4 h-4"/>
+						</div>
+						@if($search_results)
+							<div class="max-h-72 overflow-y-scroll absolute top-12 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+							     role="menu" aria-orientation="vertical" tabindex="-1">
+								<div class="py-1" role="none">
+									@forelse($search_results as $brand)
+										<a wire:key="{{ $brand->id }}" href="{{ route('brand', $brand->slug) }}"
+										   class="text-gray-700 block px-4 py-2 text-sm font-semibold hover:text-brand"
+										   role="menuitem"
+										   tabindex="-1" id="menu-item-{{$loop->index}}">
+											{{ $brand->name }}
+										</a>
+									@empty
+										<p class="text-gray-700 block px-4 py-2 text-sm">Nessun risultato trovato</p>
+									@endforelse
+								</div>
+							</div>
+						@endif
 					</div>
-					<div class="py-6">
-						<a href="#"
-						   class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
-							in</a>
+				</div>
+				<div class="divide-y divide-gray-500/10">
+					<div class="space-y-2 py-6">
+						<div class="group relative flex items-center py-2 gap-x-6 rounded-lg text-base font-semibold leading-7">
+							<div class="flex-auto">
+								<a href="#"
+								   class="flex items-center justify-between text-brand hover:text-brand">
+									<span>Mostra tutte le categorie</span>
+									<x-heroicon-o-arrow-long-right
+											class="w-5 h-5 transform group-hover:translate-x-1 transition"/>
+								</a>
+							</div>
+						</div>
+						<div class="group relative flex items-center py-2 gap-x-6 rounded-lg text-base font-semibold leading-7">
+							<div class="flex-auto">
+								<a href="#"
+								   class="flex items-center justify-between text-brand hover:text-brand">
+									<span>Mostra tutti i brand</span>
+									<x-heroicon-o-arrow-long-right
+											class="w-5 h-5 transform group-hover:translate-x-1 transition"/>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="py-6 text-center">
+						@auth
+							<div class="inline-flex items-center space-x-8 border border-gray-200 rounded-full p-1">
+								@unlessrole('admin')
+								<div class="bg-brand rounded-full text-sm text-white py-2 px-4">
+									<p class="font-bold">
+										{{ auth()->user()->coins }} <span class="inline-block text-xs font-semibold">VIJI-COINS</span>
+									</p>
+								</div>
+								@endunlessrole
+								<div class="flex items-center space-x-2 ml-1 text-sm text-gray-500">
+									<p class="font-semibold">Ciao {{ auth()->user()->first_name }}</p>
+									<x-dropdown align="right" width="48">
+										<x-slot name="trigger">
+											<x-heroicon-o-user-circle x-bind:class="{'text-brand': open}"
+											                          class="w-7 h-7 hover:text-brand cursor-pointer"/>
+										</x-slot>
+
+										<x-slot name="content">
+											@role('admin')
+											<x-dropdown-link :href="route('dashboard')">
+												Dashboard
+											</x-dropdown-link>
+											@endrole
+											<x-dropdown-link :href="route('wallet')">
+												Portafoglio
+											</x-dropdown-link>
+											<x-dropdown-link :href="route('profile.edit')">
+												Profilo
+											</x-dropdown-link>
+
+											<!-- Authentication -->
+											<x-dropdown-link wire:click="logout">
+												{{ __('Log Out') }}
+											</x-dropdown-link>
+										</x-slot>
+									</x-dropdown>
+								</div>
+							</div>
+						@else
+							<button wire:click="$emit('openModal', 'auth.auth-modal')"
+							        class="inline-flex items-center space-x-2 hover:text-brand">
+								<span class="text-center">Accedi</span>
+								<x-heroicon-o-user-circle class="w-6 h-6"/>
+							</button>
+						@endauth
 					</div>
 				</div>
 			</div>
