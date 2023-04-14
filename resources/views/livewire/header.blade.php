@@ -16,12 +16,14 @@
 						</div>
 						<div class="absolute right-0 top-2.5 w-px h-7 bg-gray-200"></div>
 						@if($search_results)
-							<div class="absolute top-12 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+							<div class="max-h-72 overflow-y-scroll absolute top-12 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
 							     role="menu" aria-orientation="vertical" tabindex="-1">
 								<div class="py-1" role="none">
 									@forelse($search_results as $brand)
-										<a wire:key="{{ $brand->id }}" href="{{ route('brand', $brand->slug) }}" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 text-gray-900" role="menuitem"
-										   tabindex="-1" id="menu-item-{{$loop->index}}">{{ $brand->name }}</a>
+										<a wire:key="{{ $brand->id }}" href="{{ route('brand', $brand->slug) }}" class="text-gray-700 block px-4 py-2 text-sm font-semibold hover:text-brand" role="menuitem"
+										   tabindex="-1" id="menu-item-{{$loop->index}}">
+											{{ $brand->name }}
+										</a>
 									@empty
 										<p class="text-gray-700 block px-4 py-2 text-sm">Nessun risultato trovato</p>
 									@endforelse
