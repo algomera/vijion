@@ -8,13 +8,26 @@
 			<div class="hidden lg:flex lg:gap-x-12 w-full">
 				<div class="flex items-center w-full max-w-sm">
 					<div class="relative flex w-full">
-						<input type="text" name="price" id="price"
+						<input wire:model.debounce.500ms="search" type="text" name="price" id="price"
 						       class="block w-full rounded-l-full py-2.5 pr-7 pr-20 text-gray-900 border border-r-0 border-gray-200 placeholder:text-gray-400 focus:ring-0 focus:ring-transparent focus:border-gray-200 sm:text-sm sm:leading-6"
 						       placeholder="Cerca su VIJI-STORE..">
 						<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
 							<x-heroicon-o-magnifying-glass class="text-gray-700 w-4 h-4"/>
 						</div>
 						<div class="absolute right-0 top-2.5 w-px h-7 bg-gray-200"></div>
+						@if($search_results)
+							<div class="absolute top-12 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+							     role="menu" aria-orientation="vertical" tabindex="-1">
+								<div class="py-1" role="none">
+									@forelse($search_results as $brand)
+										<a wire:key="{{ $brand->id }}" href="{{ route('brand', $brand->slug) }}" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 text-gray-900" role="menuitem"
+										   tabindex="-1" id="menu-item-{{$loop->index}}">{{ $brand->name }}</a>
+									@empty
+										<p class="text-gray-700 block px-4 py-2 text-sm">Nessun risultato trovato</p>
+									@endforelse
+								</div>
+							</div>
+						@endif
 					</div>
 					<div x-data="{ open: false }" x-on:click="open = true"
 					     class="relative h-full rounded-r-full text-sm border border-l-0 border-gray-200 font-semibold text-gray-700 px-3">
@@ -169,7 +182,7 @@
 				</a>
 				<button x-on:click="show = false" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
 					<span class="sr-only">Close menu</span>
-					<x-heroicon-o-x-mark class="w-6 h-6" />
+					<x-heroicon-o-x-mark class="w-6 h-6"/>
 				</button>
 			</div>
 			<div class="mt-6 flow-root">

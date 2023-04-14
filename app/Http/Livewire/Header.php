@@ -9,6 +9,7 @@
 
 	class Header extends Component
 	{
+		public $search;
 		protected $listeners = [
 			'user-status-updated' => '$refresh',
 			'user-coins-updated'  => '$refresh',
@@ -22,11 +23,15 @@
 		}
 
 		public function render() {
+			if($this->search) {
+				$search_results = Brand::where('name', 'like', '%' . $this->search . '%')->get();
+			}
 			return view('livewire.header', [
-				'categories' => Category::whereHas('brands.coupons', function($coupons) {
+				'search_results' => $search_results ?? null,
+				'categories'     => Category::whereHas('brands.coupons', function ($coupons) {
 					$coupons->available();
 				})->get()->take(6),
-				'brands'     => Brand::whereHas('coupons', function($coupons) {
+				'brands'         => Brand::whereHas('coupons', function ($coupons) {
 					$coupons->available();
 				})->get()->take(6),
 			]);
