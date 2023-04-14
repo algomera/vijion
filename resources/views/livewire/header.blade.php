@@ -8,7 +8,7 @@
 			<div class="hidden lg:flex lg:gap-x-12 w-full">
 				<div class="flex items-center w-full max-w-sm">
 					<div class="relative flex w-full">
-						<input wire:model.debounce.500ms="search" type="text" name="price" id="price"
+						<input wire:model.debounce.500ms="search" type="text" name="search"
 						       class="block w-full rounded-l-full py-2.5 pr-7 pr-20 text-gray-900 border border-r-0 border-gray-200 placeholder:text-gray-400 focus:ring-0 focus:ring-transparent focus:border-gray-200 sm:text-sm sm:leading-6"
 						       placeholder="Cerca su VIJI-STORE..">
 						<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
@@ -210,7 +210,7 @@
 			<div class="mt-6 flow-root">
 				<div class="flex items-center w-full">
 					<div class="relative flex w-full">
-						<input wire:model.debounce.500ms="search" type="text" name="price" id="price"
+						<input wire:model.debounce.500ms="search" type="text" name="search"
 						       class="block w-full rounded-full py-2.5 pr-7 pr-20 text-gray-900 border border-gray-200 placeholder:text-gray-400 focus:ring-0 focus:ring-transparent focus:border-gray-200 sm:text-sm sm:leading-6"
 						       placeholder="Cerca su VIJI-STORE..">
 						<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
