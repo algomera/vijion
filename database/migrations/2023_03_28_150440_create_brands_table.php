@@ -23,6 +23,14 @@ return new class extends Migration
 	        $table->integer('unmissable_order')->nullable();
 			$table->boolean('week_offer')->default(0);
 	        $table->integer('week_offer_order')->nullable();
+	        $table->boolean('most_popular')->default(0);
+	        $table->integer('most_popular_order')->nullable();
+	        $table->boolean('latest')->default(0);
+	        $table->integer('latest_order')->nullable();
+	        $table->boolean('only_on')->default(0);
+	        $table->integer('only_on_order')->nullable();
+	        $table->boolean('expiring')->default(0);
+	        $table->integer('expiring_order')->nullable();
             $table->timestamps();
         });
     }
