@@ -91,7 +91,7 @@
 										@endforeach
 										<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
 											<div class="flex-auto">
-												<a href="#"
+												<a href="{{ route('brands') }}"
 												   class="flex items-center space-x-3 text-brand hover:text-brand">
 													<span>Mostra tutti i brand</span>
 													<x-heroicon-o-arrow-long-right
@@ -249,7 +249,7 @@
 						</div>
 						<div class="group relative flex items-center py-2 gap-x-6 rounded-lg text-base font-semibold leading-7">
 							<div class="flex-auto">
-								<a href="#"
+								<a href="{{ route('brands') }}"
 								   class="flex items-center justify-between text-brand hover:text-brand">
 									<span>Mostra tutti i brand</span>
 									<x-heroicon-o-arrow-long-right

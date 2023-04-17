@@ -20,7 +20,7 @@
 					@endforeach
 				</div>
 				<div class="flex justify-center">
-					<x-primary-button>Carica altro</x-primary-button>
+					<x-primary-button href="{{ route('brands') }}">Carica altro</x-primary-button>
 				</div>
 			</section>
 		@endif
@@ -49,11 +49,12 @@
 						<x-coupon-card :coupon="$week_offer->coupons()->orderBy('amount', 'desc')->first()"/>
 					@endforeach
 				</div>
-				<div class="flex justify-center">
-					<x-primary-button>Visualizza tutti</x-primary-button>
-				</div>
+{{--				<div class="flex justify-center">--}}
+{{--					<x-primary-button>Visualizza tutti</x-primary-button>--}}
+{{--				</div>--}}
 			</section>
 		@endif
+			<hr>
 		@if($category_1 || $category_2 || $category_3)
 			<section class="my-8">
 				<div class="grid grid-cols-2 gap-8">

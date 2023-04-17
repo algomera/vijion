@@ -10,6 +10,7 @@
 	use App\Http\Livewire\Admin\Pages\Users\Show as UsersShow;
 	use App\Http\Livewire\Admin\Pages\Videos\Index as VideosIndex;
 	use App\Http\Livewire\Pages\Brand;
+	use App\Http\Livewire\Pages\Brands;
 	use App\Http\Livewire\Pages\Cart;
 	use App\Http\Livewire\Pages\Category;
 	use App\Http\Livewire\Pages\Coupon;
@@ -22,6 +23,7 @@
 	Route::get('/coupon/{coupon:uuid}', Coupon::class)->name('coupon');
 	Route::get('/cart', Cart::class)->name('cart');
 	Route::get('/category/{category:slug}', Category::class)->name('category');
+	Route::get('/our-brands', Brands::class)->name('brands');
 	Route::get('/brand/{brand:slug}', Brand::class)->name('brand');
 	// User Auth
 	Route::middleware('auth')->group(function () {

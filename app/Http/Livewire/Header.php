@@ -23,7 +23,7 @@
 		}
 
 		public function render() {
-			if($this->search) {
+			if ($this->search) {
 				$search_results = Brand::where('name', 'like', '%' . $this->search . '%')->get();
 			}
 			return view('livewire.header', [
@@ -33,7 +33,7 @@
 				})->get()->take(6),
 				'brands'         => Brand::whereHas('coupons', function ($coupons) {
 					$coupons->available();
-				})->get()->take(6),
+				})->orderByRaw('-our_brand_order DESC')->get()->take(6),
 			]);
 		}
 	}
