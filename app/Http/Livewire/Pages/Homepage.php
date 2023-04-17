@@ -19,16 +19,16 @@
 		public function render() {
 			switch ($this->selectedTab) {
 				case 'most_popular':
-					$filtered_coupons = \App\Models\Coupon::all()->shuffle()->take(3);
+					$filtered_coupons = Brand::whereHas('coupons')->where('most_popular', 1)->orderBy('most_popular_order')->get();
 					break;
 				case 'latest':
-					$filtered_coupons = \App\Models\Coupon::all()->shuffle()->take(5);
+					$filtered_coupons = Brand::whereHas('coupons')->where('latest', 1)->orderBy('latest_order')->get();
 					break;
 				case 'only_on':
-					$filtered_coupons = \App\Models\Coupon::all()->shuffle()->take(4);
+					$filtered_coupons = Brand::whereHas('coupons')->where('only_on', 1)->orderBy('only_on_order')->get();
 					break;
 				case 'expiring':
-					$filtered_coupons = \App\Models\Coupon::all()->shuffle()->take(2);
+					$filtered_coupons = Brand::whereHas('coupons')->where('expiring', 1)->orderBy('expiring_order')->get();
 					break;
 			}
 			return view('livewire.pages.homepage', [
