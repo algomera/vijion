@@ -3,6 +3,7 @@
 	namespace App\Http\Livewire\Pages;
 
 	use App\Models\CartCodes;
+	use App\Notifications\SendCouponCodeNotification;
 	use Carbon\Carbon;
 	use Livewire\Component;
 
@@ -38,6 +39,7 @@
 					'purchased_at'   => Carbon::now()
 				]);
 				auth()->user()->decrement('coins', $this->cart_codes->sum('coupon.coins'));
+				auth()->user()->notify(new SendCouponCodeNotification(auth()->user(), $cart_code));
 				$this->emit('user-coins-updated');
 			}
 			// Elimino il carrello utente

@@ -3,6 +3,7 @@
 	namespace App\Http\Livewire\Auth;
 
 	use App\Models\User;
+	use App\Notifications\WelcomeEmailNotification;
 	use Illuminate\Auth\Events\Registered;
 	use Illuminate\Support\Facades\Auth;
 	use Illuminate\Support\Facades\Hash;
@@ -65,6 +66,9 @@
 				'coins'      => 0,
 			]);
 			event(new Registered($user));
+
+			$user->notify(new WelcomeEmailNotification($user));
+
 			Auth::login($user);
 			$this->closeModalWithEvents(['user-status-updated']);
 			$this->dispatchBrowserEvent('open-notification', [
