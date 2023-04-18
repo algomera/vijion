@@ -12,6 +12,7 @@
 	use App\Http\Livewire\Pages\Brand;
 	use App\Http\Livewire\Pages\Brands;
 	use App\Http\Livewire\Pages\Cart;
+	use App\Http\Livewire\Pages\Categories;
 	use App\Http\Livewire\Pages\Category;
 	use App\Http\Livewire\Pages\Coupon;
 	use App\Http\Livewire\Admin\Pages\Settings\Homepage as SettingsHomepage;
@@ -22,6 +23,7 @@
 	Route::get('/', \App\Http\Livewire\Pages\Homepage::class)->name('home');
 	Route::get('/coupon/{coupon:uuid}', Coupon::class)->name('coupon');
 	Route::get('/cart', Cart::class)->name('cart');
+	Route::get('/categories', Categories::class)->name('categories');
 	Route::get('/category/{category:slug}', Category::class)->name('category');
 	Route::get('/our-brands', Brands::class)->name('brands');
 	Route::get('/brand/{brand:slug}', Brand::class)->name('brand');
@@ -47,7 +49,7 @@
 	Route::middleware([
 		'auth',
 		'role:admin'
-	])->group(function () {
+	])->prefix('admin')->group(function () {
 		Route::get('/dashboard', Dashboard::class)->name('dashboard');
 		Route::get('/settings/homepage', SettingsHomepage::class)->name('settings.homepage');
 		Route::get('/users', UsersIndex::class)->name('users.index');

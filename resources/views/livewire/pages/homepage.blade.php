@@ -40,7 +40,7 @@
 			</x-slider>
 		</section>
 	@endif
-	<div class="container">
+	<div class="container space-y-8">
 		@if($week_offers->count())
 			<section class="my-8">
 				<h3 class="text-center text-2xl font-bold mt-10 mb-6">Offerte della settimana</h3>
@@ -49,12 +49,11 @@
 						<x-coupon-card :coupon="$week_offer->coupons()->orderBy('amount', 'desc')->first()"/>
 					@endforeach
 				</div>
-{{--				<div class="flex justify-center">--}}
-{{--					<x-primary-button>Visualizza tutti</x-primary-button>--}}
-{{--				</div>--}}
+				{{--				<div class="flex justify-center">--}}
+				{{--					<x-primary-button>Visualizza tutti</x-primary-button>--}}
+				{{--				</div>--}}
 			</section>
 		@endif
-			<hr>
 		@if($category_1 || $category_2 || $category_3)
 			<section class="my-8">
 				<div class="grid grid-cols-2 gap-8">

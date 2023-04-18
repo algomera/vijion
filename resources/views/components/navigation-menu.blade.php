@@ -1,42 +1,42 @@
 <nav class="mt-5 px-2 h-[calc(100vh-156px)] flex flex-col justify-between">
 	<div class="space-y-1">
 		<a href="{{ route('dashboard') }}"
-		   class="{{ request()->is('dashboard') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+		   class="{{ request()->is('admin/dashboard') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
 			<x-heroicon-o-home
-					class="{{ request()->is('dashboard') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-home>
+					class="{{ request()->is('admin/dashboard') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-home>
 			Dashboard
 		</a>
 		<h3 class="!mt-3 px-3 text-sm font-medium text-gray-500">Viji-Store</h3>
 		<a href="{{ route('brands.index') }}"
-		   class="{{ request()->is('brands*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+		   class="{{ request()->is('admin/brands*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
 			<x-heroicon-o-building-storefront
-					class="{{ request()->is('brands*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-building-storefront>
+					class="{{ request()->is('admin/brands*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-building-storefront>
 			Brands
 		</a>
 		<a href="{{ route('categories.index') }}"
-		   class="{{ request()->is('categories*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+		   class="{{ request()->is('admin/categories*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
 			<x-heroicon-o-archive-box
-					class="{{ request()->is('categories*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-archive-box>
+					class="{{ request()->is('admin/categories*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-archive-box>
 			Categorie
 		</a>
 		<a href="{{ route('users.index') }}"
-		   class="{{ request()->is('users*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+		   class="{{ request()->is('admin/users*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
 			<x-heroicon-o-users
-					class="{{ request()->is('users*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-users>
+					class="{{ request()->is('admin/users*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-users>
 			Utenti
 		</a>
 		<h3 class="!mt-3 px-3 text-sm font-medium text-gray-500">Vijion</h3>
 		<a href="{{ route('videos.index') }}"
-		   class="{{ request()->is('videos*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+		   class="{{ request()->is('admin/videos*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
 			<x-heroicon-o-video-camera
-					class="{{ request()->is('videos*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-video-camera>
+					class="{{ request()->is('admin/videos*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"></x-heroicon-o-video-camera>
 			Video
 		</a>
 		<h3 class="!mt-3 px-3 text-sm font-medium text-gray-500">Impostazioni</h3>
 		<a href="{{ route('settings.homepage') }}"
-		   class="{{ request()->is('settings*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+		   class="{{ request()->is('admin/settings*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
 			<svg xmlns="http://www.w3.org/2000/svg"
-			     class="{{ request()->is('settings*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"
+			     class="{{ request()->is('admin/settings*') ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300' }} mr-3 flex-shrink-0 h-6 w-6"
 			     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
 			     stroke-linecap="round" stroke-linejoin="round">
 				<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
