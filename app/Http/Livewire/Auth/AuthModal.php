@@ -8,6 +8,7 @@
 	use Illuminate\Support\Facades\Auth;
 	use Illuminate\Support\Facades\Hash;
 	use LivewireUI\Modal\ModalComponent;
+	use Spatie\Permission\Models\Role;
 
 	class AuthModal extends ModalComponent
 	{
@@ -38,10 +39,9 @@
 				'email'    => 'required|email',
 				'password' => 'required',
 			]);
-			if (Auth::attempt([
-				'email'    => $this->email,
-				'password' => $this->password
-			])) {
+			$user = User::where('email', $this->email)->where('password', md5($this->password))->first();
+			if ($user) {
+				Auth::login($user);
 				if (auth()->user()->getRoleNames()->first() === 'admin') {
 					return redirect()->route('dashboard');
 				}
@@ -62,13 +62,12 @@
 				'first_name' => $this->first_name,
 				'last_name'  => $this->last_name,
 				'email'      => $this->email,
-				'password'   => Hash::make($this->password),
+				'password'   => md5($this->password),
 				'coins'      => 0,
 			]);
+			$user->assignRole(Role::findByName('member'));
 			event(new Registered($user));
-
 			$user->notify(new WelcomeEmailNotification($user));
-
 			Auth::login($user);
 			$this->closeModalWithEvents(['user-status-updated']);
 			$this->dispatchBrowserEvent('open-notification', [
