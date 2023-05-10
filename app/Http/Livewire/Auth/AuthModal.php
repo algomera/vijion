@@ -7,6 +7,7 @@
 	use Illuminate\Auth\Events\Registered;
 	use Illuminate\Support\Facades\Auth;
 	use Illuminate\Support\Facades\Hash;
+	use Laravel\Socialite\Facades\Socialite;
 	use LivewireUI\Modal\ModalComponent;
 	use Spatie\Permission\Models\Role;
 
