@@ -35,6 +35,10 @@
 			]);
 		}
 
+		public function auth0login() {
+			return redirect()->route('auth0.login');
+		}
+
 		public function login() {
 			$this->validate([
 				'email'    => 'required|email',

@@ -62,6 +62,7 @@
 				</div>
 			</div>
 			<div class="flex items-center justify-center space-x-4 mt-7 mb-3">
+				<span wire:click="auth0login">Auth0</span>
 				<svg id="accesso_con_google" data-name="accesso con google" xmlns="http://www.w3.org/2000/svg"
 				     width="80" height="80" viewBox="0 0 80 80">
 					<g id="Ellisse_2" data-name="Ellisse 2" fill="#fff" stroke="#d7dadb" stroke-width="1">

@@ -17,7 +17,13 @@
 	use App\Http\Livewire\Pages\Coupon;
 	use App\Http\Livewire\Admin\Pages\Settings\Homepage as SettingsHomepage;
 	use App\Http\Livewire\Pages\Wallet;
+	use App\Models\User;
+	use App\Notifications\WelcomeEmailNotification;
+	use Illuminate\Auth\Events\Registered;
+	use Illuminate\Support\Facades\Auth;
 	use Illuminate\Support\Facades\Route;
+	use Laravel\Socialite\Facades\Socialite;
+	use Spatie\Permission\Models\Role;
 
 	// User Guest
 	Route::get('/', \App\Http\Livewire\Pages\Homepage::class)->name('home');
@@ -27,6 +33,33 @@
 	Route::get('/category/{category:slug}', Category::class)->name('category');
 	Route::get('/our-brands', Brands::class)->name('brands');
 	Route::get('/brand/{brand:slug}', Brand::class)->name('brand');
+	// Socialite
+	Route::get('auth0/login', function () {
+		return Socialite::driver('auth0')->redirect();
+	})->name('auth0.login');
+	Route::get('auth0/callback', function () {
+		$result = Socialite::driver('auth0')->user();
+		$check = User::where('email', $result->email)->first();
+		if (!$check) {
+			$user = User::create([
+				'provider'          => 'auth0',
+				'provider_id'       => $result->user['sub'],
+				'email'             => $result->email,
+				'first_name'        => $result->user['given_name'] ?? $result->nickname,
+				'last_name'         => $result->user['family_name'] ?? null,
+				'email_verified_at' => now(),
+				'password'          => md5('password'),
+				'coins'             => 0
+			]);
+			$user->assignRole(Role::findByName('member'));
+			event(new Registered($user));
+			$user->notify(new WelcomeEmailNotification($user));
+			Auth::login($user);
+		} else {
+			Auth::login($check);
+		}
+		return redirect()->route('home');
+	});
 	// User Auth
 	Route::middleware('auth')->group(function () {
 		// Wallet
