@@ -21,7 +21,7 @@
 				'last_name'         => fake()->lastName(),
 				'email'             => fake()->unique()->safeEmail(),
 				'email_verified_at' => now(),
-				'password'          => md5('password'),
+				'password'          => bcrypt('password'),
 				'remember_token'    => Str::random(10),
 				'coins'             => fake()->numberBetween(0, 300)
 			];

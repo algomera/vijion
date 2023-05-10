@@ -44,9 +44,10 @@
 				'email'    => 'required|email',
 				'password' => 'required',
 			]);
-			$user = User::where('email', $this->email)->where('password', md5($this->password))->first();
-			if ($user) {
-				Auth::login($user);
+			if (Auth::attempt([
+				'email'    => $this->email,
+				'password' => $this->password
+			])) {
 				if (auth()->user()->getRoleNames()->first() === 'admin') {
 					return redirect()->route('dashboard');
 				}
@@ -67,7 +68,7 @@
 				'first_name' => $this->first_name,
 				'last_name'  => $this->last_name,
 				'email'      => $this->email,
-				'password'   => md5($this->password),
+				'password'   => bcrypt($this->password),
 				'coins'      => 0,
 			]);
 			$user->assignRole(Role::findByName('member'));

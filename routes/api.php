@@ -51,7 +51,7 @@
 					'first_name' => $request->get('object')['username'],
 					'last_name'  => null,
 					'email'      => $request->get('object')['email'],
-					'password'   => md5(\Illuminate\Support\Str::password(10, true, true, false)),
+					'password'   => bcrypt(\Illuminate\Support\Str::password(10, true, true, false)),
 					'coins'      => 0,
 				]);
 				$user->assignRole(Role::findByName('member'));

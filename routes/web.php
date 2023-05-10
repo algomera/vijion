@@ -48,7 +48,7 @@
 				'first_name'        => $result->user['given_name'] ?? $result->nickname,
 				'last_name'         => $result->user['family_name'] ?? null,
 				'email_verified_at' => now(),
-				'password'          => md5('password'),
+				'password'          => bcrypt('password'),
 				'coins'             => 0
 			]);
 			$user->assignRole(Role::findByName('member'));
