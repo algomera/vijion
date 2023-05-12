@@ -93,7 +93,7 @@
             $video = Video::where('teyuto_id', $item['id_video'])->first();
 
             // Se l'utente ha visualizzato almeno un minuto di video
-            if($item['total_seconds'] > 60) {
+            if($item['total_seconds'] >= 60) {
                 $viewed_seconds = $item['total_seconds'];
                 $viewed_minutes = floor($viewed_seconds / 60);
                 $assigned_coins = $viewed_minutes * $video->coins;
