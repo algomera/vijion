@@ -14,17 +14,24 @@
 				<table class="min-w-full divide-y divide-gray-300">
 					<thead>
 					<tr>
-						<th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3">
+                        <th scope="col" class="lg:hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Utente</th>
+                        <th scope="col" class="hidden py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3 lg:table-cell">
+                            Teyuto ID
+                        </th>
+                        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">
+                            Provider
+                        </th>
+						<th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">
 							Nome
 						</th>
 						<th scope="col"
-						    class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Email
+						    class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Email
 						</th>
 						<th scope="col"
-						    class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">
+						    class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">
 							VIJI-COINS
 						</th>
-						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Ruolo</th>
+						<th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Ruolo</th>
 						<th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
 							<span class="sr-only">View</span>
 						</th>
@@ -33,6 +40,8 @@
 					<tbody class="divide-y divide-gray-200 bg-white">
 					@forelse($users as $user)
 						<tr wire:click="show({{$user->id}})" class="hover:bg-gray-50 hover:cursor-pointer">
+                            <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{ $user->teyuto_id }}</td>
+                            <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{ $user->provider ?: '-' }}</td>
 							<td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-3">
 								{{ $user->fullName }}
 								<dl class="font-normal lg:hidden">

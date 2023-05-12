@@ -39,16 +39,23 @@
 	})->name('auth0.login');
 	Route::get('auth0/callback', function () {
 		$result = Socialite::driver('auth0')->user();
+        if(str_contains($result->id, 'google-oauth2')) {
+            $provider = "google-oauth2";
+        } elseif (str_contains($result->id, 'facebook')) {
+            $provider = "facebook-oauth2";
+        } elseif (str_contains($result->id, 'auth0')) {
+            $provider = 'auth0';
+        }
 		$check = User::where('email', $result->email)->first();
 		if (!$check) {
 			$user = User::create([
-				'provider'          => 'auth0',
+				'provider'          => $provider,
 				'provider_id'       => $result->user['sub'],
 				'email'             => $result->email,
 				'first_name'        => $result->user['given_name'] ?? $result->nickname,
 				'last_name'         => $result->user['family_name'] ?? null,
 				'email_verified_at' => now(),
-				'password'          => bcrypt('password'),
+				'password'          => null,
 				'coins'             => 0
 			]);
 			$user->assignRole(Role::findByName('member'));
