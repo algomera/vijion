@@ -80,7 +80,7 @@
         foreach ($videos as $item) {
             $user = User::where('teyuto_id', $item['id_user'])->first();
             $video = Video::where('teyuto_id', $item['id_video'])->first();
-            if($user) {
+            if($user && $video) {
                 // Se l'utente ha visualizzato almeno un minuto di video
                 if ($item['total_seconds'] >= 60) {
                     $viewed_seconds = $item['total_seconds'];
