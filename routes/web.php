@@ -22,7 +22,8 @@
 	use Illuminate\Auth\Events\Registered;
 	use Illuminate\Support\Facades\Auth;
 	use Illuminate\Support\Facades\Route;
-	use Laravel\Socialite\Facades\Socialite;
+    use Illuminate\Support\Str;
+    use Laravel\Socialite\Facades\Socialite;
 	use Spatie\Permission\Models\Role;
 
 	// User Guest
@@ -58,6 +59,15 @@
 				'password'          => null,
 				'coins'             => 0
 			]);
+            $request = http('post', env('TEYUTO_ENDPOINT') . 'sessions/registration', [
+                'email' => $user->email,
+                'password' => Str::random(20)
+            ]);
+            if ($request->successful()) {
+                $user->update([
+                    'teyuto_id' => (int)$request->json()['id']
+                ]);
+            }
 			$user->assignRole(Role::findByName('member'));
 			event(new Registered($user));
 			$user->notify(new WelcomeEmailNotification($user));

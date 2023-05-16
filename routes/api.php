@@ -31,7 +31,7 @@
                 $user = User::updateOrCreate([
                     'email' => $request->get('object')['email']
                 ], [
-                    'teyuto_id' => $request->get('object')['id'],
+                    'teyuto_id' => (int)$request->get('object')['id'],
                     'first_name' => $request->get('object')['username'],
                     'last_name' => null,
                     'email' => $request->get('object')['email'],
@@ -49,7 +49,7 @@
         $endPage = 100;
         $videos = [];
         while ($currentPage <= $endPage) {
-            $request = http('get', env('TEYUTO_ENDPOINT') . 'analytics/views?date_start='. now()->subDay()->format('Y-m-d') .'&page=' . $currentPage);
+            $request = http('get', env('TEYUTO_ENDPOINT') . 'analytics/views?date_start=' . now()->subDay()->format('Y-m-d') . '&page=' . $currentPage);
             if ($request->successful()) {
                 $videos = array_merge($videos, $request->json()['views']);
                 $currentPage++;
@@ -61,7 +61,7 @@
         foreach ($videos as $item) {
             $user = User::where('teyuto_id', $item['id_user'])->first();
             $video = Video::where('teyuto_id', $item['id_video'])->first();
-            if($user && $video) {
+            if ($user && $video) {
                 // Se l'utente ha visualizzato almeno un minuto di video
                 if ($item['total_seconds'] >= 60) {
                     $viewed_seconds = $item['total_seconds'];
