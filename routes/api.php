@@ -18,25 +18,6 @@
     |
     */
     Route::middleware('api')->group(function () {
-        /*
-        {
-            "event": "user_created",
-            "object": {
-                "id": "0123456789",
-                "username": "test-username",
-                "email": "test@email.com",
-                "date": "2019-05-18T07:59:12+02:00",
-                "language": "en",
-                "location": {
-                    "city": "city",
-                    "country": "country",
-                    "country_flag": "flag",
-                    "country_code": "code"
-                }
-            },
-            "datetime": "2023-05-04T08:49:49+02:00"
-        }
-         */
         Route::post('/register', function (Request $request) {
             $rules = [
                 'id' => 'required',
@@ -62,7 +43,7 @@
         });
     });
     // Assegnazione Coins
-    Route::post('/coins-assignment', function (Request $request) {
+    Route::post('/coins-assignment', function () {
         ini_set('memory_limit', -1);
         $currentPage = 1;
         $endPage = 100;
