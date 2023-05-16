@@ -49,7 +49,7 @@
         $endPage = 100;
         $videos = [];
         while ($currentPage <= $endPage) {
-            $request = http('get', env('TEYUTO_ENDPOINT') . 'analytics/views?date_start='. now()->format('Y-m-d') .'&page=' . $currentPage);
+            $request = http('get', env('TEYUTO_ENDPOINT') . 'analytics/views?date_start='. now()->subDay()->format('Y-m-d') .'&page=' . $currentPage);
             if ($request->successful()) {
                 $videos = array_merge($videos, $request->json()['views']);
                 $currentPage++;
