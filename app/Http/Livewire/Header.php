@@ -17,6 +17,10 @@
 			'code-removed'        => '$refresh'
 		];
 
+        public function auth0login() {
+            return redirect()->route('auth0.login');
+        }
+
 		public function logout() {
 			Auth::logout();
 			return redirect()->route('home');

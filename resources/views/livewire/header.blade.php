@@ -162,7 +162,7 @@
 					</div>
 				</div>
 			@else
-				<button wire:click="$emit('openModal', 'auth.auth-modal')"
+				<button wire:click="auth0login"
 				        class="flex items-center space-x-2 hover:text-brand">
 					<span class="text-sm">Accedi</span>
 					<x-heroicon-o-user-circle class="w-6 h-6"/>
