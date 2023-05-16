@@ -17,7 +17,8 @@
     | be assigned to the "api" middleware group. Make something great!
     |
     */
-    Route::middleware('api')->group(function () {
+    Route::middleware('api_whitelist')->group(function () {
+        // Registrazione utente
         Route::post('/register', function (Request $request) {
             $rules = [
                 'id' => 'required',
@@ -41,37 +42,37 @@
                 return "User Registered";
             }
         });
-    });
-    // Assegnazione Coins
-    Route::post('/coins-assignment', function () {
-        ini_set('memory_limit', -1);
-        $currentPage = 1;
-        $endPage = 100;
-        $videos = [];
-        while ($currentPage <= $endPage) {
-            $request = http('get', env('TEYUTO_ENDPOINT') . 'analytics/views?date_start=' . now()->subDay()->format('Y-m-d') . '&page=' . $currentPage);
-            if ($request->successful()) {
-                $videos = array_merge($videos, $request->json()['views']);
-                $currentPage++;
-            } else {
-                break;
-            }
-        }
-
-        foreach ($videos as $item) {
-            $user = User::where('teyuto_id', $item['id_user'])->first();
-            $video = Video::where('teyuto_id', $item['id_video'])->first();
-            if ($user && $video) {
-                // Se l'utente ha visualizzato almeno un minuto di video
-                if ($item['total_seconds'] >= 60) {
-                    $viewed_seconds = $item['total_seconds'];
-                    $viewed_minutes = floor($viewed_seconds / 60);
-                    $assigned_coins = $viewed_minutes * $video->coins;
-
-                    $user->increment('coins', $assigned_coins);
+        // Assegnazione Coins
+        Route::post('/coins-assignment', function () {
+            ini_set('memory_limit', -1);
+            $currentPage = 1;
+            $endPage = 100;
+            $videos = [];
+            while ($currentPage <= $endPage) {
+                $request = http('get', env('TEYUTO_ENDPOINT') . 'analytics/views?date_start=' . now()->subDay()->format('Y-m-d') . '&page=' . $currentPage);
+                if ($request->successful()) {
+                    $videos = array_merge($videos, $request->json()['views']);
+                    $currentPage++;
+                } else {
+                    break;
                 }
             }
-        }
+
+            foreach ($videos as $item) {
+                $user = User::where('teyuto_id', $item['id_user'])->first();
+                $video = Video::where('teyuto_id', $item['id_video'])->first();
+                if ($user && $video) {
+                    // Se l'utente ha visualizzato almeno un minuto di video
+                    if ($item['total_seconds'] >= 60) {
+                        $viewed_seconds = $item['total_seconds'];
+                        $viewed_minutes = floor($viewed_seconds / 60);
+                        $assigned_coins = $viewed_minutes * $video->coins;
+
+                        $user->increment('coins', $assigned_coins);
+                    }
+                }
+            }
+        });
     });
     Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
         return $request->user();
