@@ -69,36 +69,26 @@
         $videos = [];
         while ($currentPage <= $endPage) {
             $request = http('get', env('TEYUTO_ENDPOINT') . 'analytics/views?date_start='. now()->format('Y-m-d') .'&page=' . $currentPage);
-            // TODO: chiedere se possibile ricevere un 404 se la pagina non esiste (e quindi non ha dati all'interno)
             if ($request->successful()) {
-                $check = array_filter($request->json(), function($key) {
-                    return is_numeric($key);
-                }, ARRAY_FILTER_USE_KEY);
-                if($check) {
-                    $videos = array_merge($videos, $check);
-                    $currentPage++;
-                }
-                break;
+                $videos = array_merge($videos, $request->json()['views']);
+                $currentPage++;
             } else {
                 break;
             }
         }
-        // Seleziono solo gli elementi con una key numerica (escludo quindi status, page e next_page)
-        $videos = array_filter($videos, function($key) {
-            return is_numeric($key);
-        }, ARRAY_FILTER_USE_KEY);
 
         foreach ($videos as $item) {
             $user = User::where('teyuto_id', $item['id_user'])->first();
             $video = Video::where('teyuto_id', $item['id_video'])->first();
+            if($user) {
+                // Se l'utente ha visualizzato almeno un minuto di video
+                if ($item['total_seconds'] >= 60) {
+                    $viewed_seconds = $item['total_seconds'];
+                    $viewed_minutes = floor($viewed_seconds / 60);
+                    $assigned_coins = $viewed_minutes * $video->coins;
 
-            // Se l'utente ha visualizzato almeno un minuto di video
-            if($item['total_seconds'] >= 60) {
-                $viewed_seconds = $item['total_seconds'];
-                $viewed_minutes = floor($viewed_seconds / 60);
-                $assigned_coins = $viewed_minutes * $video->coins;
-
-                $user->increment('coins', $assigned_coins);
+                    $user->increment('coins', $assigned_coins);
+                }
             }
         }
     });
