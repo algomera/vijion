@@ -43,7 +43,7 @@
             }
         });
         // Assegnazione Coins
-        Route::post('/coins-assignment', function () {
+        Route::post('/coins-allocation', function () {
             ini_set('memory_limit', -1);
             $currentPage = 1;
             $endPage = 100;
@@ -72,9 +72,9 @@
                         }
                     }
                 }
-                return "Ok";
+                echo "Coins allocated successfully.";
             } else {
-                return "No coins to assign.";
+                echo "No coins to allocate.";
             }
         });
     });
