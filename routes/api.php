@@ -57,23 +57,24 @@
                     break;
                 }
             }
+            if ($videos) {
+                foreach ($videos as $item) {
+                    $user = User::where('teyuto_id', $item['id_user'])->first();
+                    $video = Video::where('teyuto_id', $item['id_video'])->first();
+                    if ($user && $video) {
+                        // Se l'utente ha visualizzato almeno un minuto di video
+                        if ($item['total_seconds'] >= 60) {
+                            $viewed_seconds = $item['total_seconds'];
+                            $viewed_minutes = floor($viewed_seconds / 60);
+                            $assigned_coins = $viewed_minutes * $video->coins;
 
-            foreach ($videos as $item) {
-                $user = User::where('teyuto_id', $item['id_user'])->first();
-                $video = Video::where('teyuto_id', $item['id_video'])->first();
-                if ($user && $video) {
-                    // Se l'utente ha visualizzato almeno un minuto di video
-                    if ($item['total_seconds'] >= 60) {
-                        $viewed_seconds = $item['total_seconds'];
-                        $viewed_minutes = floor($viewed_seconds / 60);
-                        $assigned_coins = $viewed_minutes * $video->coins;
-
-                        $user->increment('coins', $assigned_coins);
+                            $user->increment('coins', $assigned_coins);
+                        }
                     }
                 }
+                return "Ok";
+            } else {
+                return "No coins to assign.";
             }
         });
-    });
-    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-        return $request->user();
     });
