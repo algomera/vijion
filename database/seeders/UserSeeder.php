@@ -23,13 +23,15 @@
 			]);
 			$admin->assignRole($adminRole);
 			$member = User::factory()->create([
-				'first_name' => 'Fabio',
-				'last_name'  => 'Serembe',
-				'email'      => 'fabio.serembe@gmail.com'
+				'first_name' => 'Algomera',
+				'last_name'  => null,
+				'email'      => 'info@algomera.it'
 			]);
 			$member->assignRole($memberRole);
-			User::factory(8)->create()->each(function ($u) use ($memberRole) {
-				$u->assignRole($memberRole);
-			});
+            if(app()->environment() === "local") {
+                User::factory(8)->create()->each(function ($u) use ($memberRole) {
+                    $u->assignRole($memberRole);
+                });
+            }
 		}
 	}
