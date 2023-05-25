@@ -3,7 +3,7 @@
 	@if(!$background_url)
 		<div class="absolute inset-0 -z-10 h-full w-full object-cover bg-gray-700"></div>
 	@else
-		<img src="{{ asset($background_url) }}" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+		<img src="{{ url($background_url) }}" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
 	@endif
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl drop-shadow lg:mx-0">
