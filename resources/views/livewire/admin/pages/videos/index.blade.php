@@ -35,7 +35,7 @@
 							<div class="flex min-w-0 flex-1 items-center">
 								<div class="flex-shrink-0">
 									@if($video->img_preview)
-										<img class="w-24 aspect-video" src="{{ $video->img_preview }}"
+										<img class="w-24 aspect-video" src="{{ asset($video->img_preview) }}"
 										     alt="">
 									@else
 										<div class="w-24 bg-gray-400 aspect-video"></div>

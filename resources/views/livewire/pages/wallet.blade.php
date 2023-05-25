@@ -9,11 +9,11 @@
 							<div class="flex items-center space-x-5 py-5">
 								<div class="hidden relative w-32 aspect-square md:block">
 									@if(!$purchase->coupon_code->coupon->bg)
-										<img src="{{ $purchase->coupon_code->coupon->brand->category->image_path }}"
+										<img src="{{ asset($purchase->coupon_code->coupon->brand->category->image_path) }}"
 										     alt="{{ $purchase->coupon_code->coupon->brand->name }}"
 										     class="aspect-square w-full object-cover">
 									@else
-										<img src="{{ $purchase->coupon_code->coupon->bg }}"
+										<img src="{{ asset($purchase->coupon_code->coupon->bg) }}"
 										     alt="{{ $purchase->coupon_code->coupon->brand->name }}"
 										     class="aspect-square w-full object-cover">
 									@endif

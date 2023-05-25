@@ -41,7 +41,7 @@
 					<div class="flex-1 pb-0">
 						<div class="relative w-full h-full">
 							@if(!$coupon->bg)
-								<img src="{{ $coupon->brand->category->image_path }}" alt=""
+								<img src="{{ asset($coupon->brand->category->image_path) }}" alt=""
 								     class="aspect-video w-full object-cover">
 							@else
 								<img src="{{ asset($coupon->bg) }}" alt="" class="aspect-video w-full object-cover">

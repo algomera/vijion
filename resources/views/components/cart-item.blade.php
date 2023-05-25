@@ -4,10 +4,10 @@
 	                     class="w-6 h-6 text-gray-300 cursor-pointer flex-shrink-0 hover:text-gray-500"/>
 	<div class="hidden relative w-32 aspect-square md:block">
 		@if(!$coupon->bg)
-			<img src="{{ $coupon->brand->category->image_path }}"
+			<img src="{{ asset($coupon->brand->category->image_path) }}"
 			     alt="{{ $coupon->brand->name }}" class="aspect-square w-full object-cover">
 		@else
-			<img src="{{ $coupon->bg }}"
+			<img src="{{ asset($coupon->bg) }}"
 			     alt="{{ $coupon->brand->name }}" class="aspect-square w-full object-cover">
 		@endif
 	</div>

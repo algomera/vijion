@@ -22,7 +22,7 @@
 	</div>
 	<div class="bg-white h-16 relative">
 		<div class="absolute w-full h-full flex items-center px-14">
-			<img src="{{ $coupon->brand->logo_path }}" alt="{{ $coupon->brand->name }}" class="py-2 max-h-12 mx-auto">
+			<img src="{{ asset($coupon->brand->logo_path) }}" alt="{{ $coupon->brand->name }}" class="py-2 max-h-12 mx-auto">
 		</div>
 		<div class="absolute h-full top-0 right-2 flex items-center space-x-1 text-brand">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

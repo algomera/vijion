@@ -32,7 +32,7 @@
 							<div class="flex min-w-0 flex-1 items-center">
 								<div class="relative w-14 aspect-square">
 									@if(!$coupon->bg)
-										<img class="w-full object-cover aspect-square" src="{{ $coupon->brand->category->image_path }}">
+										<img class="w-full object-cover aspect-square" src="{{ asset($coupon->brand->category->image_path) }}">
 									@else
 										<img class="w-full object-cover aspect-square" src="{{ asset($coupon->bg) }}">
 									@endif

@@ -30,7 +30,7 @@
 						<div class="flex items-center px-4 py-4 sm:px-6">
 							<div class="flex min-w-0 flex-1 items-center">
 								<div class="flex-shrink-0">
-									<img class="w-14" src="{{ $purchase->coupon_code->coupon->brand->logo_path }}"
+									<img class="w-14" src="{{ asset($purchase->coupon_code->coupon->brand->logo_path) }}"
 									     alt="">
 								</div>
 								<div class="min-w-0 flex-1 px-8 md:grid md:grid-cols-2 md:gap-4">
