@@ -2,7 +2,7 @@
 
 <div class="group relative aspect-video col-span-2 sm:aspect-auto sm:relative sm:h-[300px] lg:h-[475px]">
 	<div class="relative flex w-full h-full flex-col items-start justify-start p-9">
-		<img src="{{ url($category->highlighted_background) }}" alt=""
+		<img src="{{ asset($category->highlighted_background) }}" alt=""
 		     class="object-cover object-center absolute inset-0 h-full w-full">
 		<div class="relative ml-0 flex w-full h-full flex-col items-center justify-center px-6 text-center lg:px-0 lg:max-w-md lg:ml-14">
 			<p class="mb-4 text-md text-white md:text-xl">{!! formatString($category->highlighted_subtitle) !!}</p>

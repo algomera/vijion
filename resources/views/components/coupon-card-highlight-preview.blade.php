@@ -3,9 +3,9 @@
 	<div class="flex-1 p-1.5 pb-0">
 		<div class="relative w-full h-full">
 			@if(!$bg)
-				<img src="{{ url($brand->category->image_path) }}" alt="" class="aspect-video w-full object-cover">
+				<img src="{{ asset($brand->category->image_path) }}" alt="" class="aspect-video w-full object-cover">
 			@else
-				<img src="{{ url($bg) }}" alt="" class="aspect-video w-full object-cover">
+				<img src="{{ asset($bg) }}" alt="" class="aspect-video w-full object-cover">
 			@endif
 			<div class="absolute inset-0 grid place-items-center {{ $text_color }}">
 				<div class="flex flex-col items-center text-sm">
@@ -21,7 +21,7 @@
 	</div>
 	<div class="bg-white h-16 relative">
 		<div class="absolute w-full h-full flex items-center px-14">
-			<img src="{{ url($brand->logo_path) }}" alt="{{ $brand->name }}" class="py-2 max-h-12 mx-auto">
+			<img src="{{ asset($brand->logo_path) }}" alt="{{ $brand->name }}" class="py-2 max-h-12 mx-auto">
 		</div>
 		<div class="absolute h-full top-0 right-2 flex items-center space-x-1 text-brand">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

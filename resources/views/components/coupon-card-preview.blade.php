@@ -5,7 +5,7 @@
 		<p>sconto {{ $type === 'percentage' ? 'del' : 'di' }} <span class="text-[22px] font-bold text-brand">{{ $amount }}{{ $type === 'percentage' ? '%' : '€' }}</span></p>
 	</div>
 	<div class="flex items-center flex-1 bg-white px-14">
-		<img src="{{ url($brand->logo_path) }}" alt="{{ $brand->name }}" class="py-2 max-h-20 mx-auto">
+		<img src="{{ asset($brand->logo_path) }}" alt="{{ $brand->name }}" class="py-2 max-h-20 mx-auto">
 	</div>
 	<div class="flex items-center justify-between bg-white pb-4 px-3">
 		<p class="text-sm text-gray-500">{{ $brand->category->name }}</p>
