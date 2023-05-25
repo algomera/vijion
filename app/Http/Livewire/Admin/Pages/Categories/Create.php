@@ -24,7 +24,7 @@
 			$filename = $this->image->getClientOriginalName();
 			$ext = substr(strrchr($filename, '.'), 1);
 
-			$image_path = Storage::disk('public')->putFileAs('categories', $this->image, Str::slug($this->name) . '.' . $ext);
+			$image_path = Storage::disk('public')->putFileAs('storage/categories', $this->image, Str::slug($this->name) . '.' . $ext);
 			$category = Category::create([
 				'name' => $this->name,
 				'slug' => Str::slug($this->name),

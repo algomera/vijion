@@ -31,7 +31,7 @@
 				]);
 				$filename = $this->new_image->getClientOriginalName();
 				$ext = substr(strrchr($filename, '.'), 1);
-				$image_path = Storage::disk('public')->putFileAs('categories', $this->new_image, Str::slug($this->category->name) . '.' . $ext);
+				$image_path = Storage::disk('public')->putFileAs('storage/categories', $this->new_image, Str::slug($this->category->name) . '.' . $ext);
 			}
 			$this->category->update([
 				'name'       => $this->category->name,

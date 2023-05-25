@@ -46,7 +46,7 @@
 			$this->validate();
 			$filename = $this->logo->getClientOriginalName();
 			$ext = substr(strrchr($filename, '.'), 1);
-			$logo_path = Storage::disk('public')->putFileAs('brands', $this->logo, Str::slug($this->name) . '.' . $ext);
+			$logo_path = Storage::disk('public')->putFileAs('storage/brands', $this->logo, Str::slug($this->name) . '.' . $ext);
 			$brand = Brand::create([
 				'name'        => $this->name,
 				'slug'        => Str::slug($this->name),

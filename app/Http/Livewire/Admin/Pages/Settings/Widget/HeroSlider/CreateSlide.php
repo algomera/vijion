@@ -42,7 +42,7 @@
 			if ($this->background_url) {
 				$filename = $this->background_url->getClientOriginalName();
 				$ext = substr(strrchr($filename, '.'), 1);
-				$bg_path = Storage::disk('public')->putFileAs('hero-slides', $this->background_url, Str::slug($uuid) . '.' . $ext);
+				$bg_path = Storage::disk('public')->putFileAs('storage/hero-slides', $this->background_url, Str::slug($uuid) . '.' . $ext);
 			}
 
 			HeroSlide::create([

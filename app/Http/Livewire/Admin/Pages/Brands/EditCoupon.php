@@ -52,7 +52,7 @@
 				]);
 				$filename = $this->new_bg->getClientOriginalName();
 				$ext = substr(strrchr($filename, '.'), 1);
-				$bg_path = Storage::disk('public')->putFileAs('coupons', $this->new_bg, Str::slug($this->coupon->uuid) . '.' . $ext);
+				$bg_path = Storage::disk('public')->putFileAs('storage/coupons', $this->new_bg, Str::slug($this->coupon->uuid) . '.' . $ext);
 			}
 			$this->coupon->update([
 				'amount'       => $this->coupon->amount,

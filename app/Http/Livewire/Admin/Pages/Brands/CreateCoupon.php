@@ -45,7 +45,7 @@
 			if ($this->bg) {
 				$filename = $this->bg->getClientOriginalName();
 				$ext = substr(strrchr($filename, '.'), 1);
-				$bg_path = Storage::disk('public')->putFileAs('coupons', $this->bg, Str::slug($uuid) . '.' . $ext);
+				$bg_path = Storage::disk('public')->putFileAs('storage/coupons', $this->bg, Str::slug($uuid) . '.' . $ext);
 			}
 			$this->brand->coupons()->where('active', 1)->update([
 				'active' => 0

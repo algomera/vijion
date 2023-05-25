@@ -55,7 +55,7 @@
 				]);
 				$filename = $this->new_logo->getClientOriginalName();
 				$ext = substr(strrchr($filename, '.'), 1);
-				$logo_path = Storage::disk('public')->putFileAs('brands', $this->new_logo, Str::slug($this->brand->name) . '.' . $ext);
+				$logo_path = Storage::disk('public')->putFileAs('storage/brands', $this->new_logo, Str::slug($this->brand->name) . '.' . $ext);
 			}
 			$this->brand->update([
 				'name'      => $this->brand->name,
