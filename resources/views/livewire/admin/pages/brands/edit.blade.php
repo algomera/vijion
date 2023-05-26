@@ -50,7 +50,7 @@
 							wire:onSortOrderChange="sortBrandRulesOrder"
 							class="space-y-2 mt-3">
 						@foreach($brand_rules as $k => $rule)
-							<x-laravel-blade-sortable::sortable-item sort-key="{{ $rule->id }}" wire:key="{{$rule->id}}">
+							<x-laravel-blade-sortable::sortable-item sort-key="{{ $rule->id }}" wire:key="rule-{{$brand->id}}-{{$rule->id}}">
 								<div class="flex items-center space-x-3">
 									<div class="p-2 rounded-md hover:bg-gray-100 hover:cursor-pointer @error('brand_rules.' . $k . '.body') transform -translate-y-[0.8rem] @enderror">
 										<x-heroicon-o-bars-2 class="w-4 h-4 text-gray-400"></x-heroicon-o-bars-2>

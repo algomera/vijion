@@ -26,6 +26,7 @@
 
 		public function mount(Brand $brand) {
 			$this->brand = $brand;
+            $this->brand_rules = $this->brand->rules()->orderBy('order')->get();
 		}
 
 		public function addBrandRule() {
@@ -72,7 +73,6 @@
 		}
 
 		public function render() {
-			$this->brand_rules = $this->brand->rules()->orderBy('order')->get();
 			return view('livewire.admin.pages.brands.edit', [
 				'categories' => Category::all(),
 			]);
