@@ -77,4 +77,14 @@
                 echo "No coins to allocate.";
             }
         });
+        // Coins Utente
+        Route::get('/user/{id}/points', function ($id) {
+            $user = User::where('teyuto_id', $id)->first();
+
+            if($user) {
+                return $user->coins;
+            }
+
+            return "Points not founds.";
+        });
     });
