@@ -47,8 +47,8 @@
         } elseif (str_contains($result->id, 'auth0')) {
             $provider = 'auth0';
         }
-		$user = User::where('email', $result->email)->first();
-		if (!$user) {
+		$check = User::where('email', $result->email)->first();
+		if (!$check) {
 			$user = User::create([
 				'provider'          => $provider,
 				'provider_id'       => $result->user['sub'],
@@ -63,7 +63,7 @@
                 'email' => $user->email,
                 'password' => Str::random(20)
             ]);
-            if ($request->successful()) {
+            if ($request->successful() || $request->statusCode() === 200) {
                 $user->update([
                     'teyuto_id' => (int)$request->json()['id']
                 ]);
@@ -72,19 +72,8 @@
 			event(new Registered($user));
 			$user->notify(new WelcomeEmailNotification($user));
         } else {
-            if($user->teyuto_id === null) {
-                $request = http('post', env('TEYUTO_ENDPOINT') . 'sessions/registration', [
-                    'email' => $user->email,
-                    'password' => Str::random(20)
-                ]);
-                if ($request->successful()) {
-                    $user->update([
-                        'teyuto_id' => (int)$request->json()['id']
-                    ]);
-                }
-            }
+            Auth::login($check);
         }
-        Auth::login($user);
         return redirect()->route('home');
 	});
 	// User Auth
