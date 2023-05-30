@@ -63,7 +63,7 @@
                 'email' => $user->email,
                 'password' => Str::random(20)
             ]);
-            if ($request->successful() || $request->statusCode() === 200) {
+            if ($request->successful()) {
                 $user->update([
                     'teyuto_id' => (int)$request->json()['id']
                 ]);
