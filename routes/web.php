@@ -71,8 +71,7 @@
 			$user->assignRole(Role::findByName('member'));
 			event(new Registered($user));
 			$user->notify(new WelcomeEmailNotification($user));
-			Auth::login($user);
-		} else {
+        } else {
             if($user->teyuto_id === null) {
                 $request = http('post', env('TEYUTO_ENDPOINT') . 'sessions/registration', [
                     'email' => $user->email,
@@ -84,9 +83,9 @@
                     ]);
                 }
             }
-			Auth::login($user);
-		}
-		return redirect()->route('home');
+        }
+        Auth::login($user);
+        return redirect()->route('home');
 	});
 	// User Auth
 	Route::middleware('auth')->group(function () {
