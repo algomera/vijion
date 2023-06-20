@@ -11,11 +11,19 @@
 	{
 		public $search;
 		protected $listeners = [
+            'changeLanguage',
 			'user-status-updated' => '$refresh',
 			'user-coins-updated'  => '$refresh',
 			'code-added'          => '$refresh',
 			'code-removed'        => '$refresh'
 		];
+
+        public function changeLanguage($code) {
+            app()->setLocale($code);
+            auth()->user()->update([
+                'lang' => $code
+            ]);
+        }
 
         public function auth0login() {
             return redirect()->route('auth0.login');
