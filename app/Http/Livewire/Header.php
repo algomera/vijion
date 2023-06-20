@@ -23,6 +23,8 @@
             auth()->user()->update([
                 'lang' => $code
             ]);
+
+            return redirect(request()->header('Referer'));
         }
 
         public function auth0login() {

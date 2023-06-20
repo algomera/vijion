@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('lang')->after('coins')->default('it');
+        Schema::table('rules', function (Blueprint $table) {
+            $table->renameColumn('body', 'body_it');
+            $table->addColumn('text', 'body_en')->nullable()->after('body');
         });
     }
 
@@ -21,8 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('lang');
+        Schema::table('rules', function (Blueprint $table) {
+            $table->renameColumn('body_it', 'body');
+            $table->dropColumn('body_en');
         });
     }
 };
