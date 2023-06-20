@@ -3,7 +3,6 @@
     namespace App\Traits;
 
     use Illuminate\Support\Facades\App;
-    use function PHPUnit\Framework\isEmpty;
 
     trait MultiLanguage
     {

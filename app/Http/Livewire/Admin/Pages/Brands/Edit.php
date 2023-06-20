@@ -17,8 +17,10 @@
 		public $brand;
 		public $new_logo;
 		public $brand_rules = [];
+        public $lang = 'it';
 		protected $rules = [
-			'brand_rules.*.body' => 'required',
+			'brand_rules.*.body_it' => 'required',
+            'brand_rules.*.body_en' => 'nullable',
 			'brand.name'        => 'required',
 			'brand.logo_path'   => 'required|string',
 			'brand.category_id' => 'required'
@@ -31,7 +33,8 @@
 
 		public function addBrandRule() {
 			$this->brand_rules[] = $this->brand->rules()->create([
-				'body' => '',
+				'body_it' => '',
+                'body_en' => '',
 				'order' => $this->brand->rules()->count() === 0 ? 0 : $this->brand->rules()->count()
 			]);
 		}
@@ -47,6 +50,8 @@
 					'order' => $index
 				]);
 			}
+
+            $this->brand_rules = $this->brand->rules()->orderBy('order')->get();
 		}
 		public function save() {
 			$this->validate();
@@ -65,7 +70,8 @@
 			]);
 			foreach ($this->brand_rules as $brand_rule) {
 				$this->brand->rules()->updateOrCreate(['id' => $brand_rule->id], [
-					'body' => $brand_rule->body,
+					'body_it' => $brand_rule->body_it,
+                    'body_en' => $brand_rule->body_en,
 				]);
 			}
 			$this->closeModal();
