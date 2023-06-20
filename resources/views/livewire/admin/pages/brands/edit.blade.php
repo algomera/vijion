@@ -6,6 +6,18 @@
 
             <div class="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="col-span-full">
+                    <x-input-label>Visibilità</x-input-label>
+                    <div class="flex items-center space-x-3 mt-1">
+                        @foreach(config('languages') as $code => $language)
+                            @php($field = "brand.visible_{$code}")
+                            <span wire:click="$toggle('{{ $field }}')"
+                                  class="{{ $brand["visible_{$code}"] ? 'bg-green-200' : 'bg-red-200' }} text-gray-500 hover:text-gray-700 hover:cursor-pointer rounded-md px-2 py-2 text-sm font-medium">
+                                            <x-dynamic-component component="flag-language-{{ $code }}" class="w-4 h-4"/>
+                                        </span>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="col-span-full">
                     <x-input wire:model.defer="brand.name" type="text" name="name" label="Nome"></x-input>
                 </div>
                 <div class="col-span-full">
@@ -48,9 +60,9 @@
                             <x-input-label>Regole</x-input-label>
                             <div>
                                 <nav class="flex space-x-2">
-                                    <!-- Current: "bg-gray-100 text-gray-700", Default: "text-gray-500 hover:text-gray-700" -->
                                     @foreach(config('languages') as $code => $language)
-                                        <span wire:click="$set('lang', '{{ $code }}')" class="{{ $lang === $code ? 'bg-gray-100' : 'hover:bg-gray-50 hover:cursor-pointer' }} text-gray-500 hover:text-gray-700 rounded-md px-2 py-2 text-sm font-medium">
+                                        <span wire:click="$set('lang', '{{ $code }}')"
+                                              class="{{ $lang === $code ? 'bg-gray-100' : 'hover:bg-gray-50 hover:cursor-pointer' }} text-gray-500 hover:text-gray-700 rounded-md px-2 py-2 text-sm font-medium">
                                             <x-dynamic-component component="flag-language-{{ $code }}" class="w-4 h-4"/>
                                         </span>
                                     @endforeach

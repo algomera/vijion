@@ -19,6 +19,8 @@
 		public $brand_rules = [];
         public $lang = 'it';
 		protected $rules = [
+            'brand.visible_it' => 'boolean',
+            'brand.visible_en' => 'boolean',
 			'brand_rules.*.body_it' => 'required',
             'brand_rules.*.body_en' => 'nullable',
 			'brand.name'        => 'required',

@@ -34,7 +34,7 @@
         Route::get('/categories', Categories::class)->name('categories');
         Route::get('/category/{category:slug}', Category::class)->name('category');
         Route::get('/our-brands', Brands::class)->name('brands');
-        Route::get('/brand/{brand:slug}', Brand::class)->name('brand');
+        Route::get('/brand/{brand:slug}', Brand::class)->middleware(\App\Http\Middleware\ViewBrandBasedOnLanguage::class)->name('brand');
         // Socialite
         Route::get('auth0/login', function () {
             return Socialite::driver('auth0')->redirect();
