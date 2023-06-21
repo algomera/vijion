@@ -55,7 +55,7 @@
 			]);
 			foreach ($this->brand_rules as $index => $brand_rule) {
 				$brand->rules()->create([
-					'body' => $brand_rule['body'],
+					'body_it' => $brand_rule['body'],
 					'order' => $index
 				]);
 			}
