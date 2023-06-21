@@ -4,8 +4,9 @@
 			<div class="order-2 flex flex-col justify-center space-y-8 w-full lg:max-w-md lg:order-none">
 				@if($coupon->brand->rules->count())
 					<div>
-						<h3 class="text-xl font-bold mb-4">Regole di <span
-									class="uppercase">{{ $coupon->brand->name }}</span></h3>
+						<h3 class="text-xl font-bold mb-4">
+                            {{ __('general.titolo_regole', ['brand' => $coupon->brand->name]) }}
+                        </h3>
 						<ul class="list-[circle] space-y-2">
 							@foreach($coupon->brand->rules()->orderBy('order')->get() as $rule)
 								<li>{{ $rule->body }}</li>
@@ -14,17 +15,16 @@
 					</div>
 				@endif
 				<div>
-					<h3 class="text-xl font-bold mb-4">Come funzionano i <span class="uppercase">VIJI-COINS</span> su
-						<span class="uppercase">{{ $coupon->brand->name }}</span></h3>
-					<p>Guadagnare VIJI-COINS è molto semplice, basta visualizzare i video in streaming presenti su
-						vijion.it. Per concludere l’acquisto basterà aggiungere al carrello la card da una pagina scheda
-						come questa e finalizzare l’acquisto all’interno del carrello.</p>
+					<h3 class="text-xl font-bold mb-4">
+                        {{ __('general.titolo_coins', ['brand' => $coupon->brand->name]) }}
+                    </h3>
+					<p>{{ __('general.testo_coins') }}</p>
 				</div>
 				<div class="group relative flex items-center gap-x-6 rounded-lg text-sm leading-6">
 					<div class="flex-auto">
 						<a href="#rules"
 						   class="flex items-center space-x-3 text-brand hover:text-brand">
-							<span>Leggi le regole fondamentali</span>
+							<span>{{ __('general.Leggi le regole fondamentali') }}</span>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 							     stroke-width="1.5" stroke="currentColor"
 							     class="w-5 h-5 transform group-hover:translate-y-1 transition">
@@ -48,10 +48,10 @@
 							@endif
 							<div class="absolute inset-0 grid place-items-center {{ $coupon->text_color }}">
 								<div class="flex flex-col justify-center items-center bg-white w-32 h-32 rounded-full sm:w-44 sm:h-44">
-									<span class="text-gray-800 font-bold">sconto</span>
+									<span class="text-gray-800 font-bold">{{ __('general.sconto') }}</span>
 									<span class="text-5xl text-brand font-bold sm:text-6xl">{{ $coupon->amount }}{{ $coupon->type === 'percentage' ? '%' : '€' }}</span>
 									@if($coupon->expires_date)
-										<span class="underline text-gray-800 text-xs">valido fino a:</span>
+										<span class="underline text-gray-800 text-xs">{{ __('general.validita_coupon') }}</span>
 										<span class="uppercase text-brand font-bold">{{ \Carbon\Carbon::parse($coupon->expires_date)->monthName }}</span>
 									@endif
 								</div>
@@ -60,11 +60,11 @@
 					</div>
 					<div class="flex flex-col space-y-2 items-center justify-between rounded-full bg-gray-50 py-1.5 px-1.5 mt-4 sm:flex-row sm:space-y-0">
 						<div class="flex items-center ml-1 text-gray-700 px-4 whitespace-nowrap">
-							<p>L'acquisto di questo prodotto equivale a:</p>
+							<p>{{ __('general.L\'acquisto di questo prodotto equivale a:') }}</p>
 						</div>
 						<div class="bg-brand rounded-full text-white py-2.5 px-4 whitespace-nowrap">
 							<p class="font-bold text-lg">
-								{{ $coupon->coins }} <span class="inline-block text-xs font-bold">VIJI-COINS</span>
+								{{ $coupon->coins }} <span class="inline-block text-xs font-bold">{{ __('general.VIJI-COINS') }}</span>
 							</p>
 						</div>
 					</div>
@@ -72,8 +72,8 @@
 						<img src="{{ asset($coupon->brand->logo_path) }}" alt="{{ $coupon->brand->name }}"
 						     class="py-2 max-h-24 max-w-[200px] mx-auto">
 						<x-primary-button wire:click="addToCart"
-						                  :disabled="auth()->check() && auth()->user()->couponInCart($coupon->id)">
-							{{ auth()->check() && auth()->user()->couponInCart($coupon->id) ? 'Aggiunto al carrello' : 'Aggiungi al carrello' }}
+						                  :disabled="auth()->check() && auth()->user()->couponInCart($coupon->id) || $coupon->codes()->active()->count() <= 0">
+							{{ auth()->check() && auth()->user()->couponInCart($coupon->id) ? __('general.Aggiunto al carrello') : __('general.Aggiungi al carrello') }}
 						</x-primary-button>
 					</div>
 				</div>
@@ -84,55 +84,37 @@
 <div id="rules" class="bg-white py-12">
 	<div class="container max-w-5xl">
 		<h3 class="text-xl font-bold mb-8">
-			Le regole per spendere al meglio i tuoi <span class="uppercase text-brand">VIJI-COINS</span>
+            {!! __('general.regole_spesa_coins') !!}
 		</h3>
 		<div class="space-y-6">
 			<div class="space-y-2">
 				<div class="flex font-bold space-x-2.5">
 					<span class="text-brand">1</span>
-					<p>Acquista lo sconto su VIJI-STORE prima di comprare i tuoi prodotti su <span
-								class="uppercase">{{ $coupon->brand->name }}</span></p>
+					<p>{{ __('general.titolo_punto_1', ['brand' => $coupon->brand->name]) }}</p>
 				</div>
 				<p class="text-gray-700 leading-relaxed">
-					Fondamentale è acquistare lo sconto su VIJI-STORE prima di passare allo shopping e alla cassa di
-					<span class="uppercase">{{ $coupon->brand->name }}</span>. Comprare prima su <span
-							class="uppercase">{{ $coupon->brand->name }}</span> per poi entrare nel sito VIJI-STORE non
-					permetterà all’utente di
-					utilizzare lo sconto, in quanto l’acquisto in questione non potrà essere collegabile.
+                    {{ __('general.testo_punto_1', ['brand' => $coupon->brand->name]) }}
 				</p>
 			</div>
 			<div class="space-y-2">
 				<div class="flex font-bold space-x-2.5">
 					<span class="text-brand">2</span>
-					<p>Il carrello deve essere vuoto prima del click su <span
-								class="uppercase">VIJI-STORE</span></p>
+					<p>{{ __('general.titolo_punto_2') }}</p>
 				</div>
-				<p class="text-gray-700 leading-relaxed">
-					Prima di passare da VIJI-STORE controlla sempre che il carrello sia vuoto e se c’è già qualcosa da
-					una precedente sessione svuotalo. Alcuni negozi hanno delle regole di attribuzione stringenti e in
-					casi come questo potrebbero non pagarci la nostra commissione e noi non potremmo pagarti il tuo
-					codice sconto.
-				</p>
+				<p class="text-gray-700 leading-relaxed">{{ __('general.testo_punto_2') }}</p>
 			</div>
 			<div class="space-y-2">
 				<div class="flex font-bold space-x-2.5">
 					<span class="text-brand">3</span>
-					<p>Non tralasciare mai i cookies</p>
+					<p>{{ __('general.titolo_punto_3') }}</p>
 				</div>
 				<p class="text-gray-700 leading-relaxed">
-					I cookie hanno un ruolo fondamentale per far funzionare il sistema e permettere a <span
-							class="uppercase">{{ $coupon->brand->name }}</span> di
-					riconoscerci il merito dell’acquisto, quindi devi accettare tutti i cookie e non limitarli in alcun
-					modo, né con il tuo browser, né con un ad blocker o altri software per il blocco della pubblicità.
-					Controlla il tuo status.
+                    {{ __('general.testo_punto_3', ['brand' => $coupon->brand->name]) }}
 				</p>
 			</div>
 			<hr class="!my-9">
 			<p class="text-gray-700 leading-relaxed">
-				Se sei sicuro di aver fatto tutto bene e dopo 24 ore non ricevi nessuna email con lo sconto per <span
-						class="uppercase">{{ $coupon->brand->name }}</span>,
-				effettua subito una segnalazione su VIJI-STORE. Anche noi guadagniamo solo quando possiamo attribuire
-				uno sconto, quindi faremo tutto quello che potremo per ottenere quello che ci spetta.
+				{{ __('general.testo_punto_finale', ['brand' => $coupon->brand->name]) }}
 			</p>
 		</div>
 	</div>

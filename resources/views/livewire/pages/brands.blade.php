@@ -1,7 +1,7 @@
 <div>
 	<div x-data class="bg-gray-100 py-12">
 		<div class="container">
-			<h3 class="text-3xl font-bold mt-10 mb-12">I nostri brand</h3>
+			<h3 class="text-3xl font-bold mt-10 mb-12">{{ __('general.I nostri brand') }}</h3>
 		</div>
 	</div>
 	<div class="container py-8">
@@ -14,7 +14,7 @@
 					<x-coupon-card :coupon="$coupon"/>
 				@endforeach
 			@empty
-				<p class="text-sm text-gray-400">Non ci sono coupon disponibili.</p>
+				<p class="text-sm text-gray-400">{{ __('general.Non ci sono coupon disponibili.') }}</p>
 			@endforelse
 		</div>
 		<div>

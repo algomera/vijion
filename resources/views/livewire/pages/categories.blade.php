@@ -1,7 +1,7 @@
 <div>
 	<div x-data class="bg-gray-100 py-12">
 		<div class="container">
-			<h3 class="text-3xl font-bold mt-10 mb-12">Categorie</h3>
+			<h3 class="text-3xl font-bold mt-10 mb-12">{{ __('general.Categorie') }}</h3>
 		</div>
 	</div>
 	<div class="container py-8">
@@ -18,7 +18,7 @@
 					</div>
 				</a>
 			@empty
-				<p class="text-sm text-gray-400">Nessuna categoria trovata.</p>
+				<p class="text-sm text-gray-400">{{ __('general.Nessuna categoria trovata.') }}</p>
 			@endforelse
 		</div>
 		<div>

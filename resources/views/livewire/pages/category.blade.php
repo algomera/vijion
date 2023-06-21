@@ -11,7 +11,7 @@
 					<x-coupon-card :coupon="$coupon"/>
 				@endforeach
 			@empty
-				<p class="text-sm text-gray-400">Non ci sono coupon per questa categoria.</p>
+				<p class="text-sm text-gray-400">{{ __('general.Non ci sono coupon per questa categoria.') }}</p>
 			@endforelse
 		</div>
 	</div>

@@ -9,7 +9,7 @@
 			@forelse($coupons as $coupon)
 				<x-coupon-card :coupon="$coupon"/>
 			@empty
-				<p class="text-sm text-gray-400">Non ci sono coupon per questo brand.</p>
+				<p class="text-sm text-gray-400">{{ __('general.Non ci sono coupon per questo brand.') }}</p>
 			@endforelse
 		</div>
 	</div>
