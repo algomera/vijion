@@ -21,9 +21,12 @@
         public function changeLanguage($code)
         {
             app()->setLocale($code);
-            auth()->user()->update([
-                'lang' => $code
-            ]);
+            if(auth()->user()) {
+                auth()->user()->update([
+                    'lang' => $code
+                ]);
+            }
+            session()->put('lang', $code);
 
             return redirect(request()->header('Referer'));
         }
