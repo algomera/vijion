@@ -29,7 +29,7 @@
 	// User Guest
     Route::middleware(\App\Http\Middleware\SetLocale::class)->group(function() {
         Route::get('/', \App\Http\Livewire\Pages\Homepage::class)->name('home');
-        Route::get('/coupon/{coupon:uuid}', Coupon::class)->name('coupon');
+        Route::get('/coupon/{coupon:uuid}', Coupon::class)->middleware(\App\Http\Middleware\ViewCouponBasedOnLanguage::class)->name('coupon');
         Route::get('/cart', Cart::class)->name('cart');
         Route::get('/categories', Categories::class)->name('categories');
         Route::get('/category/{category:slug}', Category::class)->name('category');
