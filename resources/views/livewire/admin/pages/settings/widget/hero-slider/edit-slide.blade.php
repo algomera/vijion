@@ -17,26 +17,80 @@
                     </div>
                 </div>
 				<div class="col-span-full">
-					<x-input wire:model.debounce.500ms="slide.paragraph" type="text" name="paragraph"
-					         label="Paragrafo"></x-input>
+                    <div class="flex items-center space-x-4 mb-3">
+                        <x-input-label>Paragrafo</x-input-label>
+                        <div>
+                            <nav class="flex space-x-2">
+                                @foreach(config('languages') as $code => $language)
+                                    <span wire:click="$set('lang', '{{ $code }}')"
+                                          class="{{ $lang === $code ? 'bg-gray-100' : 'hover:bg-gray-50 hover:cursor-pointer' }} text-gray-500 hover:text-gray-700 rounded-md px-2 py-2 text-sm font-medium">
+                                            <x-dynamic-component component="flag-language-{{ $code }}" class="w-4 h-4"/>
+                                        </span>
+                                @endforeach
+                            </nav>
+                        </div>
+                    </div>
+                    @if($lang === 'it')
+					    <x-input wire:model.debounce.500ms="slide.paragraph_it" type="text" name="paragraph"></x-input>
+                    @endif
+                    @if($lang === 'en')
+                        <x-input wire:model.debounce.500ms="slide.paragraph_en" type="text" name="paragraph"></x-input>
+                    @endif
 				</div>
 				<div class="col-span-full sm:col-span-3">
-					<x-input wire:model.debounce.500ms="slide.btn_text" type="text" name="btn_text"
-					         label="Testo link"></x-input>
+                    <div class="flex items-center space-x-4 mb-3">
+                        <x-input-label>Testo Link</x-input-label>
+                        <div>
+                            <nav class="flex space-x-2">
+                                @foreach(config('languages') as $code => $language)
+                                    <span wire:click="$set('lang', '{{ $code }}')"
+                                          class="{{ $lang === $code ? 'bg-gray-100' : 'hover:bg-gray-50 hover:cursor-pointer' }} text-gray-500 hover:text-gray-700 rounded-md px-2 py-2 text-sm font-medium">
+                                            <x-dynamic-component component="flag-language-{{ $code }}" class="w-4 h-4"/>
+                                        </span>
+                                @endforeach
+                            </nav>
+                        </div>
+                    </div>
+                    @if($lang === 'it')
+                        <x-input wire:model.debounce.500ms="slide.btn_text_it" type="text" name="btn_text"></x-input>
+                    @endif
+                    @if($lang === 'en')
+                        <x-input wire:model.debounce.500ms="slide.btn_text_en" type="text" name="btn_text"></x-input>
+                    @endif
 				</div>
 				<div class="col-span-full sm:col-span-3">
+                    <div class="mb-5"></div>
 					<x-input wire:model.debounce.500ms="slide.btn_url" type="text" name="btn_url"
 					         label="URL link"></x-input>
 				</div>
 				<div class="col-span-full sm:col-span-2">
-					<x-input wire:model.debounce.500ms="slide.small_centered_text" type="text" name="small_centered_text"
-					         label="Testo centrale (piccolo)" hint="Esempio: sconti fino al"></x-input>
+                    <div class="flex items-center space-x-4 mb-3">
+                        <x-input-label>Testo centrale (piccolo)</x-input-label>
+                        <div>
+                            <nav class="flex space-x-2">
+                                @foreach(config('languages') as $code => $language)
+                                    <span wire:click="$set('lang', '{{ $code }}')"
+                                          class="{{ $lang === $code ? 'bg-gray-100' : 'hover:bg-gray-50 hover:cursor-pointer' }} text-gray-500 hover:text-gray-700 rounded-md px-2 py-2 text-sm font-medium">
+                                            <x-dynamic-component component="flag-language-{{ $code }}" class="w-4 h-4"/>
+                                        </span>
+                                @endforeach
+                            </nav>
+                        </div>
+                    </div>
+                    @if($lang === 'it')
+                        <x-input wire:model.debounce.500ms="slide.small_centered_text_it" type="text" name="small_centered_text" hint="Esempio: sconti fino al"></x-input>
+                    @endif
+                    @if($lang === 'en')
+                        <x-input wire:model.debounce.500ms="slide.small_centered_text_en" type="text" name="small_centered_text" hint="Esempio: sconti fino al"></x-input>
+                    @endif
 				</div>
 				<div class="col-span-full sm:col-span-2">
+                    <div class="mb-5"></div>
 					<x-input wire:model.debounce.500ms="slide.big_centered_text" type="text" name="big_centered_text"
 					         label="Valore" hint="Esempio: 50%"></x-input>
 				</div>
 				<div class="col-span-full sm:col-span-2">
+                    <div class="mb-5"></div>
 					<x-input wire:model.debounce.500ms="slide.coins_centered_text" type="text" name="coins_centered_text"
 					         label="VIJI-COINS"></x-input>
 				</div>
@@ -67,8 +121,8 @@
 					<div class="flex flex-col sm:flex-row sm:items-start gap-4 mt-3">
 						<div class="flex-1">
 							<div class="aspect-video">
-								<x-hero-slide-preview :paragraph="$slide->paragraph" :btn_text="$slide->btn_text" :btn_url="$slide->btn_url"
-								                      :small_centered_text="$slide->small_centered_text"
+								<x-hero-slide-preview :paragraph="$slide['paragraph_'.$lang]" :btn_text="$slide['btn_text_'.$lang]" :btn_url="$slide->btn_url"
+								                      :small_centered_text="$slide['small_centered_text_'.$lang]"
 								                      :big_centered_text="$slide->big_centered_text"
 								                      :coins_centered_text="$slide->coins_centered_text"
 								                      :background_url="$slide->background_url ?? $background_url?->temporaryUrl()"

@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('brands', function (Blueprint $table) {
-            $table->boolean('visible_it')->default(true);
-            $table->boolean('visible_en')->default(true);
+            $table->boolean('visible_it')->default(true)->after('expiring_order');
+            $table->boolean('visible_en')->default(true)->after('visible_it');
         });
     }
 

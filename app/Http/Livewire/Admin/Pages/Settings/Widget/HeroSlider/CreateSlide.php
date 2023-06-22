@@ -46,10 +46,10 @@
 			}
 
 			HeroSlide::create([
-				'paragraph'           => $this->paragraph,
-				'btn_text'            => $this->btn_text,
+				'paragraph_it'           => $this->paragraph,
+				'btn_text_it'            => $this->btn_text,
 				'btn_url'             => $this->btn_url,
-				'small_centered_text' => $this->small_centered_text,
+				'small_centered_text_it' => $this->small_centered_text,
 				'big_centered_text'   => $this->big_centered_text,
 				'coins_centered_text' => $this->coins_centered_text,
 				'background_url'      => $this->background_url ? $bg_path : null,
