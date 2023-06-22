@@ -10,10 +10,10 @@
 			@endif
 			<div class="absolute inset-0 grid place-items-center {{ $coupon->text_color }}">
 				<div class="flex flex-col items-center text-sm">
-					<span>sconto</span>
+					<span>{{ __('general.sconto') }}</span>
 					<span class="text-6xl font-bold">{{ $coupon->amount }}{{ $coupon->type === 'percentage' ? '%' : '€' }}</span>
 					@if($coupon->expires_date)
-						<span class="underline">valido fino a:</span>
+						<span class="underline">{{ __('general.validita_coupon') }}</span>
 						<span class="uppercase font-bold">{{ \Carbon\Carbon::parse($coupon->expires_date)->monthName }}</span>
 					@endif
 				</div>

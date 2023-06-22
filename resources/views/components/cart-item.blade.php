@@ -36,7 +36,7 @@
 		<div class="hidden md:flex">
 			<div class="flex flex-col justify-center text-center bg-gray-50 border border-gray-100 h-16 px-8 py-1.5">
 				<span class="leading-none text-2xl font-bold">{{ $coupon->amount }}{{ $coupon->type === 'percentage' ? '%' : '€' }}</span>
-				<span class="text-xs text-gray-500">(sconto)</span>
+				<span class="text-xs text-gray-500">({{ __('general.sconto') }})</span>
 			</div>
 			<div class="flex items-center space-x-1 bg-white text-brand border border-gray-100 border-l-0 h-16 p-3">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

@@ -7,10 +7,10 @@
 			<x-heroicon-o-check-circle class="w-28 h-28 text-green-400" />
 		</div>
 		<div class="text-center">
-			<p>Il tuo acquisto è stato completato correttamente. A breve riceverai una email con lo sconto da te selezionato!</p>
+			<p>{{ __('general.Il tuo acquisto è stato completato correttamente. A breve riceverai una email con lo sconto da te selezionato!') }}</p>
 		</div>
 		<x-primary-button href="{{ route('wallet') }}">
-			Visualizza Portafoglio
+			{{ __('general.Visualizza Portafoglio') }}
 		</x-primary-button>
 	</div>
 </div>

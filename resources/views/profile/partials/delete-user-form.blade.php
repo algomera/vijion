@@ -1,18 +1,18 @@
 <section class="space-y-6">
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            Elimina l'account
+            {{ __('general.Elimina l\'account') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            Una volta che il tuo account viene eliminato, tutte le risorse e i dati ad esso legati verranno persi per sempre. Prima di eliminare l'account, per favore salva tutti i dati e le informazioni che ritieni importanti.
+            {{ __('general.testo_elimina_account') }}
         </p>
     </header>
 
     <x-danger-button
         x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-    >{{ __('Delete Account') }}</x-danger-button>
+    >{{ __('general.Elimina Account') }}</x-danger-button>
 
     <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
         <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
@@ -20,11 +20,11 @@
             @method('delete')
 
             <h2 class="text-lg font-medium text-gray-900">
-                {{ __('Are you sure you want to delete your account?') }}
+                {{ __('general.Sei sicuro di voler eliminare definitivamente il tuo account?') }}
             </h2>
 
             <p class="mt-1 text-sm text-gray-600">
-                {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
+                {{ __('general.Una volta che il tuo account è eliminato, tutte le risorse e i dati ad esso associati saranno eliminati definitivamente. Per favore inserisci la tua password per confermare di cancellare il tuo account definitivamente.') }}
             </p>
 
             <div class="mt-6">
@@ -43,11 +43,11 @@
 
             <div class="mt-6 flex justify-end">
                 <x-secondary-button x-on:click="$dispatch('close')">
-                    {{ __('Cancel') }}
+                    {{ __('general.Annulla') }}
                 </x-secondary-button>
 
                 <x-danger-button class="ml-3">
-                    {{ __('Delete Account') }}
+                    {{ __('general.Elimina l\'account') }}
                 </x-danger-button>
             </div>
         </form>

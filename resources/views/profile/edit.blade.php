@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="py-12 bg-gray-100">
         <div class="container">
-            <h3 class="text-3xl font-bold mt-10 mb-12">Il tuo Profilo</h3>
+            <h3 class="text-3xl font-bold mt-10 mb-12">{{ __('general.Il tuo Profilo') }}</h3>
             <div class="space-y-6">
                 <div class="p-4 sm:p-8 bg-white">
                     <div class="max-w-xl">

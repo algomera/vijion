@@ -2,7 +2,11 @@
 
 <div class="flex flex-col w-full h-full border border-gray-200 rounded overflow-hidden">
 	<div class="flex items-center justify-end bg-gray-50 text-md font-medium leading-8 px-3 mt-4">
-		<p>sconto {{ $type === 'percentage' ? 'del' : 'di' }} <span class="text-[22px] font-bold text-brand">{{ $amount }}{{ $type === 'percentage' ? '%' : '€' }}</span></p>
+        @if($type === 'percentage')
+            {!! __('general.sconto_percentuale', ['amount' => $amount]) !!}
+        @else
+            {!! __('general.sconto_euro', ['amount' => $amount]) !!}
+        @endif
 	</div>
 	<div class="flex items-center flex-1 bg-white px-14">
 		<img src="{{ asset($brand->logo_path) }}" alt="{{ $brand->name }}" class="py-2 max-h-20 mx-auto">

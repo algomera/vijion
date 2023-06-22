@@ -7,7 +7,7 @@
 		<div class="relative ml-0 flex w-full h-full flex-col items-center justify-center px-6 text-center lg:px-0 lg:max-w-md lg:ml-14">
 			<p class="mb-4 text-md text-white md:text-xl">{!! formatString($category->highlighted_subtitle) !!}</p>
 			<h1 class="text-3xl font-bold tracking-tight text-white md:text-6xl">{!! formatString($category->highlighted_title) !!}</h1>
-			<x-primary-button href="{{ route('category', $category->slug) }}" class="mt-8">Scopri di più</x-primary-button>
+			<x-primary-button href="{{ route('category', $category->slug) }}" class="mt-8">{{ __('general.Scopri di più') }}</x-primary-button>
 		</div>
 	</div>
 </div>

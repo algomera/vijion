@@ -1,7 +1,7 @@
 <div x-data class="bg-gray-100 py-12">
 	<div class="container">
 		@if($purchases->count())
-			<h3 class="text-3xl font-bold mt-10 mb-12">Il tuo Portafoglio</h3>
+			<h3 class="text-3xl font-bold mt-10 mb-12">{{ __('general.Il tuo Portafoglio') }}</h3>
 			<div class="space-y-8">
 				<div class="bg-white p-4 divide-y divide-gray-100">
 					@foreach($purchases as $purchase)
@@ -50,7 +50,7 @@
 									<div class="hidden md:flex">
 										<div class="flex flex-col justify-center text-center bg-gray-50 border border-gray-100 h-16 px-8 py-1.5">
 											<span class="leading-none text-2xl font-bold">{{ $purchase->coupon_code->coupon->amount }}{{ $purchase->coupon_code->coupon->type === 'percentage' ? '%' : '€' }}</span>
-											<span class="text-xs text-gray-500">(sconto)</span>
+											<span class="text-xs text-gray-500">({{ __('general.sconto') }})</span>
 										</div>
 										<div class="flex items-center space-x-1 bg-white text-brand border border-gray-100 border-l-0 h-16 p-3">
 											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -84,9 +84,9 @@
 					      d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3"/>
 				</svg>
 
-				<h3 class="mt-2 text-3xl font-semibold text-gray-700">Il tuo portafoglio è vuoto.</h3>
+				<h3 class="mt-2 text-3xl font-semibold text-gray-700">{{ __('general.Il tuo portafoglio è vuoto.') }}</h3>
 				<div class="mt-6">
-					<x-primary-button href="{{ route('home') }}">Inizia lo shopping</x-primary-button>
+					<x-primary-button href="{{ route('home') }}">{{ __('general.Inizia lo shopping') }}</x-primary-button>
 				</div>
 			</div>
 		@endif
