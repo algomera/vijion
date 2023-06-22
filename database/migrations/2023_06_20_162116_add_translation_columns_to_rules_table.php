@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('rules', function (Blueprint $table) {
             $table->renameColumn('body', 'body_it');
-            $table->addColumn('text', 'body_en')->nullable()->after('body');
+            $table->text('body_en')->nullable()->after('body');
         });
     }
 

@@ -19,10 +19,10 @@
 		public function render() {
 			$categories = Category::query();
 			if ($this->search) {
-				$categories->where('name', 'like', '%' . $this->search . '%');
+				$categories->where('name_it', 'like', '%' . $this->search . '%');
 			}
 			return view('livewire.admin.pages.categories.index', [
-				'categories' => $categories->orderBy('name')->paginate(25)
+				'categories' => $categories->orderBy('name_it')->paginate(25)
 			]);
 		}
 	}

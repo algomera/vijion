@@ -14,8 +14,10 @@
 
 		public $category;
 		public $new_image;
+        public $lang = 'it';
 		protected $rules = [
-			'category.name'       => 'required',
+			'category.name_it'       => 'required',
+            'category.name_en'       => 'nullable',
 			'category.image_path' => 'required|string',
 		];
 
@@ -34,7 +36,8 @@
 				$image_path = Storage::disk('public')->putFileAs('storage/categories', $this->new_image, Str::slug($this->category->name) . '.' . $ext);
 			}
 			$this->category->update([
-				'name'       => $this->category->name,
+				'name_it'       => $this->category->name_it,
+                'name_en'       => $this->category->name_en,
 				'slug'       => Str::slug($this->category->name),
 				'image_path' => $this->new_image ? $image_path : $this->category->image_path
 			]);

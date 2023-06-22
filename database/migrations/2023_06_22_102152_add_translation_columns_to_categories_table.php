@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('brands', function (Blueprint $table) {
-            $table->boolean('visible_it')->default(true);
-            $table->boolean('visible_en')->default(true);
+        Schema::table('categories', function (Blueprint $table) {
+            $table->renameColumn('name', 'name_it');
+            $table->string('name_en')->nullable()->after('name');
         });
     }
 
@@ -22,9 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('brands', function (Blueprint $table) {
-            $table->dropColumn('visible_it');
-            $table->dropColumn('visible_en');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->renameColumn('name_it', 'name');
+            $table->dropColumn('name_en');
         });
     }
 };

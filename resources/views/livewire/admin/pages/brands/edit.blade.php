@@ -55,7 +55,7 @@
                     @endif
                 </div>
                 <div class="col-span-full">
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-between mb-3">
                         <div class="flex items-center space-x-4">
                             <x-input-label>Regole</x-input-label>
                             <div>
@@ -76,7 +76,7 @@
                         <x-laravel-blade-sortable::sortable
                             wire:key="it-brand-rules"
                             wire:onSortOrderChange="sortBrandRulesOrder"
-                            class="space-y-2 mt-3">
+                            class="space-y-2">
                             @foreach($brand_rules as $k => $rule)
                                 <x-laravel-blade-sortable::sortable-item sort-key="{{ $rule->id }}"
                                                                          wire:key="it-rule-{{$brand->id}}-{{$rule->id}}">
@@ -102,7 +102,7 @@
                         <x-laravel-blade-sortable::sortable
                             wire:key="en-brand-rules"
                             wire:onSortOrderChange="sortBrandRulesOrder"
-                            class="space-y-2 mt-3">
+                            class="space-y-2">
                             @foreach($brand_rules as $k => $rule)
                                 <x-laravel-blade-sortable::sortable-item sort-key="{{ $rule->id }}"
                                                                          wire:key="en-rule-{{$brand->id}}-{{$rule->id}}">
