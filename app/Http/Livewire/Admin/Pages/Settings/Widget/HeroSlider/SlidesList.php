@@ -8,7 +8,8 @@
 	class SlidesList extends Component
 	{
 		protected $listeners = [
-			'slide-created' => '$refresh'
+			'slide-created' => '$refresh',
+            'slide-updated' => '$refresh'
 		];
 
 		public function sortHeroSlidesOrder($sortOrder, $previousSortOrder, $name, $from, $to) {

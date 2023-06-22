@@ -34,6 +34,9 @@
 							<div wire:click="$emit('openModal', 'admin.pages.settings.widget.hero-slider.show-slide', {{ json_encode(['slide' => $slide->id]) }})" class="flex items-center justify-center rounded-md p-2 text-blue-500 hover:bg-blue-50 hover:cursor-pointer">
 								<x-heroicon-o-eye class="w-4 h-4"></x-heroicon-o-eye>
 							</div>
+                            <div wire:click="$emit('openModal', 'admin.pages.settings.widget.hero-slider.edit-slide', {{ json_encode(['slide' => $slide->id]) }})" class="flex items-center justify-center rounded-md p-2 text-blue-500 hover:bg-blue-50 hover:cursor-pointer">
+                                <x-heroicon-o-pencil class="w-4 h-4"></x-heroicon-o-pencil>
+                            </div>
 							<div wire:click="removeSlide({{ $slide->id }})" class="flex items-center justify-center rounded-md p-2 text-red-500 hover:bg-red-50 hover:cursor-pointer">
 								<x-heroicon-o-trash class="w-4 h-4"></x-heroicon-o-trash>
 							</div>
