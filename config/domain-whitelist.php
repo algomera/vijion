@@ -6,5 +6,6 @@
             'teyuto.tv',
             'vijion.tv',
             'vijion.test',
+            'vijionstore.com',
         ]
     ];
