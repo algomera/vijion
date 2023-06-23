@@ -85,6 +85,6 @@
                 return $user->coins;
             }
 
-            return "Points not founds.";
+            return "-";
         });
     });
