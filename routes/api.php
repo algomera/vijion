@@ -19,8 +19,9 @@
     */
     Route::middleware('api_whitelist')->group(function () {
         // Cancellazione video
-        Route::post('/delete-video', function (Request $request) {
-            //
+        Route::post('/video-delete', function (Request $request) {
+            Video::where('teyuto_id', intval($request->get('object')['id']))->first()->delete();
+            return "Video deleted";
         });
         // Registrazione utente
         Route::post('/register', function (Request $request) {
