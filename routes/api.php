@@ -27,8 +27,13 @@ Route::middleware('api_whitelist')->group(function () {
         if ($validator->fails()) {
             return $validator->messages();
         } else {
-            Video::where('teyuto_id', intval($request->get('object')['id']))->first()->delete();
-            return "Video deleted";
+            $video = Video::where('teyuto_id', intval($request->get('object')['id']))->first();
+            if($video) {
+                $video->delete();
+                return "Video deleted";
+            } else {
+                return "Video not found";
+            }
         }
     });
     // Registrazione utente
