@@ -16,6 +16,10 @@
 			'video-updated' => '$refresh'
 		];
 
+        public function updatedSearch() {
+            $this->resetPage();
+        }
+
 		public function sync() {
 			ini_set('memory_limit', -1);
 			ini_set('max_execution_time', 0);
@@ -41,7 +45,7 @@
 				$videos->where('title', 'like', '%' . $this->search . '%');
 			}
 			return view('livewire.admin.pages.videos.index', [
-				'videos' => $videos->paginate(25)
+				'videos' => $videos->latest('upload_date')->paginate(25)
 			]);
 		}
 	}

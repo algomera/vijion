@@ -46,6 +46,8 @@
 										<p class="truncate text-sm font-bold text-gray-800">{{ $video->title }}</p>
 										<p class="text-xs text-gray-500">Teyuto ID: <span
 													class="font-bold">{{ $video->teyuto_id }}</span></p>
+                                        <p class="text-xs text-gray-500">Data caricamento: <span
+                                                class="font-bold">{{ $video->upload_date?->format('d-m-Y') ?: '-' }}</span></p>
 									</div>
 									<div>
 										<p class="mt-2 flex items-center text-sm text-brand">

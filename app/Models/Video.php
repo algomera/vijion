@@ -8,4 +8,8 @@
 	class Video extends Model
 	{
 		use HasFactory;
+
+        protected $casts = [
+            'upload_date' => 'datetime'
+        ];
 	}

@@ -30,7 +30,8 @@
 					'teyuto_id'   => $video['id'],
 					'img_preview' => $video['img_preview'],
 					'title'       => $video['title'],
-					'duration'    => $video['duration']
+					'duration'    => $video['duration'],
+                    'upload_date' => $video['date']
 				]);
 			}
 		}

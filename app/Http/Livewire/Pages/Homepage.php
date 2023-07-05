@@ -32,7 +32,7 @@
 					break;
 			}
 			return view('livewire.pages.homepage', [
-				'slides'           => HeroSlide::where('visible', 1)->get()->sortBy('order'),
+				'slides'           => HeroSlide::all()->sortBy('order'), //where('visible', 1)->get()
 				'our_brands'       => Brand::whereHas('coupons')->where('our_brand', 1)->orderBy('our_brand_order')->get()->take(8),
 				'unmissables'      => Brand::whereHas('coupons')->where('unmissable', 1)->orderBy('unmissable_order')->get(),
 				'week_offers'      => Brand::whereHas('coupons')->where('week_offer', 1)->orderBy('week_offer_order')->get(),
