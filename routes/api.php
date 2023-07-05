@@ -18,6 +18,10 @@
     |
     */
     Route::middleware('api_whitelist')->group(function () {
+        // Cancellazione video
+        Route::post('/delete-video', function (Request $request) {
+            //
+        });
         // Registrazione utente
         Route::post('/register', function (Request $request) {
             $rules = [
@@ -32,7 +36,7 @@
                 $user = User::updateOrCreate([
                     'email' => $request->get('object')['email']
                 ], [
-                    'teyuto_id' => (int)$request->get('object')['id'],
+                    'teyuto_id' => intval($request->get('object')['id']),
                     'first_name' => $request->get('object')['username'],
                     'last_name' => null,
                     'email' => $request->get('object')['email'],
